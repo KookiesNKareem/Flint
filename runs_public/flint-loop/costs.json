@@ -1,0 +1,15 @@
+{
+  "model_usd": 2.11102135,
+  "model_calls": 26,
+  "shared_model_cap_usd": 6,
+  "reserved_usd": 0,
+  "gpu_type": "NVIDIA A40",
+  "gpu_hourly_usd": 0.59,
+  "rental_started_utc": "2026-10-28T02:14:00+00:00",
+  "deleted_receipt_utc": "2026-10-28T03:39:26.698961+00:00",
+  "estimated_gpu_usd": 0.840208996386111,
+  "estimated_total_usd": 2.951230346386111,
+  "gpu_deleted": true,
+  "pod_id": "5sjsieelr4krsy",
+  "note": "GPU cost is elapsed rental at the observed hourly rate, not a provider invoice. Historical generation costs inherited by the original recurrence artifact are excluded from new-call spending."
+}

@@ -1,0 +1,132 @@
+{
+  "accepted": false,
+  "reason": "candidate increases peak allocated CUDA memory",
+  "pairs": 3,
+  "preparation": {
+    "reference": {
+      "success": true,
+      "seconds": 365.61606947204564,
+      "peak_allocated_bytes": 103895040
+    },
+    "benchmark": {
+      "success": true,
+      "seconds": 17.880805399967358,
+      "peak_allocated_bytes": 102978048
+    }
+  },
+  "qualification_seconds": 458.3903938521398,
+  "seconds": {
+    "reference": [
+      17.75490479101427,
+      17.507196450023912,
+      17.956286253989674
+    ],
+    "benchmark": [
+      7.214846357004717,
+      7.232496635057032,
+      7.227788493037224
+    ]
+  },
+  "peak_allocated_bytes": {
+    "reference": [
+      29079552,
+      29079552,
+      29079552
+    ],
+    "benchmark": [
+      29211136,
+      29211136,
+      29211136
+    ]
+  },
+  "steady_update_ms": {
+    "reference": [
+      36.91373602487147,
+      37.439969019033015,
+      37.55180002190173
+    ],
+    "benchmark": [
+      9.953075903467834,
+      9.978765971027315,
+      9.826364926993847
+    ]
+  },
+  "seconds_speedup": 2.4564781894376373,
+  "steady_update_ms_speedup": 3.7616480957397544,
+  "peak_memory_reduction": -0.0045249665469400124,
+  "application_checks": [
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.0006391687973736619,
+      "validation_reference": 4.273502349853516,
+      "validation_candidate": 4.271453857421875,
+      "relative_validation_error": 0.0004793474447746219,
+      "passed": true,
+      "parameter_relative_l2": 0.00013184807474101378,
+      "per_parameter_relative_l2": {
+        "_orig_mod.fast": 0.0020745944694357888,
+        "_orig_mod.slow": 0.0026716675784506354,
+        "_orig_mod.emb.weight": 2.5660115431342573e-05,
+        "_orig_mod.proj.weight": 0.0011835436135260353,
+        "_orig_mod.proj.bias": 0.001072785426053983,
+        "_orig_mod.out.weight": 0.0011212681005560463,
+        "_orig_mod.out.bias": 0.0001724705622722289,
+        "_orig_mod.norm.weight": 1.30535210034992e-05,
+        "_orig_mod.norm.bias": 0.0005279900024242057,
+        "_orig_mod.mlp.0.weight": 0.0006525522875105405,
+        "_orig_mod.mlp.0.bias": 0.00025790901296632177,
+        "_orig_mod.mlp.2.weight": 0.0008913316120198475,
+        "_orig_mod.mlp.2.bias": 0.00022027326407157084
+      }
+    },
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.0006442773258554376,
+      "validation_reference": 4.2767791748046875,
+      "validation_candidate": 4.269458770751953,
+      "relative_validation_error": 0.0017116628550429387,
+      "passed": true,
+      "parameter_relative_l2": 0.0001315170590041701,
+      "per_parameter_relative_l2": {
+        "_orig_mod.fast": 0.00213880202405794,
+        "_orig_mod.slow": 0.0027178422441335023,
+        "_orig_mod.emb.weight": 2.4974132426494915e-05,
+        "_orig_mod.proj.weight": 0.0011869503184749235,
+        "_orig_mod.proj.bias": 0.0010570152207312515,
+        "_orig_mod.out.weight": 0.0011027276653004816,
+        "_orig_mod.out.bias": 0.0001564055451298451,
+        "_orig_mod.norm.weight": 1.282445062221062e-05,
+        "_orig_mod.norm.bias": 0.0005189334889886337,
+        "_orig_mod.mlp.0.weight": 0.0006487023041380472,
+        "_orig_mod.mlp.0.bias": 0.0002580337419923281,
+        "_orig_mod.mlp.2.weight": 0.0008820100386653011,
+        "_orig_mod.mlp.2.bias": 0.00022130339924728232
+      }
+    },
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.0006391687973736619,
+      "validation_reference": 4.271717071533203,
+      "validation_candidate": 4.271453857421875,
+      "relative_validation_error": 6.161787096860615e-05,
+      "passed": true,
+      "parameter_relative_l2": 0.00013180210522983706,
+      "per_parameter_relative_l2": {
+        "_orig_mod.fast": 0.0020707000244612854,
+        "_orig_mod.slow": 0.002669600281287856,
+        "_orig_mod.emb.weight": 2.574708772739158e-05,
+        "_orig_mod.proj.weight": 0.0011826294567021884,
+        "_orig_mod.proj.bias": 0.001072883614776373,
+        "_orig_mod.out.weight": 0.001120239001897786,
+        "_orig_mod.out.bias": 0.00017093887163032964,
+        "_orig_mod.norm.weight": 1.3264496372060168e-05,
+        "_orig_mod.norm.bias": 0.0005289937875126303,
+        "_orig_mod.mlp.0.weight": 0.0006534395779936028,
+        "_orig_mod.mlp.0.bias": 0.0002605014854293678,
+        "_orig_mod.mlp.2.weight": 0.0008913640044926258,
+        "_orig_mod.mlp.2.bias": 0.0002157106568318567
+      }
+    }
+  ],
+  "application_passed": true
+}

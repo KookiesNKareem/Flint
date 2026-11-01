@@ -1,0 +1,18 @@
+--- a/model.py
++++ b/model.py
+@@ -12,6 +12,7 @@
+ from dataclasses import dataclass
+ 
+ import torch
++import flint_gpu as flint
+ import torch.nn as nn
+ from torch.nn import functional as F
+ 
+@@ -23,6 +24,7 @@
+         self.weight = nn.Parameter(torch.ones(ndim))
+         self.bias = nn.Parameter(torch.zeros(ndim)) if bias else None
+ 
++    @flint.fast
+     def forward(self, input):
+         return F.layer_norm(input, self.weight.shape, self.weight, self.bias, 1e-5)
+ 

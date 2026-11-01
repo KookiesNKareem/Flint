@@ -1,0 +1,520 @@
+{
+  "only_model": "meta-models/muse-spark-open-1026",
+  "calls": [
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-a73cfdd82f4e4932a36738c4df448d09",
+      "usd": 0.0579599,
+      "usage": {
+        "completion_tokens": 11449,
+        "prompt_tokens": 8793,
+        "total_tokens": 20242,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 8999,
+          "audio_tokens": 0,
+          "reasoning_tokens": 4646,
+          "rejected_prediction_tokens": 8144
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 1536
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793233881.962048
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-afe57c8941144f19b258da2962216d43",
+      "usd": 0.058406150000000004,
+      "usage": {
+        "completion_tokens": 7564,
+        "prompt_tokens": 22359,
+        "total_tokens": 29923,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 6236,
+          "audio_tokens": 0,
+          "reasoning_tokens": 427,
+          "rejected_prediction_tokens": 3053
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 1536
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793231285.65182
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-ac1be7f2cf4a41cb8c7a1459998762ad",
+      "usd": 0.02918885,
+      "usage": {
+        "completion_tokens": 3983,
+        "prompt_tokens": 10710,
+        "total_tokens": 14693,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 3187,
+          "audio_tokens": 0,
+          "reasoning_tokens": 208,
+          "rejected_prediction_tokens": 2378
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 1024
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793230832.24041
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-e12f774c8a8a427e8817975ee49bdf5f",
+      "usd": 0.061561,
+      "usage": {
+        "completion_tokens": 14172,
+        "prompt_tokens": 1064,
+        "total_tokens": 15236,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 9720,
+          "audio_tokens": 0,
+          "reasoning_tokens": 12122,
+          "rejected_prediction_tokens": 21444
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        }
+      },
+      "tag": "write",
+      "t": 1793229340.716417
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-12c282d0f6a14e988e1e0376a2ad3d14",
+      "usd": 0.1053686,
+      "usage": {
+        "completion_tokens": 24000,
+        "prompt_tokens": 3596,
+        "total_tokens": 27596,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 16329,
+          "audio_tokens": 0,
+          "reasoning_tokens": 23995,
+          "rejected_prediction_tokens": 37368
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 1024
+        }
+      },
+      "tag": "bwd",
+      "t": 1793229448.6800032
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-f4b793b9c31b4c6bba0b6a0cfe1b308e",
+      "usd": 0.10462385,
+      "usage": {
+        "completion_tokens": 24000,
+        "prompt_tokens": 5253,
+        "total_tokens": 29253,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 16351,
+          "audio_tokens": 0,
+          "reasoning_tokens": 23999,
+          "rejected_prediction_tokens": 37185
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 3584
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793229549.0370219
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-f03ed1ce93944569a17ebd89380ac89d",
+      "usd": 0.1106375,
+      "usage": {
+        "completion_tokens": 24000,
+        "prompt_tokens": 6910,
+        "total_tokens": 30910,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 16382,
+          "audio_tokens": 0,
+          "reasoning_tokens": 24003,
+          "rejected_prediction_tokens": 36944
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793229664.572268
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-06143bebc86d4cf7aa9a84f94764deda",
+      "usd": 0.10693595,
+      "usage": {
+        "completion_tokens": 24000,
+        "prompt_tokens": 8567,
+        "total_tokens": 32567,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 16302,
+          "audio_tokens": 0,
+          "reasoning_tokens": 23998,
+          "rejected_prediction_tokens": 37591
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 5248
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793229765.786209
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-ca9746f526f846d68ce75355ac61c828",
+      "usd": 0.045699,
+      "usage": {
+        "completion_tokens": 7948,
+        "prompt_tokens": 9536,
+        "total_tokens": 17484,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 6300,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1472,
+          "rejected_prediction_tokens": 5236
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        }
+      },
+      "tag": "workload_repair",
+      "t": 1793233652.254983
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-40e67fca75464106899e79abee53e900",
+      "usd": 0.04068655,
+      "usage": {
+        "completion_tokens": 7159,
+        "prompt_tokens": 16544,
+        "total_tokens": 23703,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 5821,
+          "audio_tokens": 0,
+          "reasoning_tokens": 722,
+          "rejected_prediction_tokens": 3538
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 9472
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793233685.0588632
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-3c0c8deeeb8b414aaa29f66f6b42715e",
+      "usd": 0.040406550000000006,
+      "usage": {
+        "completion_tokens": 6862,
+        "prompt_tokens": 23525,
+        "total_tokens": 30387,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 5636,
+          "audio_tokens": 0,
+          "reasoning_tokens": 464,
+          "rejected_prediction_tokens": 2946
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 16512
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793233711.935068
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-3945bd27830f46eb83c9d7a2cdcd94df",
+      "usd": 0.02739935,
+      "usage": {
+        "completion_tokens": 6399,
+        "prompt_tokens": 1064,
+        "total_tokens": 7463,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 4550,
+          "audio_tokens": 0,
+          "reasoning_tokens": 4188,
+          "rejected_prediction_tokens": 8386
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 1024
+        }
+      },
+      "tag": "write",
+      "t": 1793231056.0876758
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-82b3319c516647268327492c49a0a2d1",
+      "usd": 0.018957349999999998,
+      "usage": {
+        "completion_tokens": 3135,
+        "prompt_tokens": 5408,
+        "total_tokens": 8543,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 2364,
+          "audio_tokens": 0,
+          "reasoning_tokens": 980,
+          "rejected_prediction_tokens": 3033
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 1024
+        }
+      },
+      "tag": "repair",
+      "t": 1793231084.6999779
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-914e8b010b6c4bfb8c917e849cd85cc4",
+      "usd": 0.05759365,
+      "usage": {
+        "completion_tokens": 12557,
+        "prompt_tokens": 8112,
+        "total_tokens": 20669,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 9488,
+          "audio_tokens": 0,
+          "reasoning_tokens": 3796,
+          "rejected_prediction_tokens": 11988
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 5376
+        }
+      },
+      "tag": "bwd",
+      "t": 1793231143.151881
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-585c5f9a942b4bc69c84fe6dbb841097",
+      "usd": 0.05117185,
+      "usage": {
+        "completion_tokens": 7537,
+        "prompt_tokens": 22408,
+        "total_tokens": 29945,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 6205,
+          "audio_tokens": 0,
+          "reasoning_tokens": 416,
+          "rejected_prediction_tokens": 3119
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 8064
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793231171.456724
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-276b0cccd5a44302b8e057ae5abb5ee0",
+      "usd": 0.08781525,
+      "usage": {
+        "completion_tokens": 17943,
+        "prompt_tokens": 9246,
+        "total_tokens": 27189,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 13130,
+          "audio_tokens": 0,
+          "reasoning_tokens": 10382,
+          "rejected_prediction_tokens": 20561
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793232874.318526
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-e52742e3800b451985bbcb4be9be6a67",
+      "usd": 0.07517525,
+      "usage": {
+        "completion_tokens": 17541,
+        "prompt_tokens": 1064,
+        "total_tokens": 18605,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 12030,
+          "audio_tokens": 0,
+          "reasoning_tokens": 15902,
+          "rejected_prediction_tokens": 26547
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 640
+        }
+      },
+      "tag": "write",
+      "t": 1793229959.3729038
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-599d678ad94f427ca7ae069a0d2f84b8",
+      "usd": 0.10485860000000001,
+      "usage": {
+        "completion_tokens": 24000,
+        "prompt_tokens": 3188,
+        "total_tokens": 27188,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 16415,
+          "audio_tokens": 0,
+          "reasoning_tokens": 20696,
+          "rejected_prediction_tokens": 36673
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 1024
+        }
+      },
+      "tag": "bwd",
+      "t": 1793230065.677491
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-cbf6d59705014df29a4f8167b5659a00",
+      "usd": 0.06928530000000001,
+      "usage": {
+        "completion_tokens": 14704,
+        "prompt_tokens": 8138,
+        "total_tokens": 22842,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 10480,
+          "audio_tokens": 0,
+          "reasoning_tokens": 9490,
+          "rejected_prediction_tokens": 19081
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 3072
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793230129.33067
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-49de5691a74341749ab4e9a595ea3399",
+      "usd": 0.06769910000000001,
+      "usage": {
+        "completion_tokens": 12509,
+        "prompt_tokens": 18725,
+        "total_tokens": 31234,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 8774,
+          "audio_tokens": 0,
+          "reasoning_tokens": 8691,
+          "rejected_prediction_tokens": 17371
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 8064
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793230183.031256
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-99a1b19a5b2341bc98522163e7929ec0",
+      "usd": 0.054815199999999994,
+      "usage": {
+        "completion_tokens": 9524,
+        "prompt_tokens": 27916,
+        "total_tokens": 37440,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 6920,
+          "audio_tokens": 0,
+          "reasoning_tokens": 5475,
+          "rejected_prediction_tokens": 11301
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 18688
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793230225.85088
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "provider": "baseten",
+      "response_id": "chatcmpl-65eef94d190a471992941196ee526923",
+      "usd": 0.06425494999999999,
+      "usage": {
+        "completion_tokens": 4139,
+        "prompt_tokens": 37444,
+        "total_tokens": 41583,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 3315,
+          "audio_tokens": 0,
+          "reasoning_tokens": 415,
+          "rejected_prediction_tokens": 2453
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 128
+        }
+      },
+      "tag": "repair_bwd",
+      "t": 1793230723.653506
+    }
+  ],
+  "unique_calls": 22,
+  "model_usd": 1.4404997500000003,
+  "ledger_initial_usd": 4.6580873,
+  "ledger_current": {
+    "usd": 6.098587050000001,
+    "reservations": {}
+  },
+  "no_wonder_candidate_or_holdout_feedback_in_spark_generation": true,
+  "notes": "Copied resume histories are deduplicated by provider response ID. Complete failures retained; publishing/qualification status is separate from authorship."
+}

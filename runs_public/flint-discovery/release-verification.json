@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": [
+    "bounded CUDA discovery",
+    "zero-profile cache reuse",
+    "prepared full launch",
+    "cached prepared launch without optimization",
+    "no provider calls in release preparation",
+    "unqualified launch blocked",
+    "distinct automatic repair",
+    "slower/inconclusive candidate withheld",
+    "no outstanding model reservations"
+  ]
+}

@@ -119,11 +119,6 @@ session_*/
 worker_*/
 .fuse/
 
-# Generated kernels
-kernel.py
-test_kernel.py
-final_test.py
-*_kernel.py
 
 # IDE
 .vscode/
@@ -143,4 +138,13 @@ ehthumbs.db
 Thumbs.db
 # Local batch runner
 scripts/run_kernelbench_batch.py
-runs/
+/runs/
+
+# Machine-local state, demo renders, scratch checkouts, and credentials
+.flint/
+/outputs/
+/artifacts/
+/local-repos/
+/KernelBench/
+.env.*
+!.env.example

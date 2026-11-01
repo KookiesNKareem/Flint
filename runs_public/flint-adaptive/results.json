@@ -1,0 +1,103 @@
+{
+  "training_accuracy": {
+    "max_relative_loss_error": 0.0002674164569378081,
+    "reference_validation_loss": 11.704605102539062,
+    "live_validation_loss": 11.699278831481934,
+    "absolute_validation_loss_error": 0.005326271057128906,
+    "passed": true
+  },
+  "batch_accuracy": {
+    "batch-units": {
+      "shape": [
+        40,
+        2,
+        128,
+        256
+      ],
+      "relative_l2": 0.0,
+      "max_absolute_error": 0.0,
+      "top1_agreement": 1.0,
+      "passed": true
+    },
+    "batch-eager": {
+      "shape": [
+        40,
+        2,
+        128,
+        256
+      ],
+      "relative_l2": 4.338375552112596e-05,
+      "max_absolute_error": 0.125,
+      "top1_agreement": 1.0,
+      "passed": true
+    }
+  },
+  "workloads": {
+    "training-units": {
+      "accepted": true,
+      "reason": "all measured commands faster beyond margin with no allocated-memory regression",
+      "live_phase": "active",
+      "boundary": 12,
+      "pause_seconds": 93.16926235507708,
+      "process_seconds": {
+        "reference": 10.772886858903803,
+        "benchmark": 3.7977153229294345
+      },
+      "process_speedup": 2.836675722864332,
+      "unit_seconds": {
+        "reference": 0.370376612059772,
+        "benchmark": 0.014165230910293758
+      },
+      "unit_speedup": 26.14688136079888,
+      "peak_bytes": {
+        "reference": 33610752,
+        "benchmark": 28914688
+      },
+      "memory_change_fraction": -0.13971909941199767
+    },
+    "batch-units": {
+      "accepted": false,
+      "reason": "candidate increases peak allocated CUDA memory",
+      "live_phase": "reference_retained",
+      "boundary": 20,
+      "pause_seconds": 95.00895129295532,
+      "process_seconds": {
+        "reference": 10.049973007058725,
+        "benchmark": 6.898748376988806
+      },
+      "process_speedup": 1.4567820795698274,
+      "unit_seconds": {
+        "reference": 0.006591184996068478,
+        "benchmark": 0.002644218970090151
+      },
+      "unit_speedup": 2.4926774486621888,
+      "peak_bytes": {
+        "reference": 9142784,
+        "benchmark": 9232384
+      },
+      "memory_change_fraction": 0.009800078400627132
+    },
+    "batch-eager": {
+      "accepted": true,
+      "reason": "all measured commands faster beyond margin with no allocated-memory regression",
+      "live_phase": "active",
+      "boundary": 12,
+      "pause_seconds": 57.40997235896066,
+      "process_seconds": {
+        "reference": 3.897752205026336,
+        "benchmark": 3.5000896009150892
+      },
+      "process_speedup": 1.1136149783157776,
+      "unit_seconds": {
+        "reference": 0.03793132898863405,
+        "benchmark": 0.0034918799065053463
+      },
+      "unit_speedup": 10.862724378913565,
+      "peak_bytes": {
+        "reference": 10585600,
+        "benchmark": 10585600
+      },
+      "memory_change_fraction": 0.0
+    }
+  }
+}

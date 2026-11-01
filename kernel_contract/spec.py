@@ -13,6 +13,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 import torch
+from .tree import leaves, key_path, descriptors
 
 DTYPES = {"float32": torch.float32, "float16": torch.float16, "bfloat16": torch.bfloat16,
           "float64": torch.float64, "int64": torch.int64, "int32": torch.int32, "bool": torch.bool}
@@ -58,7 +59,7 @@ class OpSpec:
 
 def _tensor_desc(t: torch.Tensor) -> dict:
     return {"tensor": {"shape": list(t.shape), "obs_shape": list(t.shape), "dtype": dtype_name(t.dtype),
-                       "stride": list(t.stride()), "offset": t.storage_offset(), "contiguous": t.is_contiguous()}}
+                       "stride": list(t.stride()), "offset": t.storage_offset(), "contiguous": t.is_contiguous(), "requires_grad": t.requires_grad}}
 
 
 def _flat(xs):
@@ -74,7 +75,7 @@ def capture(op: str, args: tuple, kwargs: dict | None = None, name: str = "") ->
     kwargs = kwargs or {}
     sizes: dict[str, int] = {}
     by_value: dict[int, str] = {}
-    tensor_dims = {s for a in _flat(list(args) + list(kwargs.values())) if isinstance(a, torch.Tensor) for s in a.shape}
+    tensor_dims = {s for _, a in leaves(list(args) + list(kwargs.values())) if isinstance(a, torch.Tensor) for s in a.shape}
 
     def sym(v: int) -> Any:
         if v < 3:
@@ -96,6 +97,8 @@ def capture(op: str, args: tuple, kwargs: dict | None = None, name: str = "") ->
             return sym(a) if a in tensor_dims else a
         if isinstance(a, (list, tuple)):
             return {"seq": [enc(x) for x in a], "tuple": isinstance(a, tuple)}
+        if isinstance(a, dict) and all(isinstance(k, str) for k in a):
+            return {"map": {k: enc(v) for k, v in a.items()}}
         if isinstance(a, torch.dtype):
             return {"dtype": dtype_name(a)}
         raise TypeError(f"cannot describe argument of type {type(a).__name__}")
@@ -142,7 +145,11 @@ def with_domains(spec: "OpSpec", domains: dict[int, str]) -> "OpSpec":
     """Mark positional tensor arguments with value domains."""
     for i, dom in domains.items():
         assert dom in DOMAINS, dom
-        spec.args[i]["tensor"]["domain"] = dom
+        path = key_path(i)
+        node = spec.args[path[0]]
+        for part in path[1:]:
+            node = node["map"][part] if "map" in node else node["seq"][part]
+        node["tensor"]["domain"] = dom
     return spec
 
 
@@ -181,6 +188,8 @@ def materialize(spec: OpSpec, sizes: dict[str, int], seed: int, device: str,
         if isinstance(a, dict) and "seq" in a:
             items = [dec(x) for x in a["seq"]]
             return tuple(items) if a.get("tuple") else items
+        if isinstance(a, dict) and "map" in a:
+            return {k: dec(v) for k, v in a["map"].items()}
         if isinstance(a, dict) and "dtype" in a:
             return DTYPES[a["dtype"]]
         return a
@@ -228,8 +237,5 @@ def apply_layout(x: torch.Tensor, mode: str | None, observed_stride: list[int] |
 
 
 def numel(spec: OpSpec, sizes: dict[str, int]) -> int:
-    total = 0
-    for a in spec.args:
-        if isinstance(a, dict) and "tensor" in a:
-            total += math.prod(sizes[s["sym"]] if isinstance(s, dict) else s for s in a["tensor"]["shape"])
-    return total
+    return sum(math.prod(sizes[s["sym"]] if isinstance(s, dict) else s for s in t["shape"])
+               for t in descriptors(spec))

@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import math
 import sys
 import traceback
 
@@ -18,6 +19,12 @@ from torch.overrides import TorchFunctionMode
 
 from .cases import VALUE_TRANSFORMS
 from .spec import OpSpec, materialize
+from .tree import leaves, map_tree, structure, at
+
+def error_text(message):
+    text = str(message)
+    return text if len(text) <= 1400 else text[:500] + '\n…\n' + text[-850:]
+
 
 TOL = {torch.bfloat16: (1e-2, 1e-2), torch.float16: (1e-3, 1e-3), torch.float32: (1e-4, 1e-4),
        torch.float64: (1e-7, 1e-7)}
@@ -41,11 +48,9 @@ def first_tensor(out):
 
 
 def to_f64(x):
-    if isinstance(x, torch.Tensor) and x.is_floating_point():
-        return x.double()
-    if isinstance(x, (list, tuple)):
-        return type(x)(to_f64(v) for v in x)
-    return x
+    return map_tree(lambda value: (value.cpu() if value.device.type=='mps' else value).double()
+                    if isinstance(value, torch.Tensor) and value.is_floating_point()
+                    else value.cpu() if isinstance(value,torch.Tensor) and value.device.type=='mps' else value, x)
 
 
 def compare(out: torch.Tensor, ref: torch.Tensor, truth: torch.Tensor, any_float: bool = False,
@@ -55,7 +60,8 @@ def compare(out: torch.Tensor, ref: torch.Tensor, truth: torch.Tensor, any_float
     if out.dtype != ref.dtype and not (any_float and out.is_floating_point() and ref.is_floating_point()):
         return {"outcome": "wrong", "reason": f"dtype {out.dtype} != {ref.dtype}"}
     tol_dtype = out.dtype if TOL.get(out.dtype, (0,))[0] > TOL.get(ref.dtype, (0,))[0] else ref.dtype
-    o, r, t = out.double(), ref.double(), truth.double().to(out.device)
+    target='cpu' if out.device.type=='mps' else out.device
+    o,r,t=(x.to(target).double() for x in (out,ref,truth))
     fin_t = torch.isfinite(t)
     if not torch.equal(torch.isfinite(o), fin_t):
         bad = int((torch.isfinite(o) != fin_t).sum())
@@ -88,32 +94,52 @@ def run_case(spec: OpSpec, kernel, case: dict, device: str) -> dict:
     args, kwargs = fresh()
     fn = spec.reference()
     try:
-        ref = first_tensor(fn(*args, **kwargs))
+        ref = fn(*args, **kwargs)
+        structure(ref)
     except Exception as e:
         return {"outcome": "skip", "reason": f"reference raised {type(e).__name__}: {e}"[:300]}
     args, kwargs = fresh()
     try:
         with KeepFloat64():
-            truth = first_tensor(fn(*to_f64(args), **to_f64(kwargs)))
-    except Exception:
-        truth = first_tensor(fn(*[a.float() if isinstance(a, torch.Tensor) and a.is_floating_point() else a
-                                  for a in args], **kwargs))
+            truth = fn(*to_f64(args), **to_f64(kwargs))
+    except Exception as error:
+        if device.startswith('mps'):return {'outcome':'refuse','reason':'CPU float64 oracle unavailable: '+error_text(error)}
+        truth = fn(*map_tree(lambda a: a.float() if isinstance(a, torch.Tensor) and a.is_floating_point() else a, args), **kwargs)
     try:
         kargs, kkwargs = fresh()
-        out = first_tensor(kernel(*kargs, **kkwargs))
-        if device.startswith("cuda"):
-            torch.cuda.synchronize()
+        snapshots = [(path, value.detach().clone()) for path, value in leaves((kargs, kkwargs))
+                     if isinstance(value, torch.Tensor)]
+        out = kernel(*kargs, **kkwargs)
+        if device.startswith('mps'):torch.mps.synchronize()
+        elif device.startswith('cuda'):torch.cuda.synchronize()
+        if any(not torch.equal(at((kargs, kkwargs), path), value) for path, value in snapshots):
+            return {'outcome': 'wrong', 'reason': 'candidate mutated an input tensor'}
     except Exception as e:
         msg = f"{type(e).__name__}: {e}"
         if any(s in msg for s in DEVICE_ERRORS):
-            return {"outcome": "crash", "reason": msg[:300]}
-        return {"outcome": "refuse", "reason": msg[:300]}
-    fwd = compare(out, ref, truth, any_float=spec.flags.get("any_float_output", False),
-                  normwise=spec.flags.get("normwise_rtol"))
-    fwd["truth_dtype"] = str(truth.dtype)
-    if fwd["outcome"] != "accept" or not spec.flags.get("check_grads"):
+            return {"outcome": "crash", "reason": error_text(msg)}
+        return {"outcome": "refuse", "reason": error_text(msg)}
+    try:
+        if structure(out) != structure(ref):
+            return {"outcome": "wrong", "reason": "output tensor-tree structure differs from reference"}
+        checks = []
+        for path, value in leaves(ref):
+            check = compare(at(out, path), value, at(truth, path),
+                            any_float=spec.flags.get("any_float_output", False) and isinstance(ref, torch.Tensor),
+                            normwise=spec.flags.get("normwise_rtol"))
+            check["output_path"] = list(path)
+            check["truth_dtype"] = str(at(truth, path).dtype)
+            checks.append(check)
+            if check['outcome'] != 'accept':
+                check['reason'] = f"output {path}: " + check.get('reason', f"error {check.get('err')}")
+                return check
+    except (TypeError, KeyError, IndexError) as error:
+        return {"outcome": "wrong", "reason": f"output structure: {error}"}
+    fwd = {**checks[0], 'outputs_checked': len(checks), 'output_checks': checks}
+    if not spec.flags.get("check_grads"):
         return fwd
     return check_grads(spec, kernel, fresh, fn, case, device, fwd)
+
 
 
 class KeepFloat64(TorchFunctionMode):
@@ -131,46 +157,76 @@ class KeepFloat64(TorchFunctionMode):
 
 
 def check_grads(spec, kernel, fresh, fn, case, device, fwd: dict) -> dict:
-    """Backpropagate the same random cotangent through the kernel and through the float64 reference."""
+    """Check every input gradient, including isolated cotangents for every returned state."""
     rtol = spec.flags.get("normwise_rtol", 2e-2)
-    args, kwargs = fresh()
-    idx = [i for i, a in enumerate(args) if isinstance(a, torch.Tensor) and a.is_floating_point()]
-    for i in idx:
-        args[i].requires_grad_(True)
-    try:
-        out = first_tensor(kernel(*args, **kwargs))
-        gen = torch.Generator(device="cpu").manual_seed(1234 + case["seed"])
-        w = torch.randn(out.shape, generator=gen).to(device)
-        (out.float() * w).sum().backward()
-        if device.startswith("cuda"):
-            torch.cuda.synchronize()
-    except Exception as e:
-        msg = f"{type(e).__name__}: {e}"
-        kind = "crash" if any(s in msg for s in DEVICE_ERRORS) else "refuse"
-        return {"outcome": kind, "reason": ("backward: " + msg)[:300]}
-    targs, tkwargs = fresh()
-    targs = [a.double().detach().requires_grad_(True) if i in idx else a for i, a in enumerate(targs)]
-    with KeepFloat64():
-        (first_tensor(fn(*targs, **tkwargs)).double() * w.double()).sum().backward()
-    worst = {"outcome": "accept", **{k: fwd[k] for k in ("err", "torch_err", "scale") if k in fwd}}
-    for i in idx:
-        gk, gt = args[i].grad, targs[i].grad
-        if gt is None:  # the reference ignores this input, so its true gradient is zero
-            gt = torch.zeros_like(targs[i])
-            gk = torch.zeros_like(args[i]) if gk is None else gk
-        if gk is None:
-            return {"outcome": "wrong", "reason": f"no gradient for argument {i}"}
-        if tuple(gk.shape) != tuple(gt.shape):
-            return {"outcome": "wrong", "reason": f"gradient of argument {i} has shape {tuple(gk.shape)}"}
-        gk, gt = gk.double(), gt.double()
-        if not torch.isfinite(gk).all():
-            return {"outcome": "wrong", "reason": f"gradient of argument {i} is not finite"}
-        scale = float(gt.abs().max())
-        err = float((gk - gt).abs().max())
-        if err > rtol * max(scale, 1e-30):
-            return {"outcome": "wrong", "reason": f"gradient of argument {i}: max error {err:.3g} on gradients up to {scale:.3g}",
-                    "err": err, "scale": scale, "grad_arg": i}
-    return worst
+    probe_args, probe_kwargs = fresh()
+    ref_outputs = fn(*probe_args, **probe_kwargs)
+    paths = [path for path, value in leaves(ref_outputs) if value.is_floating_point()]
+    objectives = [None] + (paths if len(paths) > 1 else [])
+    def evaluate(function, double, objective, weights):
+        args, kwargs = fresh()
+        if double and device.startswith('mps'):args,kwargs=map_tree(lambda x:x.cpu() if isinstance(x,torch.Tensor) else x,(args,kwargs))
+        inputs = map_tree(lambda x: (x.double() if double else x).detach().requires_grad_(True)
+                          if isinstance(x, torch.Tensor) and x.is_floating_point() else x,
+                          {'args': args, 'kwargs': kwargs})
+        indexed = [(path, value) for path, value in leaves(inputs)
+                   if isinstance(value, torch.Tensor) and value.is_floating_point()]
+        outputs = function(*inputs['args'], **inputs['kwargs'])
+        def weighted(path):
+            value=at(outputs,path);weight=weights[path].to(value.device)
+            return (value.float()*weight.float()).sum() if value.device.type=='mps' else (value.double()*weight.double()).sum()
+        terms = [weighted(path)
+                 for path in paths if objective is None or path == objective]
+        loss = sum(terms)
+        grads = torch.autograd.grad(loss, [value for _, value in indexed], allow_unused=True) \
+            if isinstance(loss, torch.Tensor) and loss.requires_grad else [None] * len(indexed)
+        return indexed, grads
+    gradient_checks = []
+    for objective in objectives:
+        gen = torch.Generator(device='cpu').manual_seed(1234 + case['seed'])
+        weights = {path: torch.randn(at(ref_outputs, path).shape, generator=gen).to(device) for path in paths}
+        try:
+            indexed, grads = evaluate(kernel, False, objective, weights)
+            if device.startswith('mps'):torch.mps.synchronize()
+            elif device.startswith('cuda'):torch.cuda.synchronize()
+        except Exception as error:
+            msg = f"{type(error).__name__}: {error}"
+            return {'outcome': 'crash' if any(s in msg for s in DEVICE_ERRORS) else 'refuse',
+                    'reason': error_text('backward: ' + msg)}
+        try:
+            with KeepFloat64():truth_inputs,truth_grads=evaluate(fn,True,objective,weights)
+        except Exception as error:
+            return {'outcome':'refuse','reason':'Float64 gradient oracle unavailable: '+error_text(error)}
+        bounded = spec.flags.get('reference_bounded_gradients', False)
+        native_grads = evaluate(fn, False, objective, weights)[1] if bounded else [None] * len(grads)
+        for (path, value), (_, truth_value), actual, truth, native in zip(indexed, truth_inputs, grads, truth_grads, native_grads):
+            if truth is None:
+                truth = torch.zeros_like(truth_value)
+                actual = torch.zeros_like(value) if actual is None else actual
+            prefix = f"gradient of argument {path} (output {objective or 'joint'})"
+            if actual is None:
+                return {'outcome': 'wrong', 'reason': prefix + ': no gradient'}
+            if actual.shape != truth.shape or not torch.isfinite(actual).all():
+                return {'outcome': 'wrong', 'reason': prefix + ': wrong shape or nonfinite gradient'}
+            scale = float(truth.abs().max()) if truth.numel() else 0.
+            error = float((actual.to(truth.device).double() - truth.double()).abs().max()) if truth.numel() else 0.
+            relative_limit = rtol * max(scale, 1e-30)
+            native_error = None
+            if bounded:
+                native = torch.zeros_like(truth) if native is None else native
+                native_error = float((native.to(truth.device).double() - truth.double()).abs().max()) if truth.numel() else 0.
+            limit = max(relative_limit, native_error) if native_error is not None and math.isfinite(native_error) else relative_limit
+            detail = {'input':list(path), 'objective':objective, 'error':error, 'oracle_scale':scale,
+                      'native_reference_error':native_error, 'limit':limit,
+                      'used_reference_bound':error > relative_limit and error <= limit}
+            gradient_checks.append(detail)
+            if error > limit:
+                return {'outcome': 'wrong', 'reason': f'{prefix}: max error {error:.3g} on gradients up to {scale:.3g}; allowed {limit:.3g}',
+                        'err': error, 'scale': scale, 'grad_arg': list(path), 'cotangent_output': objective,
+                        'gradient_check':detail}
+    return {**fwd, 'gradient_objectives': len(objectives), 'grad_inputs_checked': len(indexed),
+            'gradient_policy':'reference_bounded_v1' if spec.flags.get('reference_bounded_gradients') else 'strict_relative_v1',
+            'gradient_checks':gradient_checks}
 
 
 def main():

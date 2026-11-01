@@ -60,6 +60,8 @@ def describe_call(spec: OpSpec) -> str:
         if isinstance(a, dict) and "seq" in a:
             inner = ", ".join(fmt(x) for x in a["seq"])
             return f"({inner},)" if a.get("tuple") and len(a["seq"]) == 1 else (f"({inner})" if a.get("tuple") else f"[{inner}]")
+        if isinstance(a, dict) and "map" in a:
+            return "{" + ", ".join(repr(k) + ": " + fmt(v) for k, v in a["map"].items()) + "}"
         if isinstance(a, dict) and "dtype" in a:
             return f"torch.{a['dtype']}"
         return repr(a)

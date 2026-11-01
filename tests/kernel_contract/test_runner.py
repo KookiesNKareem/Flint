@@ -19,7 +19,7 @@ def test_correct_kernel_accepted():
 def test_dense_pointer_is_wrong_only_on_layouts():
     v = run_contract(softmax_spec(), K / "dense_pointer_softmax.py", device="cpu")
     assert v.outcome == "wrong"
-    assert {r["axis"] for r in v.failures} == {"layout"}
+    assert {r["axis"] for r in v.failures} == {"layout", "compound"}
     assert run_contract(softmax_spec(), K / "dense_pointer_softmax.py", contract="dense", device="cpu").outcome == "accept"
 
 

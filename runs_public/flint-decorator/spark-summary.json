@@ -1,0 +1,132 @@
+{
+  "accepted": true,
+  "reason": "all measured commands faster beyond margin with no allocated-memory regression",
+  "pairs": 3,
+  "preparation": {
+    "reference": {
+      "success": true,
+      "seconds": 18.985212075989693,
+      "peak_allocated_bytes": 29079552
+    },
+    "benchmark": {
+      "success": true,
+      "seconds": 16.698928569909185,
+      "peak_allocated_bytes": 102715904
+    }
+  },
+  "qualification_seconds": 113.8253031958593,
+  "seconds": {
+    "reference": [
+      17.984995694016106,
+      17.669239175971597,
+      18.41137617698405
+    ],
+    "benchmark": [
+      7.980592418927699,
+      7.532105460995808,
+      8.562853623065166
+    ]
+  },
+  "peak_allocated_bytes": {
+    "reference": [
+      29079552,
+      29079552,
+      29079552
+    ],
+    "benchmark": [
+      28417024,
+      28417024,
+      28417024
+    ]
+  },
+  "steady_update_ms": {
+    "reference": [
+      30.521339969709516,
+      36.71299002598971,
+      35.65163305029273
+    ],
+    "benchmark": [
+      11.23742398340255,
+      10.88506099767983,
+      9.034189046360552
+    ]
+  },
+  "seconds_speedup": 2.253591556857459,
+  "steady_update_ms_speedup": 3.2752809614839955,
+  "peak_memory_reduction": 0.022783294598211157,
+  "application_checks": [
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.00047754207450608236,
+      "validation_reference": 4.273998260498047,
+      "validation_candidate": 4.269138336181641,
+      "relative_validation_error": 0.001137090850345813,
+      "passed": true,
+      "parameter_relative_l2": 0.00011602891194357714,
+      "per_parameter_relative_l2": {
+        "_orig_mod.fast": 0.001709818370768638,
+        "_orig_mod.slow": 0.0024362601249095467,
+        "_orig_mod.emb.weight": 2.3006521154084412e-05,
+        "_orig_mod.proj.weight": 0.0010679144158423713,
+        "_orig_mod.proj.bias": 0.0007384215975933841,
+        "_orig_mod.out.weight": 0.0009493915418334106,
+        "_orig_mod.out.bias": 0.0002724204134549467,
+        "_orig_mod.norm.weight": 9.93616409179061e-06,
+        "_orig_mod.norm.bias": 0.0005333956342237855,
+        "_orig_mod.mlp.0.weight": 0.0006323969503550484,
+        "_orig_mod.mlp.0.bias": 0.00015477594614520462,
+        "_orig_mod.mlp.2.weight": 0.000632784280660731,
+        "_orig_mod.mlp.2.bias": 0.00016670451968971338
+      }
+    },
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.00047577841762915326,
+      "validation_reference": 4.272518157958984,
+      "validation_candidate": 4.272315979003906,
+      "relative_validation_error": 4.7320794810783786e-05,
+      "passed": true,
+      "parameter_relative_l2": 0.00011598893286101089,
+      "per_parameter_relative_l2": {
+        "_orig_mod.fast": 0.0017046937249286876,
+        "_orig_mod.slow": 0.002411870320798943,
+        "_orig_mod.emb.weight": 2.2918096627033546e-05,
+        "_orig_mod.proj.weight": 0.0010670948165019797,
+        "_orig_mod.proj.bias": 0.0007622883356475026,
+        "_orig_mod.out.weight": 0.0009528415021378712,
+        "_orig_mod.out.bias": 0.00025356298928852717,
+        "_orig_mod.norm.weight": 8.963708109629564e-06,
+        "_orig_mod.norm.bias": 0.0004968745039276315,
+        "_orig_mod.mlp.0.weight": 0.0006311058848346816,
+        "_orig_mod.mlp.0.bias": 0.0001599479852747759,
+        "_orig_mod.mlp.2.weight": 0.0006342696392886907,
+        "_orig_mod.mlp.2.bias": 0.00014637273837466802
+      }
+    },
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.0006612353932017649,
+      "validation_reference": 4.272785186767578,
+      "validation_candidate": 4.272159576416016,
+      "relative_validation_error": 0.00014641745938924277,
+      "passed": true,
+      "parameter_relative_l2": 0.0001161200405109978,
+      "per_parameter_relative_l2": {
+        "_orig_mod.fast": 0.0017077395215608852,
+        "_orig_mod.slow": 0.0024561038981300133,
+        "_orig_mod.emb.weight": 2.5360709156566753e-05,
+        "_orig_mod.proj.weight": 0.001066016869573466,
+        "_orig_mod.proj.bias": 0.0007460385154421644,
+        "_orig_mod.out.weight": 0.0009332050441069574,
+        "_orig_mod.out.bias": 0.0003076099515659036,
+        "_orig_mod.norm.weight": 8.433022912731766e-06,
+        "_orig_mod.norm.bias": 0.000499176435389025,
+        "_orig_mod.mlp.0.weight": 0.0006319075783855431,
+        "_orig_mod.mlp.0.bias": 0.00016089399774239644,
+        "_orig_mod.mlp.2.weight": 0.0006298535010294189,
+        "_orig_mod.mlp.2.bias": 0.00017528068705396544
+      }
+    }
+  ],
+  "application_passed": true
+}

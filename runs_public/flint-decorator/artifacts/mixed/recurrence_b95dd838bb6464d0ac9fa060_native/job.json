@@ -1,0 +1,403 @@
+{
+  "hash": "b95dd838bb6464d0ac9fa060",
+  "name": "recurrence",
+  "source": "from __future__ import annotations\nimport torch as torch\nimport torch.nn.functional as F\n\ndef recurrence(q, k, v, decay, beta, transfer, state, scale):\n    \"\"\"Delta writes to fast memory; a state-dependent gate consolidates slow memory.\"\"\"\n    q, k, v, decay, beta, transfer = (x.to(torch.promote_types(x.dtype, torch.float32)) for x in (q, k, v, decay, beta, transfer))\n    k = F.normalize(k, dim=-1)\n    decay = F.logsigmoid(decay)\n    beta = beta.sigmoid()\n    fast, slow = (state['fast'], state['slow'])\n    outputs = []\n    for t in range(q.shape[2]):\n        key, value = (k[:, :, t], v[:, :, t])\n        fast = fast * decay[:, :, t].exp()[..., None]\n        prediction = (fast * key[..., None]).sum(-2)\n        fast = fast + key[..., None] * (beta[:, :, t, None] * (value - prediction))[..., None, :]\n        agreement = (fast * slow).mean(dim=(-2, -1))\n        gate = torch.sigmoid(transfer[:, :, t] + 0.05 * agreement)[..., None, None]\n        slow = (1 - gate) * slow + gate * fast\n        outputs.append(((fast + slow) * (0.5 * scale * q[:, :, t])[..., None]).sum(-2))\n    return (torch.stack(outputs, dim=2), {'fast': fast, 'slow': slow})\n",
+  "signature": "q, k, v, decay, beta, transfer, state, scale",
+  "call": "muse_jobs.j_b95dd838bb6464d0ac9fa060.recurrence(Tensor(shape=[2, 4, 64, 16], dtype=bfloat16, contiguous), Tensor(shape=[2, 4, 64, 16], dtype=bfloat16, contiguous), Tensor(shape=[2, 4, 64, 16], dtype=bfloat16, contiguous), Tensor(shape=[2, 4, 64, 16], dtype=bfloat16, contiguous), Tensor(shape=[2, 4, 64], dtype=bfloat16, contiguous), Tensor(shape=[2, 4, 64], dtype=bfloat16, contiguous), {'fast': Tensor(shape=[2, 4, 16, 16], dtype=float32, contiguous), 'slow': Tensor(shape=[2, 4, 16, 16], dtype=float32, contiguous)}, 0.25)",
+  "sizes": {
+    "s0": 4,
+    "s1": 64,
+    "s2": 16
+  },
+  "grad_names": "(0,), (1,), (2,), (3,), (4,), (5,), (6, 'fast'), (6, 'slow')",
+  "output_structure": {
+    "tuple": [
+      "tensor",
+      {
+        "dict": {
+          "fast": "tensor",
+          "slow": "tensor"
+        }
+      }
+    ]
+  },
+  "memory_policy": null,
+  "domains": [],
+  "verified_signatures": [
+    [
+      {
+        "shape": [
+          2,
+          4,
+          64,
+          16
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          4096,
+          1024,
+          16,
+          1
+        ],
+        "requires_grad": true,
+        "offset": 0
+      },
+      {
+        "shape": [
+          2,
+          4,
+          64,
+          16
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          4096,
+          1024,
+          16,
+          1
+        ],
+        "requires_grad": true,
+        "offset": 0
+      },
+      {
+        "shape": [
+          2,
+          4,
+          64,
+          16
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          4096,
+          1024,
+          16,
+          1
+        ],
+        "requires_grad": true,
+        "offset": 0
+      },
+      {
+        "shape": [
+          2,
+          4,
+          64,
+          16
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          4096,
+          1024,
+          16,
+          1
+        ],
+        "requires_grad": true,
+        "offset": 0
+      },
+      {
+        "shape": [
+          2,
+          4,
+          64
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          256,
+          64,
+          1
+        ],
+        "requires_grad": true,
+        "offset": 0
+      },
+      {
+        "shape": [
+          2,
+          4,
+          64
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          256,
+          64,
+          1
+        ],
+        "requires_grad": true,
+        "offset": 0
+      },
+      {
+        "dict": {
+          "fast": {
+            "shape": [
+              2,
+              4,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "device": "cuda:0",
+            "stride": [
+              1024,
+              256,
+              16,
+              1
+            ],
+            "requires_grad": true,
+            "offset": 0
+          },
+          "slow": {
+            "shape": [
+              2,
+              4,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "device": "cuda:0",
+            "stride": [
+              1024,
+              256,
+              16,
+              1
+            ],
+            "requires_grad": true,
+            "offset": 0
+          }
+        }
+      },
+      {
+        "scalar": 0.25
+      }
+    ],
+    [
+      {
+        "shape": [
+          2,
+          4,
+          64,
+          16
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          4096,
+          1024,
+          16,
+          1
+        ],
+        "requires_grad": false,
+        "offset": 0
+      },
+      {
+        "shape": [
+          2,
+          4,
+          64,
+          16
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          4096,
+          1024,
+          16,
+          1
+        ],
+        "requires_grad": false,
+        "offset": 0
+      },
+      {
+        "shape": [
+          2,
+          4,
+          64,
+          16
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          4096,
+          1024,
+          16,
+          1
+        ],
+        "requires_grad": false,
+        "offset": 0
+      },
+      {
+        "shape": [
+          2,
+          4,
+          64,
+          16
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          4096,
+          1024,
+          16,
+          1
+        ],
+        "requires_grad": false,
+        "offset": 0
+      },
+      {
+        "shape": [
+          2,
+          4,
+          64
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          256,
+          64,
+          1
+        ],
+        "requires_grad": false,
+        "offset": 0
+      },
+      {
+        "shape": [
+          2,
+          4,
+          64
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0",
+        "stride": [
+          256,
+          64,
+          1
+        ],
+        "requires_grad": false,
+        "offset": 0
+      },
+      {
+        "dict": {
+          "fast": {
+            "shape": [
+              2,
+              4,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "device": "cuda:0",
+            "stride": [
+              1024,
+              256,
+              16,
+              1
+            ],
+            "requires_grad": false,
+            "offset": 0
+          },
+          "slow": {
+            "shape": [
+              2,
+              4,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "device": "cuda:0",
+            "stride": [
+              1024,
+              256,
+              16,
+              1
+            ],
+            "requires_grad": false,
+            "offset": 0
+          }
+        }
+      },
+      {
+        "scalar": 0.25
+      }
+    ]
+  ],
+  "environment": {
+    "driver": [
+      "595.91.07"
+    ],
+    "cache_version": 5,
+    "python": "3.12.3",
+    "torch": "2.8.0+cu128",
+    "triton": "3.4.0",
+    "cuda": "12.8",
+    "platform": "Linux",
+    "gpu": [
+      {
+        "name": "NVIDIA GeForce RTX 4090",
+        "capability": [
+          8,
+          9
+        ],
+        "memory": 25252724736
+      }
+    ]
+  },
+  "cache_version": 5,
+  "models": [
+    "meta-models/muse-spark-open-1026"
+  ],
+  "backward_model": "muse-wonder-1.0",
+  "max_usd": 1.5673886999999995,
+  "require_holdout": true,
+  "native": true,
+  "gradient_policy": "reference_bounded_v1",
+  "total_budget": true,
+  "opt_rounds": 0,
+  "bwd_opt_rounds": 0,
+  "max_tokens": 24000,
+  "eager_ms": 16.386509058065712,
+  "target_environment": {
+    "driver": [
+      "595.91.07"
+    ],
+    "cache_version": 5,
+    "python": "3.12.3",
+    "torch": "2.8.0+cu128",
+    "triton": "3.4.0",
+    "cuda": "12.8",
+    "platform": "Linux",
+    "gpu": [
+      {
+        "name": "NVIDIA GeForce RTX 4090",
+        "capability": [
+          8,
+          9
+        ],
+        "memory": 25252724736
+      }
+    ]
+  },
+  "capture_environment": {
+    "driver": [
+      "595.91.07"
+    ],
+    "cache_version": 5,
+    "python": "3.12.3",
+    "torch": "2.8.0+cu128",
+    "triton": "3.4.0",
+    "cuda": "12.8",
+    "platform": "Linux",
+    "gpu": [
+      {
+        "name": "NVIDIA GeForce RTX 4090",
+        "capability": [
+          8,
+          9
+        ],
+        "memory": 25252724736
+      }
+    ]
+  }
+}

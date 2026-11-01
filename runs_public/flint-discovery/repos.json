@@ -1,0 +1,24 @@
+[
+  {
+    "name": "mingru",
+    "repository": "https://github.com/lucidrains/minGRU-pytorch",
+    "commit": "9fe95d623b2a30f5cbc689e4640dc62403da0df5",
+    "command": [
+      "train.py"
+    ],
+    "target": "Automatically suggested gate-and-scan region",
+    "settings_changes": "200 batches, two accumulation steps, 128 sequence/dim, three layers, fixed seeds, shorter sample generation. Existing optimizer/Accelerate/training/evaluation loop retained."
+  },
+  {
+    "name": "nanogpt",
+    "repository": "https://github.com/karpathy/nanoGPT",
+    "commit": "3adf61e154c3fe3fca428ad6bc3818b27a3b8291",
+    "command": [
+      "train.py",
+      "config.py",
+      "--out_dir=.flint/out"
+    ],
+    "target": "No source change suggested",
+    "settings_changes": "Same bounded config as prior control; upstream train.py unchanged, BF16, compilation, accumulation."
+  }
+]

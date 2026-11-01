@@ -3,13 +3,13 @@ import json
 import time
 
 import torch
-import muse_kernel
+import flint_gpu as flint
 from kernel_contract.train_demo import make_lm, data, batch, loss_of
 
 CHANNEL_DECAY = True
 
 
-@muse_kernel.fast
+@flint.fast
 def reference(q, k, v, e, g, beta, gamma, scale):
     """Erase memory, then write the prediction error. Try reversing these two updates."""
     B, H, T, K = q.shape
@@ -44,7 +44,7 @@ def main():
 
     def step():
         inputs = batch(train, 2, 64, rng)
-        loss, recovered = muse_kernel.train_step(
+        loss, recovered = flint.train_step(
             model, optimizer, lambda: loss_of(model, inputs), kernels=[reference]
         )
         torch.cuda.synchronize()

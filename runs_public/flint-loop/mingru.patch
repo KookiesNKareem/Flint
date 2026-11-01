@@ -1,0 +1,59 @@
+--- a/train.py
++++ b/train.py
+@@ -15,17 +15,22 @@
+ 
+ from minGRU_pytorch.minLM import minLM
+ 
++# Reproducible bounded evaluation settings; training loop unchanged.
++random.seed(1337)
++np.random.seed(1337)
++torch.manual_seed(1337)
++
+ # constants
+ 
+-NUM_BATCHES = int(1e5)
++NUM_BATCHES = 200
+ BATCH_SIZE = 4
+-GRAD_ACCUM_EVERY = 4
++GRAD_ACCUM_EVERY = 2
+ LEARNING_RATE = 1e-4
+ VALIDATE_EVERY = 100
+-PRIME_LENGTH = 128
++PRIME_LENGTH = 32
+ GENERATE_EVERY = 500
+-GENERATE_LENGTH = 512
+-SEQ_LEN = 512
++GENERATE_LENGTH = 48
++SEQ_LEN = 128
+ 
+ # helpers
+ 
+@@ -96,8 +101,8 @@
+ 
+ model = minLM(
+     num_tokens = 256,
+-    dim = 512,
+-    depth = 6,
++    dim = 128,
++    depth = 3,
+     use_lstm = False # set to True for minLSTM
+ )
+ 
+--- a/minGRU_pytorch/minGRU.py
++++ b/minGRU_pytorch/minGRU.py
+@@ -1,6 +1,7 @@
+ # https://arxiv.org/abs/2410.01201v1
+ 
+ import torch
++import flint_gpu as flint
+ import torch.nn.functional as F
+ from torch.nn import Linear, Identity, Module
+ 
+@@ -24,6 +25,7 @@
+ def g(x):
+     return torch.where(x >= 0, x + 0.5, x.sigmoid())
+ 
++@flint.fast
+ def log_g(x):
+     return torch.where(x >= 0, (F.relu(x) + 0.5).log(), -F.softplus(-x))
+ 

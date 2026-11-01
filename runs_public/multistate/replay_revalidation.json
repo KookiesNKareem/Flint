@@ -1,0 +1,2801 @@
+{
+  "environment": {
+    "driver": [
+      "595.91.07"
+    ],
+    "cache_version": 3,
+    "python": "3.12.3",
+    "torch": "2.8.0+cu128",
+    "triton": "3.4.0",
+    "cuda": "12.8",
+    "platform": "Linux",
+    "gpu": [
+      {
+        "name": "NVIDIA L4",
+        "capability": [
+          8,
+          9
+        ],
+        "memory": 23661248512
+      }
+    ]
+  },
+  "result": {
+    "outcome": "accept",
+    "results": [
+      {
+        "name": "observed",
+        "axis": "seed",
+        "outcome": "accept",
+        "err": 5.9325392820497314e-08,
+        "torch_err": 5.063058999832393e-08,
+        "scale": 0.4727301854091414,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.9325392820497314e-08,
+            "torch_err": 5.063058999832393e-08,
+            "scale": 0.4727301854091414,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.617901989105832e-08,
+            "torch_err": 5.3591541537834075e-08,
+            "scale": 0.4360185053175984,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.352027541647651e-08,
+            "torch_err": 4.044110185619232e-08,
+            "scale": 0.30907796884159666,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "seed1",
+        "axis": "seed",
+        "outcome": "accept",
+        "err": 6.950752534651272e-08,
+        "torch_err": 5.816896497812252e-08,
+        "scale": 0.46228604471175816,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 6.950752534651272e-08,
+            "torch_err": 5.816896497812252e-08,
+            "scale": 0.46228604471175816,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.2738613153782126e-08,
+            "torch_err": 3.888004346253027e-08,
+            "scale": 0.3840949266709557,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.681684293543874e-08,
+            "torch_err": 4.142834914011573e-08,
+            "scale": 0.3040760874641397,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "seed2",
+        "axis": "seed",
+        "outcome": "accept",
+        "err": 7.440635835243015e-08,
+        "torch_err": 8.02641665909043e-08,
+        "scale": 0.5225100347864864,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 7.440635835243015e-08,
+            "torch_err": 8.02641665909043e-08,
+            "scale": 0.5225100347864864,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.2745800182532037e-08,
+            "torch_err": 3.756166161439367e-08,
+            "scale": 0.43753605455266653,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.1010469964408713e-08,
+            "torch_err": 4.4388604764078465e-08,
+            "scale": 0.31849504128495315,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "scale_up",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 0.07205789349973202,
+        "torch_err": 0.05749188389745541,
+        "scale": 577397.6064299324,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 0.07205789349973202,
+            "torch_err": 0.05749188389745541,
+            "scale": 577397.6064299324,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.5863202185737464e-05,
+            "torch_err": 3.5863202185737464e-05,
+            "scale": 435.44364120720485,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.5863202185737464e-05,
+            "torch_err": 3.5863202185737464e-05,
+            "scale": 435.44364120720485,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "scale_down",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 4.4364878236364353e-14,
+        "torch_err": 4.5219927821068824e-14,
+        "scale": 4.4396545777365656e-07,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 4.4364878236364353e-14,
+            "torch_err": 4.5219927821068824e-14,
+            "scale": 4.4396545777365656e-07,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.362538244062977e-11,
+            "torch_err": 4.362538244062977e-11,
+            "scale": 0.0004364113745803485,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.336269837326579e-11,
+            "torch_err": 4.3215526697535506e-11,
+            "scale": 0.00029804632188643087,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "shift",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 0.004471248896152247,
+        "torch_err": 0.0035375350707909092,
+        "scale": 30120.492863962434,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 0.004471248896152247,
+            "torch_err": 0.0035375350707909092,
+            "scale": 30120.492863962434,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 5.026975827604474e-06,
+            "torch_err": 6.455309964792377e-06,
+            "scale": 48.931308785062505,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 5.026975827604474e-06,
+            "torch_err": 6.455309964792377e-06,
+            "scale": 48.931308785062505,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "negative",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 1.3730981223147865e-06,
+        "torch_err": 1.30409656584618e-06,
+        "scale": 10.079203726322024,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 1.3730981223147865e-06,
+            "torch_err": 1.30409656584618e-06,
+            "scale": 10.079203726322024,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 9.7441903657014e-08,
+            "torch_err": 8.368695414429084e-08,
+            "scale": 0.9474001412376533,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 6.458496359940114e-08,
+            "torch_err": 5.872456754207889e-08,
+            "scale": 0.35733804092589844,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "half_zero",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 4.608759046620392e-08,
+        "torch_err": 4.624228400196273e-08,
+        "scale": 0.44070748170950125,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 4.608759046620392e-08,
+            "torch_err": 4.624228400196273e-08,
+            "scale": 0.44070748170950125,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.1089749719104276e-08,
+            "torch_err": 3.5391064023837515e-08,
+            "scale": 0.44732702649297246,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.081707772301101e-08,
+            "torch_err": 2.9142106228174924e-08,
+            "scale": 0.250771076147353,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "constant",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 1.0432505015423033e-07,
+        "torch_err": 5.110177081490974e-08,
+        "scale": 0.8756968604017054,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 1.0432505015423033e-07,
+            "torch_err": 5.110177081490974e-08,
+            "scale": 0.8756968604017054,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.7807002117574697e-08,
+            "torch_err": 2.035642152065087e-08,
+            "scale": 0.24220541165473342,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.937521082462368e-08,
+            "torch_err": 1.937521082462368e-08,
+            "scale": 0.16855457872522456,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "scale_mid",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 7.32724699901155e-05,
+        "torch_err": 8.596742401323354e-05,
+        "scale": 789.5468990475796,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 7.32724699901155e-05,
+            "torch_err": 8.596742401323354e-05,
+            "scale": 789.5468990475796,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.4987715433179005e-06,
+            "torch_err": 1.6814500369832786e-06,
+            "scale": 16.096521603462072,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.5149134684477872e-06,
+            "torch_err": 1.9286394152828734e-06,
+            "scale": 15.53848361077895,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "shift_neg",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 0.004630366136552766,
+        "torch_err": 0.003303574165329337,
+        "scale": 30094.57190042296,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 0.004630366136552766,
+            "torch_err": 0.003303574165329337,
+            "scale": 30094.57190042296,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 5.486754226069479e-06,
+            "torch_err": 6.355950244341102e-06,
+            "scale": 48.91803022288501,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.3577140208553828e-05,
+            "torch_err": 1.517649103277563e-05,
+            "scale": 98.09347047972439,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "s0=3",
+        "axis": "sizes",
+        "outcome": "accept",
+        "err": 6.324584000960698e-08,
+        "torch_err": 5.3881590855731076e-08,
+        "scale": 0.49438331129774116,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 6.324584000960698e-08,
+            "torch_err": 5.3881590855731076e-08,
+            "scale": 0.49438331129774116,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.2918726078357e-08,
+            "torch_err": 4.398002090288955e-08,
+            "scale": 0.42173142019089777,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.5702280415096368e-08,
+            "torch_err": 2.9194696798962028e-08,
+            "scale": 0.21047738667869975,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "s0=5",
+        "axis": "sizes",
+        "outcome": "accept",
+        "err": 5.1092185038292826e-08,
+        "torch_err": 6.625326098852469e-08,
+        "scale": 0.5208095865019752,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.1092185038292826e-08,
+            "torch_err": 6.625326098852469e-08,
+            "scale": 0.5208095865019752,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.015627608211503e-08,
+            "torch_err": 6.234142824190769e-08,
+            "scale": 0.5327387424757715,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.715892837348079e-08,
+            "torch_err": 4.715892837348079e-08,
+            "scale": 0.29325872625258875,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "s1=65",
+        "axis": "sizes",
+        "outcome": "accept",
+        "err": 6.127494867058658e-08,
+        "torch_err": 6.067923963293254e-08,
+        "scale": 0.6253174790207572,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 6.127494867058658e-08,
+            "torch_err": 6.067923963293254e-08,
+            "scale": 0.6253174790207572,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.216016036284742e-08,
+            "torch_err": 4.8151294840259595e-08,
+            "scale": 0.48093581064391544,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.3544597266566e-08,
+            "torch_err": 3.22063417601548e-08,
+            "scale": 0.37968400730301183,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "s1=129",
+        "axis": "sizes",
+        "outcome": "accept",
+        "err": 5.892605658974759e-08,
+        "torch_err": 4.622305754820033e-08,
+        "scale": 0.3799392245548203,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.892605658974759e-08,
+            "torch_err": 4.622305754820033e-08,
+            "scale": 0.3799392245548203,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.805256143518676e-08,
+            "torch_err": 3.805256143518676e-08,
+            "scale": 0.47767719781993123,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.214216487412713e-08,
+            "torch_err": 3.4218346683934087e-08,
+            "scale": 0.3795945312143236,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "s2=17",
+        "axis": "sizes",
+        "outcome": "accept",
+        "err": 5.492284838037875e-08,
+        "torch_err": 3.857424646369623e-08,
+        "scale": 0.3723286564603955,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.492284838037875e-08,
+            "torch_err": 3.857424646369623e-08,
+            "scale": 0.3723286564603955,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.860214148332375e-08,
+            "torch_err": 3.6669064340522084e-08,
+            "scale": 0.4882322229359786,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.33435591914899e-08,
+            "torch_err": 3.85087933207906e-08,
+            "scale": 0.3091213295500946,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "s2=33",
+        "axis": "sizes",
+        "outcome": "accept",
+        "err": 6.481197493968249e-08,
+        "torch_err": 5.5008460675409765e-08,
+        "scale": 0.6596637684426173,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 6.481197493968249e-08,
+            "torch_err": 5.5008460675409765e-08,
+            "scale": 0.6596637684426173,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.843787952344634e-08,
+            "torch_err": 3.361023334647051e-08,
+            "scale": 0.3435561225785503,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.2756568624225935e-08,
+            "torch_err": 3.39509138580496e-08,
+            "scale": 0.2363487175004999,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "decay_none",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 2.1444051323538105e-07,
+        "torch_err": 2.393565623481919e-07,
+        "scale": 1.2571097512786624,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 2.1444051323538105e-07,
+            "torch_err": 2.393565623481919e-07,
+            "scale": 1.2571097512786624,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 5.063392534143674e-07,
+            "torch_err": 7.447578325159299e-07,
+            "scale": 1.4821865116511574,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 5.70382525655333e-07,
+            "torch_err": 8.088011047568955e-07,
+            "scale": 1.4770988894668737,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "decay_strong",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 4.3521898279719196e-08,
+        "torch_err": 2.5063489172971742e-08,
+        "scale": 0.21284015592591107,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 4.3521898279719196e-08,
+            "torch_err": 2.5063489172971742e-08,
+            "scale": 0.21284015592591107,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.494333378206704e-08,
+            "torch_err": 3.494333378206704e-08,
+            "scale": 0.4331380056639682,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.3449066299807697e-08,
+            "torch_err": 1.9335723827618168e-08,
+            "scale": 0.19258249093331978,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "gate_edges",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 6.105301941783381e-08,
+        "torch_err": 4.6155006150350175e-08,
+        "scale": 0.47672517642888074,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 6.105301941783381e-08,
+            "torch_err": 4.6155006150350175e-08,
+            "scale": 0.47672517642888074,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.0207534163227976e-08,
+            "torch_err": 4.828619148966595e-08,
+            "scale": 0.5008940486129473,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.8043542427423915e-08,
+            "torch_err": 4.3486979794948866e-08,
+            "scale": 0.3862292336175591,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "gate_typical",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 1.694641045268952e-07,
+        "torch_err": 1.2298006918376458e-07,
+        "scale": 0.7582554567604207,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 1.694641045268952e-07,
+            "torch_err": 1.2298006918376458e-07,
+            "scale": 0.7582554567604207,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.548028794069346e-07,
+            "torch_err": 1.4046268727307964e-07,
+            "scale": 0.6864062401486618,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.4434272571927096e-07,
+            "torch_err": 1.4638515033471577e-07,
+            "scale": 0.6488373600717666,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "gate_high",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 5.8761705279408716e-08,
+        "torch_err": 5.8761705279408716e-08,
+        "scale": 0.4674222314026162,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.8761705279408716e-08,
+            "torch_err": 5.8761705279408716e-08,
+            "scale": 0.4674222314026162,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.730866293156666e-08,
+            "torch_err": 5.2142385797981916e-08,
+            "scale": 0.5414035343165771,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.3728558080102786e-08,
+            "torch_err": 6.170571367758448e-08,
+            "scale": 0.45606599481615884,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "gate_mid",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 9.274974355211185e-08,
+        "torch_err": 5.6350469845867224e-08,
+        "scale": 0.4711473021556426,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 9.274974355211185e-08,
+            "torch_err": 5.6350469845867224e-08,
+            "scale": 0.4711473021556426,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.776895118878798e-08,
+            "torch_err": 4.722678886848186e-08,
+            "scale": 0.4508344682028148,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.936978253988755e-08,
+            "torch_err": 3.896299261008096e-08,
+            "scale": 0.3455660537493773,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "contiguous",
+        "axis": "layout",
+        "outcome": "accept",
+        "err": 5.9325392820497314e-08,
+        "torch_err": 5.063058999832393e-08,
+        "scale": 0.4727301854091414,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.9325392820497314e-08,
+            "torch_err": 5.063058999832393e-08,
+            "scale": 0.4727301854091414,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.617901989105832e-08,
+            "torch_err": 5.3591541537834075e-08,
+            "scale": 0.4360185053175984,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.352027541647651e-08,
+            "torch_err": 4.044110185619232e-08,
+            "scale": 0.30907796884159666,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "strided2",
+        "axis": "layout",
+        "outcome": "accept",
+        "err": 5.9325392820497314e-08,
+        "torch_err": 5.063058999832393e-08,
+        "scale": 0.4727301854091414,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.9325392820497314e-08,
+            "torch_err": 5.063058999832393e-08,
+            "scale": 0.4727301854091414,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.617901989105832e-08,
+            "torch_err": 5.3591541537834075e-08,
+            "scale": 0.4360185053175984,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.352027541647651e-08,
+            "torch_err": 4.044110185619232e-08,
+            "scale": 0.30907796884159666,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "strided3_off1",
+        "axis": "layout",
+        "outcome": "accept",
+        "err": 5.9325392820497314e-08,
+        "torch_err": 5.063058999832393e-08,
+        "scale": 0.4727301854091414,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.9325392820497314e-08,
+            "torch_err": 5.063058999832393e-08,
+            "scale": 0.4727301854091414,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.617901989105832e-08,
+            "torch_err": 5.3591541537834075e-08,
+            "scale": 0.4360185053175984,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.352027541647651e-08,
+            "torch_err": 4.044110185619232e-08,
+            "scale": 0.30907796884159666,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "transposed",
+        "axis": "layout",
+        "outcome": "accept",
+        "err": 5.9325392876008465e-08,
+        "torch_err": 4.779769191554095e-08,
+        "scale": 0.47273018540914147,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.9325392876008465e-08,
+            "torch_err": 4.779769191554095e-08,
+            "scale": 0.47273018540914147,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.617901989105832e-08,
+            "torch_err": 5.3591541537834075e-08,
+            "scale": 0.4360185053175984,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.352027541647651e-08,
+            "torch_err": 4.044110185619232e-08,
+            "scale": 0.30907796884159666,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "leading_swap",
+        "axis": "layout",
+        "outcome": "accept",
+        "err": 5.9325392820497314e-08,
+        "torch_err": 5.063058999832393e-08,
+        "scale": 0.4727301854091414,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.9325392820497314e-08,
+            "torch_err": 5.063058999832393e-08,
+            "scale": 0.4727301854091414,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.617901989105832e-08,
+            "torch_err": 5.3591541537834075e-08,
+            "scale": 0.4360185053175984,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.352027541647651e-08,
+            "torch_err": 4.044110185619232e-08,
+            "scale": 0.30907796884159666,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "compound",
+        "axis": "values",
+        "outcome": "accept",
+        "err": 4.113373533454201e-08,
+        "torch_err": 3.5204240939057385e-08,
+        "scale": 0.389038708223648,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 4.113373533454201e-08,
+            "torch_err": 3.5204240939057385e-08,
+            "scale": 0.389038708223648,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.5444440693300763e-08,
+            "torch_err": 3.576752416467599e-08,
+            "scale": 0.407543544120692,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.6909436840204535e-08,
+            "torch_err": 5.297932267889216e-08,
+            "scale": 0.31570166509511544,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/observed",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 5.9325392820497314e-08,
+        "torch_err": 5.063058999832393e-08,
+        "scale": 0.4727301854091414,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.9325392820497314e-08,
+            "torch_err": 5.063058999832393e-08,
+            "scale": 0.4727301854091414,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.617901989105832e-08,
+            "torch_err": 5.3591541537834075e-08,
+            "scale": 0.4360185053175984,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.352027541647651e-08,
+            "torch_err": 4.044110185619232e-08,
+            "scale": 0.30907796884159666,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/seed1",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 6.950752534651272e-08,
+        "torch_err": 5.816896497812252e-08,
+        "scale": 0.46228604471175816,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 6.950752534651272e-08,
+            "torch_err": 5.816896497812252e-08,
+            "scale": 0.46228604471175816,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.2738613153782126e-08,
+            "torch_err": 3.888004346253027e-08,
+            "scale": 0.3840949266709557,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.681684293543874e-08,
+            "torch_err": 4.142834914011573e-08,
+            "scale": 0.3040760874641397,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/gate_typical",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 1.694641045268952e-07,
+        "torch_err": 1.2298006918376458e-07,
+        "scale": 0.7582554567604207,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 1.694641045268952e-07,
+            "torch_err": 1.2298006918376458e-07,
+            "scale": 0.7582554567604207,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.548028794069346e-07,
+            "torch_err": 1.4046268727307964e-07,
+            "scale": 0.6864062401486618,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.4434272571927096e-07,
+            "torch_err": 1.4638515033471577e-07,
+            "scale": 0.6488373600717666,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      }
+    ],
+    "ms": 1.2327467557042837,
+    "reference_ms": 99.17104290798306,
+    "memory": {
+      "saved_activation_bytes": 327680,
+      "saved_storages": 1,
+      "peak_extra_bytes": 1647616
+    },
+    "memory_by_signature": [
+      {
+        "saved_activation_bytes": 327680,
+        "saved_storages": 1,
+        "peak_extra_bytes": 1647616
+      },
+      {
+        "saved_activation_bytes": 327680,
+        "saved_storages": 1,
+        "peak_extra_bytes": 1647616
+      }
+    ],
+    "reference_memory": {
+      "saved_activation_bytes": 17408000,
+      "saved_storages": 1280,
+      "peak_extra_bytes": 18451456
+    }
+  },
+  "holdout_result": {
+    "outcome": "accept",
+    "results": [
+      {
+        "name": "holdout_0",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 1.9280997098913844e-07,
+        "torch_err": 1.149028259206375e-07,
+        "scale": 1.0057549916736044,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 1.9280997098913844e-07,
+            "torch_err": 1.149028259206375e-07,
+            "scale": 1.0057549916736044,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.0053294547128786e-07,
+            "torch_err": 1.3428080725130798e-07,
+            "scale": 0.6182874983440844,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.9190628097742746e-07,
+            "torch_err": 1.308110104680793e-07,
+            "scale": 0.5899203150150893,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "holdout_1",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 5.3717410519737996e-08,
+        "torch_err": 5.980865686039394e-08,
+        "scale": 0.4989621291730343,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.3717410519737996e-08,
+            "torch_err": 5.980865686039394e-08,
+            "scale": 0.4989621291730343,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.921621938296482e-08,
+            "torch_err": 3.8233416405075715e-08,
+            "scale": 0.438690148045487,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.31639993800259e-08,
+            "torch_err": 4.654559815353565e-08,
+            "scale": 0.29180802990566795,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "holdout_2",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 6.64320706778021e-08,
+        "torch_err": 8.13287649725769e-08,
+        "scale": 0.6007888498077875,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 6.64320706778021e-08,
+            "torch_err": 8.13287649725769e-08,
+            "scale": 0.6007888498077875,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 5.735462127454127e-08,
+            "torch_err": 4.556706023617352e-08,
+            "scale": 0.54110490420232,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 5.403389564950789e-08,
+            "torch_err": 5.658904234095985e-08,
+            "scale": 0.4283939407371549,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "holdout_3",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 3.214235411164168e-08,
+        "torch_err": 4.7043515305489336e-08,
+        "scale": 0.3013266561515948,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 3.214235411164168e-08,
+            "torch_err": 4.7043515305489336e-08,
+            "scale": 0.3013266561515948,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.136363091460481e-08,
+            "torch_err": 2.9177924215639806e-08,
+            "scale": 0.4409456763390173,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.820432948302809e-08,
+            "torch_err": 3.157475042536717e-08,
+            "scale": 0.3187962183222936,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "holdout_4",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 2.5422651564466214e-07,
+        "torch_err": 2.5581906193394843e-07,
+        "scale": 1.2712752769960862,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 2.5422651564466214e-07,
+            "torch_err": 2.5581906193394843e-07,
+            "scale": 1.2712752769960862,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.947091469809095e-07,
+            "torch_err": 5.013611290571873e-07,
+            "scale": 1.5715842766506454,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.6332036474083793e-07,
+            "torch_err": 4.6332036474083793e-07,
+            "scale": 1.5636430399305865,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "holdout_5",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 7.106937632839205e-08,
+        "torch_err": 5.596779351080272e-08,
+        "scale": 0.5151288084962737,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 7.106937632839205e-08,
+            "torch_err": 5.596779351080272e-08,
+            "scale": 0.5151288084962737,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.182327312252099e-08,
+            "torch_err": 4.4753616729176215e-08,
+            "scale": 0.40452590526278687,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.436621956454111e-08,
+            "torch_err": 4.6522054542030844e-08,
+            "scale": 0.34627220563835703,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "holdout_6",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 2.0307625125948192e-07,
+        "torch_err": 1.162810673305259e-07,
+        "scale": 0.9464134688592583,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 2.0307625125948192e-07,
+            "torch_err": 1.162810673305259e-07,
+            "scale": 0.9464134688592583,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.8109417648792814e-07,
+            "torch_err": 1.8237702881229723e-07,
+            "scale": 0.7235341631795761,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.877959075469171e-07,
+            "torch_err": 1.6808113922905932e-07,
+            "scale": 0.7291773376424875,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "holdout_7",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 7.640780108619794e-08,
+        "torch_err": 4.5896482891993884e-08,
+        "scale": 0.4500294688990508,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 7.640780108619794e-08,
+            "torch_err": 4.5896482891993884e-08,
+            "scale": 0.4500294688990508,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.701070505097604e-08,
+            "torch_err": 6.10742383888585e-08,
+            "scale": 0.4412809524537369,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.008679638234369e-08,
+            "torch_err": 4.742424408732404e-08,
+            "scale": 0.29974258047898095,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "holdout_8",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 5.651145074114794e-08,
+        "torch_err": 5.451867657324527e-08,
+        "scale": 0.4512781806968613,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.651145074114794e-08,
+            "torch_err": 5.451867657324527e-08,
+            "scale": 0.4512781806968613,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.6552124044474397e-08,
+            "torch_err": 4.9809425084479386e-08,
+            "scale": 0.5476101247733632,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.424747868103651e-08,
+            "torch_err": 6.524557299991685e-08,
+            "scale": 0.4377981069899159,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "holdout_9",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 3.835980846855769e-08,
+        "torch_err": 3.4111402029413096e-08,
+        "scale": 0.27308024323373525,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 3.835980846855769e-08,
+            "torch_err": 3.4111402029413096e-08,
+            "scale": 0.27308024323373525,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.079723143699752e-08,
+            "torch_err": 3.558144390236606e-08,
+            "scale": 0.34065313910584316,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.9576094772988384e-08,
+            "torch_err": 2.5737451697649405e-08,
+            "scale": 0.2151087335436478,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "holdout_10",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 2.3752396727250158e-07,
+        "torch_err": 2.710348263601503e-07,
+        "scale": 1.1362381407284272,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 2.3752396727250158e-07,
+            "torch_err": 2.710348263601503e-07,
+            "scale": 1.1362381407284272,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.1854341414904184e-07,
+            "torch_err": 4.676372346024138e-07,
+            "scale": 1.631704428704285,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.601674676862899e-07,
+            "torch_err": 4.404411777514383e-07,
+            "scale": 1.610545969283434,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "holdout_11",
+        "axis": "holdout",
+        "outcome": "accept",
+        "err": 5.4577347086137706e-08,
+        "torch_err": 6.401681174050822e-08,
+        "scale": 0.5187913686982885,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.4577347086137706e-08,
+            "torch_err": 6.401681174050822e-08,
+            "scale": 0.5187913686982885,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.365962349983654e-08,
+            "torch_err": 3.743770926600831e-08,
+            "scale": 0.4901315181837972,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.485032079060147e-08,
+            "torch_err": 3.7066739067004306e-08,
+            "scale": 0.297274818353618,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_0",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 1.9280997098913844e-07,
+        "torch_err": 1.149028259206375e-07,
+        "scale": 1.0057549916736044,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 1.9280997098913844e-07,
+            "torch_err": 1.149028259206375e-07,
+            "scale": 1.0057549916736044,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.0053294547128786e-07,
+            "torch_err": 1.3428080725130798e-07,
+            "scale": 0.6182874983440844,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.9190628097742746e-07,
+            "torch_err": 1.308110104680793e-07,
+            "scale": 0.5899203150150893,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_1",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 5.3717410519737996e-08,
+        "torch_err": 5.980865686039394e-08,
+        "scale": 0.4989621291730343,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.3717410519737996e-08,
+            "torch_err": 5.980865686039394e-08,
+            "scale": 0.4989621291730343,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.921621938296482e-08,
+            "torch_err": 3.8233416405075715e-08,
+            "scale": 0.438690148045487,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.31639993800259e-08,
+            "torch_err": 4.654559815353565e-08,
+            "scale": 0.29180802990566795,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_2",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 6.64320706778021e-08,
+        "torch_err": 8.13287649725769e-08,
+        "scale": 0.6007888498077875,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 6.64320706778021e-08,
+            "torch_err": 8.13287649725769e-08,
+            "scale": 0.6007888498077875,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 5.735462127454127e-08,
+            "torch_err": 4.556706023617352e-08,
+            "scale": 0.54110490420232,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 5.403389564950789e-08,
+            "torch_err": 5.658904234095985e-08,
+            "scale": 0.4283939407371549,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_3",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 3.214235411164168e-08,
+        "torch_err": 4.7043515305489336e-08,
+        "scale": 0.3013266561515948,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 3.214235411164168e-08,
+            "torch_err": 4.7043515305489336e-08,
+            "scale": 0.3013266561515948,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.136363091460481e-08,
+            "torch_err": 2.9177924215639806e-08,
+            "scale": 0.4409456763390173,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.820432948302809e-08,
+            "torch_err": 3.157475042536717e-08,
+            "scale": 0.3187962183222936,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_4",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 2.5422651564466214e-07,
+        "torch_err": 2.5581906193394843e-07,
+        "scale": 1.2712752769960862,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 2.5422651564466214e-07,
+            "torch_err": 2.5581906193394843e-07,
+            "scale": 1.2712752769960862,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.947091469809095e-07,
+            "torch_err": 5.013611290571873e-07,
+            "scale": 1.5715842766506454,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.6332036474083793e-07,
+            "torch_err": 4.6332036474083793e-07,
+            "scale": 1.5636430399305865,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_5",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 7.106937632839205e-08,
+        "torch_err": 5.596779351080272e-08,
+        "scale": 0.5151288084962737,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 7.106937632839205e-08,
+            "torch_err": 5.596779351080272e-08,
+            "scale": 0.5151288084962737,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.182327312252099e-08,
+            "torch_err": 4.4753616729176215e-08,
+            "scale": 0.40452590526278687,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.436621956454111e-08,
+            "torch_err": 4.6522054542030844e-08,
+            "scale": 0.34627220563835703,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_6",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 2.0307625125948192e-07,
+        "torch_err": 1.162810673305259e-07,
+        "scale": 0.9464134688592583,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 2.0307625125948192e-07,
+            "torch_err": 1.162810673305259e-07,
+            "scale": 0.9464134688592583,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.8109417648792814e-07,
+            "torch_err": 1.8237702881229723e-07,
+            "scale": 0.7235341631795761,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.877959075469171e-07,
+            "torch_err": 1.6808113922905932e-07,
+            "scale": 0.7291773376424875,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_7",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 7.640780108619794e-08,
+        "torch_err": 4.5896482891993884e-08,
+        "scale": 0.4500294688990508,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 7.640780108619794e-08,
+            "torch_err": 4.5896482891993884e-08,
+            "scale": 0.4500294688990508,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.701070505097604e-08,
+            "torch_err": 6.10742383888585e-08,
+            "scale": 0.4412809524537369,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.008679638234369e-08,
+            "torch_err": 4.742424408732404e-08,
+            "scale": 0.29974258047898095,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_8",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 5.651145074114794e-08,
+        "torch_err": 5.451867657324527e-08,
+        "scale": 0.4512781806968613,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.651145074114794e-08,
+            "torch_err": 5.451867657324527e-08,
+            "scale": 0.4512781806968613,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.6552124044474397e-08,
+            "torch_err": 4.9809425084479386e-08,
+            "scale": 0.5476101247733632,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.424747868103651e-08,
+            "torch_err": 6.524557299991685e-08,
+            "scale": 0.4377981069899159,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_9",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 3.835980846855769e-08,
+        "torch_err": 3.4111402029413096e-08,
+        "scale": 0.27308024323373525,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 3.835980846855769e-08,
+            "torch_err": 3.4111402029413096e-08,
+            "scale": 0.27308024323373525,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 2.079723143699752e-08,
+            "torch_err": 3.558144390236606e-08,
+            "scale": 0.34065313910584316,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.9576094772988384e-08,
+            "torch_err": 2.5737451697649405e-08,
+            "scale": 0.2151087335436478,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_10",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 2.3752396727250158e-07,
+        "torch_err": 2.710348263601503e-07,
+        "scale": 1.1362381407284272,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 2.3752396727250158e-07,
+            "torch_err": 2.710348263601503e-07,
+            "scale": 1.1362381407284272,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.1854341414904184e-07,
+            "torch_err": 4.676372346024138e-07,
+            "scale": 1.631704428704285,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.601674676862899e-07,
+            "torch_err": 4.404411777514383e-07,
+            "scale": 1.610545969283434,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      },
+      {
+        "name": "call2/holdout_11",
+        "axis": "workload",
+        "outcome": "accept",
+        "err": 5.4577347086137706e-08,
+        "torch_err": 6.401681174050822e-08,
+        "scale": 0.5187913686982885,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 5.4577347086137706e-08,
+            "torch_err": 6.401681174050822e-08,
+            "scale": 0.5187913686982885,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.365962349983654e-08,
+            "torch_err": 3.743770926600831e-08,
+            "scale": 0.4901315181837972,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 4.485032079060147e-08,
+            "torch_err": 3.7066739067004306e-08,
+            "scale": 0.297274818353618,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8
+      }
+    ]
+  }
+}

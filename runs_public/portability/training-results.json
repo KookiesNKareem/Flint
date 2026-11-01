@@ -1,0 +1,178 @@
+{
+  "reference_a": {
+    "samples": [
+      {
+        "iteration": 20,
+        "ms": 4.07
+      },
+      {
+        "iteration": 30,
+        "ms": 4.12
+      },
+      {
+        "iteration": 40,
+        "ms": 4.04
+      },
+      {
+        "iteration": 50,
+        "ms": 4.06
+      },
+      {
+        "iteration": 70,
+        "ms": 5.63
+      },
+      {
+        "iteration": 80,
+        "ms": 5.64
+      },
+      {
+        "iteration": 90,
+        "ms": 5.63
+      },
+      {
+        "iteration": 100,
+        "ms": 5.69
+      },
+      {
+        "iteration": 110,
+        "ms": 5.66
+      }
+    ],
+    "median_iteration_ms": 5.63,
+    "final_train_loss": 2.5159,
+    "final_validation_loss": 2.5286
+  },
+  "native_a": {
+    "samples": [
+      {
+        "iteration": 20,
+        "ms": 5.8
+      },
+      {
+        "iteration": 30,
+        "ms": 5.78
+      },
+      {
+        "iteration": 40,
+        "ms": 5.81
+      },
+      {
+        "iteration": 50,
+        "ms": 5.76
+      },
+      {
+        "iteration": 70,
+        "ms": 5.77
+      },
+      {
+        "iteration": 80,
+        "ms": 5.78
+      },
+      {
+        "iteration": 90,
+        "ms": 5.83
+      },
+      {
+        "iteration": 100,
+        "ms": 5.79
+      },
+      {
+        "iteration": 110,
+        "ms": 5.83
+      }
+    ],
+    "median_iteration_ms": 5.79,
+    "final_train_loss": 2.5156,
+    "final_validation_loss": 2.5286
+  },
+  "native_b": {
+    "samples": [
+      {
+        "iteration": 20,
+        "ms": 5.96
+      },
+      {
+        "iteration": 30,
+        "ms": 6.01
+      },
+      {
+        "iteration": 40,
+        "ms": 5.85
+      },
+      {
+        "iteration": 50,
+        "ms": 5.91
+      },
+      {
+        "iteration": 70,
+        "ms": 5.93
+      },
+      {
+        "iteration": 80,
+        "ms": 6.04
+      },
+      {
+        "iteration": 90,
+        "ms": 5.89
+      },
+      {
+        "iteration": 100,
+        "ms": 5.94
+      },
+      {
+        "iteration": 110,
+        "ms": 5.91
+      }
+    ],
+    "median_iteration_ms": 5.93,
+    "final_train_loss": 2.5156,
+    "final_validation_loss": 2.5285
+  },
+  "reference_b": {
+    "samples": [
+      {
+        "iteration": 20,
+        "ms": 5.68
+      },
+      {
+        "iteration": 30,
+        "ms": 5.76
+      },
+      {
+        "iteration": 40,
+        "ms": 5.64
+      },
+      {
+        "iteration": 50,
+        "ms": 5.68
+      },
+      {
+        "iteration": 70,
+        "ms": 5.67
+      },
+      {
+        "iteration": 80,
+        "ms": 5.64
+      },
+      {
+        "iteration": 90,
+        "ms": 5.66
+      },
+      {
+        "iteration": 100,
+        "ms": 5.73
+      },
+      {
+        "iteration": 110,
+        "ms": 5.66
+      }
+    ],
+    "median_iteration_ms": 5.67,
+    "final_train_loss": 2.5154,
+    "final_validation_loss": 2.5282
+  },
+  "reference_pooled_median_ms": 5.65,
+  "native_pooled_median_ms": 5.84,
+  "reference_over_native_speedup": 0.9674657534246576,
+  "method": "Upstream iteration wall-clock logs; ABBA process order; logged iterations 20..110 excluding evaluation iteration 60. Includes two accumulation steps, optimizer and data handling. Small model, short runs; not a statistically powered benchmark."
+}

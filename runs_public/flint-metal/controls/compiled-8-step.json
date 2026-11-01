@@ -1,0 +1,3849 @@
+{
+  "environment": {
+    "backend": "mps",
+    "driver": null,
+    "cache_version": 6,
+    "python": "3.11.9",
+    "torch": "2.8.0",
+    "triton": null,
+    "cuda": null,
+    "platform": "Darwin",
+    "gpu": [
+      {
+        "name": "Apple M4",
+        "backend": "metal",
+        "memory": 12713115648,
+        "macos": "27.0"
+      }
+    ]
+  },
+  "provenance": "hand-authored Metal integration fixture",
+  "model_calls": 0,
+  "job": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/cache/recurrence_d0943eccf4efc4327bd18d03_native_metal",
+  "command": [
+    "train.py",
+    "--steps",
+    "60"
+  ],
+  "checked": {
+    "state": "ready",
+    "kernel": "kernel.py",
+    "kernel_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+    "models_used": [],
+    "provenance": "hand-authored Metal integration fixture",
+    "usd": 0,
+    "fuzz_policy": "contract_fuzz_v2",
+    "gradient_policy": "reference_bounded_v1",
+    "coverage": {
+      "total": 28,
+      "accept": 28,
+      "wrong": 0,
+      "crash": 0,
+      "refuse": 0,
+      "skip": 0,
+      "unsupported": [],
+      "skipped": [],
+      "all_cases_passed": true
+    },
+    "holdout_passed": true,
+    "memory": {
+      "saved_activation_bytes": 4096,
+      "saved_storages": 1,
+      "sampled_extra_bytes": 10240,
+      "memory_measurement": {
+        "kind": "mps_sampled_allocated",
+        "exact": false,
+        "samples": 2,
+        "interval_seconds": 0.001
+      }
+    },
+    "reference_memory": {
+      "saved_activation_bytes": 4096,
+      "saved_storages": 8,
+      "sampled_extra_bytes": 10240,
+      "memory_measurement": {
+        "kind": "mps_sampled_allocated",
+        "exact": false,
+        "samples": 2,
+        "interval_seconds": 0.001
+      }
+    },
+    "compile_passed": true,
+    "native_checks": {
+      "passed": true,
+      "opcheck": {
+        "test_schema": "SUCCESS",
+        "test_faketensor": "SUCCESS",
+        "test_aot_dispatch_dynamic": "SUCCESS",
+        "test_autograd_registration": "unsupported by installed PyTorch for MPS; compiled gradient cases required"
+      },
+      "graph_count": 1,
+      "graph_break_count": 0,
+      "operators": [
+        "k_kernel.scan.default",
+        "<built-in function getitem>",
+        "<built-in function getitem>",
+        "<built-in function getitem>"
+      ],
+      "compiled_case": {
+        "outcome": "accept",
+        "err": 1.1065175675728511e-07,
+        "torch_err": 1.1472830274694701e-07,
+        "scale": 0.9514391950688159,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 1.1065175675728511e-07,
+            "torch_err": 1.1472830274694701e-07,
+            "scale": 0.9514391950688159,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 8.853708084732848e-08,
+            "torch_err": 1.0343824204117613e-07,
+            "scale": 0.9451122557345284,
+            "output_path": [
+              1
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.6553390103091203e-07,
+            "torch_err": 2.4771396744949215e-07,
+            "scale": 0.8183345734000868,
+            "output_path": [
+              2
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 3,
+        "gradient_policy": "reference_bounded_v1",
+        "gradient_checks": [
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": null,
+            "error": 4.886202702447662e-07,
+            "oracle_scale": 4.916091352632466,
+            "native_reference_error": 5.73454305818899e-07,
+            "limit": 0.09832182705264933,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": null,
+            "error": 3.072688314897931e-07,
+            "oracle_scale": 2.036547622105251,
+            "native_reference_error": 4.243183264751593e-07,
+            "limit": 0.04073095244210502,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": null,
+            "error": 4.768032995094984e-07,
+            "oracle_scale": 3.3922474383969274,
+            "native_reference_error": 5.791943984423398e-07,
+            "limit": 0.06784494876793855,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": [
+              0
+            ],
+            "error": 5.61607873539316e-07,
+            "oracle_scale": 4.764973823278708,
+            "native_reference_error": 6.596739714481714e-07,
+            "limit": 0.09529947646557416,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": [
+              0
+            ],
+            "error": 3.8403895286087675e-07,
+            "oracle_scale": 1.88860292591011,
+            "native_reference_error": 3.8403895286087675e-07,
+            "limit": 0.0377720585182022,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": [
+              0
+            ],
+            "error": 2.8958089037800505e-07,
+            "oracle_scale": 3.008261571983601,
+            "native_reference_error": 3.682177318609092e-07,
+            "limit": 0.06016523143967202,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": [
+              1
+            ],
+            "error": 2.2182739212173175e-07,
+            "oracle_scale": 1.886257915336859,
+            "native_reference_error": 2.2182739212173175e-07,
+            "limit": 0.03772515830673718,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": [
+              1
+            ],
+            "error": 4.960120003616453e-08,
+            "oracle_scale": 0.295518497695324,
+            "native_reference_error": 9.423035160494031e-08,
+            "limit": 0.00591036995390648,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": [
+              1
+            ],
+            "error": 1.28429674450814e-07,
+            "oracle_scale": 0.8069961167696847,
+            "native_reference_error": 8.812493562659895e-08,
+            "limit": 0.016139922335393696,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": [
+              2
+            ],
+            "error": 6.375065053632056e-08,
+            "oracle_scale": 0.4164691665990083,
+            "native_reference_error": 9.355297292401588e-08,
+            "limit": 0.008329383331980167,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": [
+              2
+            ],
+            "error": 4.504005596261962e-08,
+            "oracle_scale": 0.26488931510727093,
+            "native_reference_error": 7.484237835031493e-08,
+            "limit": 0.005297786302145419,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": [
+              2
+            ],
+            "error": 2.8893874626234606e-07,
+            "oracle_scale": 1.4640633373014782,
+            "native_reference_error": 3.799763681477941e-07,
+            "limit": 0.029281266746029565,
+            "used_reference_bound": false
+          }
+        ]
+      },
+      "captured_grad_mask": true,
+      "partial_gradient_checks": [
+        {
+          "input": 0,
+          "used_reference_bound": false
+        },
+        {
+          "input": 1,
+          "used_reference_bound": false
+        },
+        {
+          "input": 2,
+          "used_reference_bound": false
+        }
+      ],
+      "fullgraph": true,
+      "backend": "mps",
+      "compiler": "inductor",
+      "autocast": [
+        {
+          "dtype": "torch.bfloat16",
+          "gradient_checks": [
+            {
+              "input": 0,
+              "used_reference_bound": false
+            },
+            {
+              "input": 1,
+              "used_reference_bound": false
+            },
+            {
+              "input": 2,
+              "used_reference_bound": false
+            }
+          ]
+        },
+        {
+          "dtype": "torch.float16",
+          "gradient_checks": [
+            {
+              "input": 0,
+              "used_reference_bound": false
+            },
+            {
+              "input": 1,
+              "used_reference_bound": false
+            },
+            {
+              "input": 2,
+              "used_reference_bound": false
+            }
+          ]
+        }
+      ],
+      "additional_signatures": []
+    }
+  },
+  "qualification": {
+    "performance_policy": {
+      "max_memory_growth": 0.0
+    },
+    "require_unit_gain": true,
+    "qualification_seconds": 19.23142608278431,
+    "scope": "full_command",
+    "rehearsal_steps": null,
+    "preparation_seconds": 5.298524209065363,
+    "preparation": {
+      "reference": {
+        "success": true,
+        "seconds": 2.6989673339994624,
+        "rehearsal": {
+          "requested_steps": 0,
+          "completed_steps": 0,
+          "complete": true
+        },
+        "work_units": {
+          "kind": "training",
+          "seconds": [
+            0.0038259170250967145,
+            0.0023934158962219954,
+            0.0019948340486735106,
+            0.003530957968905568,
+            0.001760208047926426,
+            0.0021209169644862413,
+            0.0013828329974785447,
+            0.0026156670646741986,
+            0.0014378329506143928,
+            0.0013169590383768082,
+            0.0012283329851925373,
+            0.0012825420126318932,
+            0.002911540912464261,
+            0.0013548750430345535,
+            0.0012766249710693955,
+            0.0011950000189244747,
+            0.001167417038232088,
+            0.0011681249598041177,
+            0.003124042064882815,
+            0.0013509580167010427,
+            0.001184707973152399,
+            0.00133200001437217,
+            0.0011834169272333384,
+            0.0027408329769968987,
+            0.0013430840335786343,
+            0.0012697080383077264,
+            0.0012309999438002706,
+            0.0013372499961405993,
+            0.002680625068023801,
+            0.0014495420036837459,
+            0.00142541597597301,
+            0.0011960419360548258,
+            0.001233292045071721,
+            0.0030416660010814667,
+            0.001317166956141591,
+            0.001325500081293285,
+            0.0012797500239685178,
+            0.0011926669394597411,
+            0.0011541660642251372,
+            0.002525874995626509,
+            0.001301499898545444,
+            0.0012597920140251517,
+            0.0012125420616939664,
+            0.0011584999738261104,
+            0.002787749981507659,
+            0.0013371249660849571,
+            0.0012266660341992974,
+            0.001191499992273748,
+            0.0012560420436784625,
+            0.0011778749758377671,
+            0.003183000022545457,
+            0.00123104196973145,
+            0.0012179580517113209,
+            0.0013018749887123704,
+            0.001177332946099341,
+            0.0025069169932976365,
+            0.0012305000564083457
+          ],
+          "median_seconds": 0.0013169590383768082,
+          "synchronized": true,
+          "discarded_initial_units": 3
+        },
+        "exit_code": 0,
+        "peak_allocated_bytes": 44032,
+        "memory_measurement": {
+          "kind": "mps_sampled_allocated",
+          "exact": false,
+          "samples": 496,
+          "interval_seconds": 0.001
+        },
+        "artifacts": {},
+        "log": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/.flint/prepare-reference.log",
+        "dispatch": [
+          {
+            "state": "ready",
+            "kernel": "kernel.py",
+            "kernel_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+            "models_used": [],
+            "provenance": "hand-authored Metal integration fixture",
+            "usd": 0,
+            "fuzz_policy": "contract_fuzz_v2",
+            "gradient_policy": "reference_bounded_v1",
+            "coverage": {
+              "total": 28,
+              "accept": 28,
+              "wrong": 0,
+              "crash": 0,
+              "refuse": 0,
+              "skip": 0,
+              "unsupported": [],
+              "skipped": [],
+              "all_cases_passed": true
+            },
+            "holdout_passed": true,
+            "memory": {
+              "saved_activation_bytes": 4096,
+              "saved_storages": 1,
+              "sampled_extra_bytes": 10240,
+              "memory_measurement": {
+                "kind": "mps_sampled_allocated",
+                "exact": false,
+                "samples": 2,
+                "interval_seconds": 0.001
+              }
+            },
+            "reference_memory": {
+              "saved_activation_bytes": 4096,
+              "saved_storages": 8,
+              "sampled_extra_bytes": 10240,
+              "memory_measurement": {
+                "kind": "mps_sampled_allocated",
+                "exact": false,
+                "samples": 2,
+                "interval_seconds": 0.001
+              }
+            },
+            "compile_passed": true,
+            "native_checks": {
+              "passed": true,
+              "opcheck": {
+                "test_schema": "SUCCESS",
+                "test_faketensor": "SUCCESS",
+                "test_aot_dispatch_dynamic": "SUCCESS",
+                "test_autograd_registration": "unsupported by installed PyTorch for MPS; compiled gradient cases required"
+              },
+              "graph_count": 1,
+              "graph_break_count": 0,
+              "operators": [
+                "k_kernel.scan.default",
+                "<built-in function getitem>",
+                "<built-in function getitem>",
+                "<built-in function getitem>"
+              ],
+              "compiled_case": {
+                "outcome": "accept",
+                "err": 1.1065175675728511e-07,
+                "torch_err": 1.1472830274694701e-07,
+                "scale": 0.9514391950688159,
+                "output_path": [
+                  0
+                ],
+                "truth_dtype": "torch.float64",
+                "outputs_checked": 3,
+                "output_checks": [
+                  {
+                    "outcome": "accept",
+                    "err": 1.1065175675728511e-07,
+                    "torch_err": 1.1472830274694701e-07,
+                    "scale": 0.9514391950688159,
+                    "output_path": [
+                      0
+                    ],
+                    "truth_dtype": "torch.float64"
+                  },
+                  {
+                    "outcome": "accept",
+                    "err": 8.853708084732848e-08,
+                    "torch_err": 1.0343824204117613e-07,
+                    "scale": 0.9451122557345284,
+                    "output_path": [
+                      1
+                    ],
+                    "truth_dtype": "torch.float64"
+                  },
+                  {
+                    "outcome": "accept",
+                    "err": 1.6553390103091203e-07,
+                    "torch_err": 2.4771396744949215e-07,
+                    "scale": 0.8183345734000868,
+                    "output_path": [
+                      2
+                    ],
+                    "truth_dtype": "torch.float64"
+                  }
+                ],
+                "gradient_objectives": 4,
+                "grad_inputs_checked": 3,
+                "gradient_policy": "reference_bounded_v1",
+                "gradient_checks": [
+                  {
+                    "input": [
+                      "args",
+                      0
+                    ],
+                    "objective": null,
+                    "error": 4.886202702447662e-07,
+                    "oracle_scale": 4.916091352632466,
+                    "native_reference_error": 5.73454305818899e-07,
+                    "limit": 0.09832182705264933,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      1
+                    ],
+                    "objective": null,
+                    "error": 3.072688314897931e-07,
+                    "oracle_scale": 2.036547622105251,
+                    "native_reference_error": 4.243183264751593e-07,
+                    "limit": 0.04073095244210502,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      2
+                    ],
+                    "objective": null,
+                    "error": 4.768032995094984e-07,
+                    "oracle_scale": 3.3922474383969274,
+                    "native_reference_error": 5.791943984423398e-07,
+                    "limit": 0.06784494876793855,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      0
+                    ],
+                    "objective": [
+                      0
+                    ],
+                    "error": 5.61607873539316e-07,
+                    "oracle_scale": 4.764973823278708,
+                    "native_reference_error": 6.596739714481714e-07,
+                    "limit": 0.09529947646557416,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      1
+                    ],
+                    "objective": [
+                      0
+                    ],
+                    "error": 3.8403895286087675e-07,
+                    "oracle_scale": 1.88860292591011,
+                    "native_reference_error": 3.8403895286087675e-07,
+                    "limit": 0.0377720585182022,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      2
+                    ],
+                    "objective": [
+                      0
+                    ],
+                    "error": 2.8958089037800505e-07,
+                    "oracle_scale": 3.008261571983601,
+                    "native_reference_error": 3.682177318609092e-07,
+                    "limit": 0.06016523143967202,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      0
+                    ],
+                    "objective": [
+                      1
+                    ],
+                    "error": 2.2182739212173175e-07,
+                    "oracle_scale": 1.886257915336859,
+                    "native_reference_error": 2.2182739212173175e-07,
+                    "limit": 0.03772515830673718,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      1
+                    ],
+                    "objective": [
+                      1
+                    ],
+                    "error": 4.960120003616453e-08,
+                    "oracle_scale": 0.295518497695324,
+                    "native_reference_error": 9.423035160494031e-08,
+                    "limit": 0.00591036995390648,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      2
+                    ],
+                    "objective": [
+                      1
+                    ],
+                    "error": 1.28429674450814e-07,
+                    "oracle_scale": 0.8069961167696847,
+                    "native_reference_error": 8.812493562659895e-08,
+                    "limit": 0.016139922335393696,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      0
+                    ],
+                    "objective": [
+                      2
+                    ],
+                    "error": 6.375065053632056e-08,
+                    "oracle_scale": 0.4164691665990083,
+                    "native_reference_error": 9.355297292401588e-08,
+                    "limit": 0.008329383331980167,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      1
+                    ],
+                    "objective": [
+                      2
+                    ],
+                    "error": 4.504005596261962e-08,
+                    "oracle_scale": 0.26488931510727093,
+                    "native_reference_error": 7.484237835031493e-08,
+                    "limit": 0.005297786302145419,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      2
+                    ],
+                    "objective": [
+                      2
+                    ],
+                    "error": 2.8893874626234606e-07,
+                    "oracle_scale": 1.4640633373014782,
+                    "native_reference_error": 3.799763681477941e-07,
+                    "limit": 0.029281266746029565,
+                    "used_reference_bound": false
+                  }
+                ]
+              },
+              "captured_grad_mask": true,
+              "partial_gradient_checks": [
+                {
+                  "input": 0,
+                  "used_reference_bound": false
+                },
+                {
+                  "input": 1,
+                  "used_reference_bound": false
+                },
+                {
+                  "input": 2,
+                  "used_reference_bound": false
+                }
+              ],
+              "fullgraph": true,
+              "backend": "mps",
+              "compiler": "inductor",
+              "autocast": [
+                {
+                  "dtype": "torch.bfloat16",
+                  "gradient_checks": [
+                    {
+                      "input": 0,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": 1,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": 2,
+                      "used_reference_bound": false
+                    }
+                  ]
+                },
+                {
+                  "dtype": "torch.float16",
+                  "gradient_checks": [
+                    {
+                      "input": 0,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": 1,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": 2,
+                      "used_reference_bound": false
+                    }
+                  ]
+                }
+              ],
+              "additional_signatures": []
+            },
+            "loaded_sha256": null,
+            "artifact_state": "ready",
+            "activation_reason": null,
+            "performance_qualified": false,
+            "mode": "reference",
+            "calls": {},
+            "name": "recurrence",
+            "job": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/cache/recurrence_d0943eccf4efc4327bd18d03_native_metal"
+          }
+        ],
+        "failure_tail": null
+      },
+      "benchmark": {
+        "success": true,
+        "seconds": 2.5995568750659004,
+        "rehearsal": {
+          "requested_steps": 0,
+          "completed_steps": 0,
+          "complete": true
+        },
+        "work_units": {
+          "kind": "training",
+          "seconds": [
+            0.0020283330231904984,
+            0.0034699169918894768,
+            0.0026675829431042075,
+            0.0018041670555248857,
+            0.0036779158981516957,
+            0.00215150008443743,
+            0.0019636249635368586,
+            0.0014000000664964318,
+            0.0029611249919980764,
+            0.0014820839278399944,
+            0.0012900830479338765,
+            0.0012272919993847609,
+            0.002984207938425243,
+            0.0014664999907836318,
+            0.0016911670099943876,
+            0.001612916006706655,
+            0.0013526250841096044,
+            0.0029264589538797736,
+            0.0014830409782007337,
+            0.0012247919803485274,
+            0.0013307080371305346,
+            0.0012160839978605509,
+            0.002600374980829656,
+            0.0012884580064564943,
+            0.0014145830646157265,
+            0.0013266669120639563,
+            0.0012737499782815576,
+            0.0012617080938071012,
+            0.0023271249374374747,
+            0.0014453340554609895,
+            0.0012783330166712403,
+            0.0013483749935403466,
+            0.0011862079845741391,
+            0.0024999999441206455,
+            0.0013284999877214432,
+            0.0014815840404480696,
+            0.0012732079485431314,
+            0.0012227080296725035,
+            0.001198749989271164,
+            0.0022905420046299696,
+            0.0013613749761134386,
+            0.0012598750181496143,
+            0.0012199170887470245,
+            0.0012927079806104302,
+            0.0025987079134210944,
+            0.0014264170313253999,
+            0.001306000049225986,
+            0.00122170802205801,
+            0.0012172089191153646,
+            0.0015982909826561809,
+            0.0028113340958952904,
+            0.0016267499886453152,
+            0.001241958001628518,
+            0.0012516669230535626,
+            0.0011899160454049706,
+            0.0024442500434815884,
+            0.001474166987463832
+          ],
+          "median_seconds": 0.0014145830646157265,
+          "synchronized": true,
+          "discarded_initial_units": 3
+        },
+        "exit_code": 0,
+        "peak_allocated_bytes": 54784,
+        "memory_measurement": {
+          "kind": "mps_sampled_allocated",
+          "exact": false,
+          "samples": 460,
+          "interval_seconds": 0.001
+        },
+        "artifacts": {
+          "recurrence_d0943eccf4efc4327bd18d03_native_metal": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f"
+        },
+        "log": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/.flint/prepare-benchmark.log",
+        "dispatch": [
+          {
+            "state": "ready",
+            "kernel": "kernel.py",
+            "kernel_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+            "models_used": [],
+            "provenance": "hand-authored Metal integration fixture",
+            "usd": 0,
+            "fuzz_policy": "contract_fuzz_v2",
+            "gradient_policy": "reference_bounded_v1",
+            "coverage": {
+              "total": 28,
+              "accept": 28,
+              "wrong": 0,
+              "crash": 0,
+              "refuse": 0,
+              "skip": 0,
+              "unsupported": [],
+              "skipped": [],
+              "all_cases_passed": true
+            },
+            "holdout_passed": true,
+            "memory": {
+              "saved_activation_bytes": 4096,
+              "saved_storages": 1,
+              "sampled_extra_bytes": 10240,
+              "memory_measurement": {
+                "kind": "mps_sampled_allocated",
+                "exact": false,
+                "samples": 2,
+                "interval_seconds": 0.001
+              }
+            },
+            "reference_memory": {
+              "saved_activation_bytes": 4096,
+              "saved_storages": 8,
+              "sampled_extra_bytes": 10240,
+              "memory_measurement": {
+                "kind": "mps_sampled_allocated",
+                "exact": false,
+                "samples": 2,
+                "interval_seconds": 0.001
+              }
+            },
+            "compile_passed": true,
+            "native_checks": {
+              "passed": true,
+              "opcheck": {
+                "test_schema": "SUCCESS",
+                "test_faketensor": "SUCCESS",
+                "test_aot_dispatch_dynamic": "SUCCESS",
+                "test_autograd_registration": "unsupported by installed PyTorch for MPS; compiled gradient cases required"
+              },
+              "graph_count": 1,
+              "graph_break_count": 0,
+              "operators": [
+                "k_kernel.scan.default",
+                "<built-in function getitem>",
+                "<built-in function getitem>",
+                "<built-in function getitem>"
+              ],
+              "compiled_case": {
+                "outcome": "accept",
+                "err": 1.1065175675728511e-07,
+                "torch_err": 1.1472830274694701e-07,
+                "scale": 0.9514391950688159,
+                "output_path": [
+                  0
+                ],
+                "truth_dtype": "torch.float64",
+                "outputs_checked": 3,
+                "output_checks": [
+                  {
+                    "outcome": "accept",
+                    "err": 1.1065175675728511e-07,
+                    "torch_err": 1.1472830274694701e-07,
+                    "scale": 0.9514391950688159,
+                    "output_path": [
+                      0
+                    ],
+                    "truth_dtype": "torch.float64"
+                  },
+                  {
+                    "outcome": "accept",
+                    "err": 8.853708084732848e-08,
+                    "torch_err": 1.0343824204117613e-07,
+                    "scale": 0.9451122557345284,
+                    "output_path": [
+                      1
+                    ],
+                    "truth_dtype": "torch.float64"
+                  },
+                  {
+                    "outcome": "accept",
+                    "err": 1.6553390103091203e-07,
+                    "torch_err": 2.4771396744949215e-07,
+                    "scale": 0.8183345734000868,
+                    "output_path": [
+                      2
+                    ],
+                    "truth_dtype": "torch.float64"
+                  }
+                ],
+                "gradient_objectives": 4,
+                "grad_inputs_checked": 3,
+                "gradient_policy": "reference_bounded_v1",
+                "gradient_checks": [
+                  {
+                    "input": [
+                      "args",
+                      0
+                    ],
+                    "objective": null,
+                    "error": 4.886202702447662e-07,
+                    "oracle_scale": 4.916091352632466,
+                    "native_reference_error": 5.73454305818899e-07,
+                    "limit": 0.09832182705264933,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      1
+                    ],
+                    "objective": null,
+                    "error": 3.072688314897931e-07,
+                    "oracle_scale": 2.036547622105251,
+                    "native_reference_error": 4.243183264751593e-07,
+                    "limit": 0.04073095244210502,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      2
+                    ],
+                    "objective": null,
+                    "error": 4.768032995094984e-07,
+                    "oracle_scale": 3.3922474383969274,
+                    "native_reference_error": 5.791943984423398e-07,
+                    "limit": 0.06784494876793855,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      0
+                    ],
+                    "objective": [
+                      0
+                    ],
+                    "error": 5.61607873539316e-07,
+                    "oracle_scale": 4.764973823278708,
+                    "native_reference_error": 6.596739714481714e-07,
+                    "limit": 0.09529947646557416,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      1
+                    ],
+                    "objective": [
+                      0
+                    ],
+                    "error": 3.8403895286087675e-07,
+                    "oracle_scale": 1.88860292591011,
+                    "native_reference_error": 3.8403895286087675e-07,
+                    "limit": 0.0377720585182022,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      2
+                    ],
+                    "objective": [
+                      0
+                    ],
+                    "error": 2.8958089037800505e-07,
+                    "oracle_scale": 3.008261571983601,
+                    "native_reference_error": 3.682177318609092e-07,
+                    "limit": 0.06016523143967202,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      0
+                    ],
+                    "objective": [
+                      1
+                    ],
+                    "error": 2.2182739212173175e-07,
+                    "oracle_scale": 1.886257915336859,
+                    "native_reference_error": 2.2182739212173175e-07,
+                    "limit": 0.03772515830673718,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      1
+                    ],
+                    "objective": [
+                      1
+                    ],
+                    "error": 4.960120003616453e-08,
+                    "oracle_scale": 0.295518497695324,
+                    "native_reference_error": 9.423035160494031e-08,
+                    "limit": 0.00591036995390648,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      2
+                    ],
+                    "objective": [
+                      1
+                    ],
+                    "error": 1.28429674450814e-07,
+                    "oracle_scale": 0.8069961167696847,
+                    "native_reference_error": 8.812493562659895e-08,
+                    "limit": 0.016139922335393696,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      0
+                    ],
+                    "objective": [
+                      2
+                    ],
+                    "error": 6.375065053632056e-08,
+                    "oracle_scale": 0.4164691665990083,
+                    "native_reference_error": 9.355297292401588e-08,
+                    "limit": 0.008329383331980167,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      1
+                    ],
+                    "objective": [
+                      2
+                    ],
+                    "error": 4.504005596261962e-08,
+                    "oracle_scale": 0.26488931510727093,
+                    "native_reference_error": 7.484237835031493e-08,
+                    "limit": 0.005297786302145419,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": [
+                      "args",
+                      2
+                    ],
+                    "objective": [
+                      2
+                    ],
+                    "error": 2.8893874626234606e-07,
+                    "oracle_scale": 1.4640633373014782,
+                    "native_reference_error": 3.799763681477941e-07,
+                    "limit": 0.029281266746029565,
+                    "used_reference_bound": false
+                  }
+                ]
+              },
+              "captured_grad_mask": true,
+              "partial_gradient_checks": [
+                {
+                  "input": 0,
+                  "used_reference_bound": false
+                },
+                {
+                  "input": 1,
+                  "used_reference_bound": false
+                },
+                {
+                  "input": 2,
+                  "used_reference_bound": false
+                }
+              ],
+              "fullgraph": true,
+              "backend": "mps",
+              "compiler": "inductor",
+              "autocast": [
+                {
+                  "dtype": "torch.bfloat16",
+                  "gradient_checks": [
+                    {
+                      "input": 0,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": 1,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": 2,
+                      "used_reference_bound": false
+                    }
+                  ]
+                },
+                {
+                  "dtype": "torch.float16",
+                  "gradient_checks": [
+                    {
+                      "input": 0,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": 1,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": 2,
+                      "used_reference_bound": false
+                    }
+                  ]
+                }
+              ],
+              "additional_signatures": []
+            },
+            "loaded_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+            "artifact_state": "ready",
+            "activation_reason": null,
+            "performance_qualified": false,
+            "mode": "benchmark",
+            "calls": {
+              "compiled kernel graphs": 1
+            },
+            "name": "recurrence",
+            "job": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/cache/recurrence_d0943eccf4efc4327bd18d03_native_metal"
+          }
+        ],
+        "failure_tail": null
+      }
+    },
+    "cache_policy": "one_complete_command_per_mode_before_fixed_pairs_v1",
+    "qualification_break_even_runs": 2058,
+    "break_even_note": "Includes both preparation commands and measured pairs; excludes capture, model generation and earlier setup. Admission covers prepared compiler caches, not a future cold-cache run.",
+    "schema": 4,
+    "accepted": false,
+    "reason": "steady-state work-unit improvement is absent or inconclusive",
+    "minimum_gain": 0.05,
+    "workload": {
+      "runtime_version": "0.10.0",
+      "runtime_code": {
+        "__init__.py": "08e71461055e56e8ef51a563fb3b48747cc94208fa697c72d9246a99802ef0c3",
+        "approval.py": "6c8369ce04601334994f2f04b18f7984dab8d79c5da5bb08b20b38a25857f840",
+        "build.py": "ebdb4e511a7286460b5c58b6ba2c221dd494b98d7addaeea3e13eb290940071f",
+        "cli.py": "3d0da0a329334d9375fd5014e2d00b87c77eade225460cc84bdffb62c15df390",
+        "compilation.py": "04983120d570ca08ac40ed528fc92cde6eb1004d71ffc6a971bdf540c0b5aae6",
+        "config.py": "e6fabe348993ab44518a7fe0532e615d3a85e22dc53b9c7f257b4dcdc80a9ce1",
+        "deadline.py": "074ef48226e85b03a6a59d5d019da91c3d199c0d7f91b051b114fbb35b5e617e",
+        "device.py": "9d98b0625b2964499a344d2939d730956ff0766cc981fd915c56d67a4b3bc6e1",
+        "discovery.py": "ca618c63b0c8e4c06e15042e11a3e22110f360ba5e6d6dcb4cd12088e898d75b",
+        "identity.py": "db096ccbd61cf5f2f7cc93e8e98a206bb77ab4e7dce0a7697a2ba1ebf0f761bd",
+        "infer.py": "94555c571dcb2124b741a1376f4b43bc0374deb377d386982589d40bcb430dee",
+        "launch.py": "1897ad065f986b7a6e15e072638bdd7f1c5ac61ffa132fb7006dd80620ea4758",
+        "leases.py": "25dfcb1f7ad43f0664acdf8faf2af1a1b5df11ddfd186ace58cadd74ede54ea3",
+        "live.py": "f195a49ebd93fb7a4fa1819860c65c96119d9c77ff2c8ecb869e7bec795fe091",
+        "memory.py": "97a3bd64f8e27a7153f37db9cce46eed37206366d36bf9c576a8ce446a4742b0",
+        "methods.py": "090a3df79bc2030f728672e6dcedd257922a855b8413219ff5086a288f21b6cb",
+        "native_check.py": "f5014b4310493fbd7a89fb405c667001c59ef7442ecd77a4a7b44b0d71c81c01",
+        "observation.py": "21c30416cbfe7b002770028414cd102aaa3bc9c2c584e65b6efcec980fa07ebf",
+        "optimization.py": "67d71ab1b791aef9a4f8b61083795880d3599caff1e50ab3d7bed91dcc8d6ede",
+        "optimize_worker.py": "4349fdb884b6c1423511be0277575baa2131ee9a8a84edd25d52339489fee268",
+        "qualification.py": "b394897324e29b16d9cfd2e0eefb1bc2d92a328f5447e48155d31766aa938b40",
+        "recovery.py": "76149f7abf7680e0aeb6db0bb417c7180cc7d302a0d25a7ec0af191b4e958b5e",
+        "rehearsal.py": "5ace439e854e0faf081d5b7ce8a6f38ab0e0f6e1915a889fd282f2b9692bb93d",
+        "remote_eval.py": "d7c12c56ed905262f23cbdd5eb33bd6bf9d6e34aee0c0082d33f32cc4d5a95e5",
+        "remote_run.py": "15fc02c45d8428f05e862562968b7179c05f939eb8c900c530c2cbc24b3a76ba",
+        "repair.py": "6fe50e2ceec2183d3593e36cc3ec8d22b4f5cf50fb3326d52aa372ba6cbe3376",
+        "revalidate.py": "5053ecc0bbe4d63a0d972cfe7bd65bbfc30607d35bef64e1fc214c42c5b88e37",
+        "setup.py": "759aa50db91730b3a2a9808ff20089a13b03a19ab68be3d51300cb2ab136fb3b",
+        "suggestions.py": "b2adb508e1c7f6e6018800704076b5b5740d89eb217f6bf7102bc120632de47f",
+        "terminal.py": "fcc88b027d3f69f91f7ee3b8228206b3aa929da67b81209d06ce823dd9c42c5f",
+        "units.py": "9385cfae3199c64bd645e1350154d9fbe10ec658fa5a99fab1b4e8cacec6db53",
+        "workflow.py": "a896a3357527c52fd74c12dcc18c76f48c6e97a5be56f93268c6ca33e6dff38a"
+      },
+      "root": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project",
+      "command": [
+        "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/train.py",
+        "--steps",
+        "60"
+      ],
+      "source_files": [
+        "pyproject.toml",
+        "recurrence.py",
+        "train.py"
+      ],
+      "files": {
+        "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/pyproject.toml": "834ff2dd2e038fdf8e7953b850fc8a4b2e5d1b9e99c9ec1b647f788b78f4ff21",
+        "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/recurrence.py": "c6b883eb4e521e11cde92fbf9dc5a26dd1974805f05fb1c14d2fc00aaea42f2d",
+        "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/train.py": "ee9637b2d62801c5c2813c8fed6772b439f3bd81b7df2edde75a6142aef8a542"
+      },
+      "environment": {
+        "CUDA_MODULE_LOADING": "LAZY"
+      }
+    },
+    "environment": {
+      "backend": "mps",
+      "driver": null,
+      "cache_version": 6,
+      "python": "3.11.9",
+      "torch": "2.8.0",
+      "triton": null,
+      "cuda": null,
+      "platform": "Darwin",
+      "gpu": [
+        {
+          "name": "Apple M4",
+          "backend": "metal",
+          "memory": 12713115648,
+          "macos": "27.0"
+        }
+      ]
+    },
+    "pairs": [
+      {
+        "reference": {
+          "success": true,
+          "seconds": 2.3873982079094276,
+          "rehearsal": {
+            "requested_steps": 0,
+            "completed_steps": 0,
+            "complete": true
+          },
+          "work_units": {
+            "kind": "training",
+            "seconds": [
+              0.002185333985835314,
+              0.00364125007763505,
+              0.002453249995596707,
+              0.002256833016872406,
+              0.0038785419892519712,
+              0.0022723329020664096,
+              0.0019415420247241855,
+              0.0028542079962790012,
+              0.0016460419865325093,
+              0.0014722500927746296,
+              0.0012639999622479081,
+              0.0012670829892158508,
+              0.0013368750223889947,
+              0.0033187499502673745,
+              0.0013188329758122563,
+              0.0012580840848386288,
+              0.0011894579511135817,
+              0.0028036250732839108,
+              0.0013457079185172915,
+              0.0012586669763550162,
+              0.0012113749980926514,
+              0.001309167011640966,
+              0.0012268749997019768,
+              0.0029367910465225577,
+              0.0013478749897331,
+              0.0012237089686095715,
+              0.0012666659895330667,
+              0.0011931670596823096,
+              0.002469541970640421,
+              0.00124224997125566,
+              0.0013112080050632358,
+              0.0014000000664964318,
+              0.0012747079599648714,
+              0.0011840419610962272,
+              0.0025069171097129583,
+              0.001267499988898635,
+              0.0013338749995455146,
+              0.0011861659586429596,
+              0.0012986250221729279,
+              0.002612459007650614,
+              0.0013788329670205712,
+              0.0014072080375626683,
+              0.001222624909132719,
+              0.0011569170746952295,
+              0.0016375830164179206,
+              0.0028234169585630298,
+              0.0014202080201357603,
+              0.001336999936029315,
+              0.0012706250417977571,
+              0.0017429169965907931,
+              0.0033527080668136477,
+              0.0012831249041482806,
+              0.0011423340765759349,
+              0.0012028329074382782,
+              0.002827208023518324,
+              0.0012627500109374523,
+              0.0011892920592799783
+            ],
+            "median_seconds": 0.0013368750223889947,
+            "synchronized": true,
+            "discarded_initial_units": 3
+          },
+          "exit_code": 0,
+          "peak_allocated_bytes": 48128,
+          "memory_measurement": {
+            "kind": "mps_sampled_allocated",
+            "exact": false,
+            "samples": 411,
+            "interval_seconds": 0.001
+          },
+          "artifacts": {},
+          "log": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/.flint/0-reference.log",
+          "dispatch": [
+            {
+              "state": "ready",
+              "kernel": "kernel.py",
+              "kernel_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+              "models_used": [],
+              "provenance": "hand-authored Metal integration fixture",
+              "usd": 0,
+              "fuzz_policy": "contract_fuzz_v2",
+              "gradient_policy": "reference_bounded_v1",
+              "coverage": {
+                "total": 28,
+                "accept": 28,
+                "wrong": 0,
+                "crash": 0,
+                "refuse": 0,
+                "skip": 0,
+                "unsupported": [],
+                "skipped": [],
+                "all_cases_passed": true
+              },
+              "holdout_passed": true,
+              "memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 1,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "reference_memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 8,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "compile_passed": true,
+              "native_checks": {
+                "passed": true,
+                "opcheck": {
+                  "test_schema": "SUCCESS",
+                  "test_faketensor": "SUCCESS",
+                  "test_aot_dispatch_dynamic": "SUCCESS",
+                  "test_autograd_registration": "unsupported by installed PyTorch for MPS; compiled gradient cases required"
+                },
+                "graph_count": 1,
+                "graph_break_count": 0,
+                "operators": [
+                  "k_kernel.scan.default",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>"
+                ],
+                "compiled_case": {
+                  "outcome": "accept",
+                  "err": 1.1065175675728511e-07,
+                  "torch_err": 1.1472830274694701e-07,
+                  "scale": 0.9514391950688159,
+                  "output_path": [
+                    0
+                  ],
+                  "truth_dtype": "torch.float64",
+                  "outputs_checked": 3,
+                  "output_checks": [
+                    {
+                      "outcome": "accept",
+                      "err": 1.1065175675728511e-07,
+                      "torch_err": 1.1472830274694701e-07,
+                      "scale": 0.9514391950688159,
+                      "output_path": [
+                        0
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 8.853708084732848e-08,
+                      "torch_err": 1.0343824204117613e-07,
+                      "scale": 0.9451122557345284,
+                      "output_path": [
+                        1
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 1.6553390103091203e-07,
+                      "torch_err": 2.4771396744949215e-07,
+                      "scale": 0.8183345734000868,
+                      "output_path": [
+                        2
+                      ],
+                      "truth_dtype": "torch.float64"
+                    }
+                  ],
+                  "gradient_objectives": 4,
+                  "grad_inputs_checked": 3,
+                  "gradient_policy": "reference_bounded_v1",
+                  "gradient_checks": [
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": null,
+                      "error": 4.886202702447662e-07,
+                      "oracle_scale": 4.916091352632466,
+                      "native_reference_error": 5.73454305818899e-07,
+                      "limit": 0.09832182705264933,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": null,
+                      "error": 3.072688314897931e-07,
+                      "oracle_scale": 2.036547622105251,
+                      "native_reference_error": 4.243183264751593e-07,
+                      "limit": 0.04073095244210502,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": null,
+                      "error": 4.768032995094984e-07,
+                      "oracle_scale": 3.3922474383969274,
+                      "native_reference_error": 5.791943984423398e-07,
+                      "limit": 0.06784494876793855,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 5.61607873539316e-07,
+                      "oracle_scale": 4.764973823278708,
+                      "native_reference_error": 6.596739714481714e-07,
+                      "limit": 0.09529947646557416,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 3.8403895286087675e-07,
+                      "oracle_scale": 1.88860292591011,
+                      "native_reference_error": 3.8403895286087675e-07,
+                      "limit": 0.0377720585182022,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 2.8958089037800505e-07,
+                      "oracle_scale": 3.008261571983601,
+                      "native_reference_error": 3.682177318609092e-07,
+                      "limit": 0.06016523143967202,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 2.2182739212173175e-07,
+                      "oracle_scale": 1.886257915336859,
+                      "native_reference_error": 2.2182739212173175e-07,
+                      "limit": 0.03772515830673718,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 4.960120003616453e-08,
+                      "oracle_scale": 0.295518497695324,
+                      "native_reference_error": 9.423035160494031e-08,
+                      "limit": 0.00591036995390648,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 1.28429674450814e-07,
+                      "oracle_scale": 0.8069961167696847,
+                      "native_reference_error": 8.812493562659895e-08,
+                      "limit": 0.016139922335393696,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 6.375065053632056e-08,
+                      "oracle_scale": 0.4164691665990083,
+                      "native_reference_error": 9.355297292401588e-08,
+                      "limit": 0.008329383331980167,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 4.504005596261962e-08,
+                      "oracle_scale": 0.26488931510727093,
+                      "native_reference_error": 7.484237835031493e-08,
+                      "limit": 0.005297786302145419,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 2.8893874626234606e-07,
+                      "oracle_scale": 1.4640633373014782,
+                      "native_reference_error": 3.799763681477941e-07,
+                      "limit": 0.029281266746029565,
+                      "used_reference_bound": false
+                    }
+                  ]
+                },
+                "captured_grad_mask": true,
+                "partial_gradient_checks": [
+                  {
+                    "input": 0,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 1,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 2,
+                    "used_reference_bound": false
+                  }
+                ],
+                "fullgraph": true,
+                "backend": "mps",
+                "compiler": "inductor",
+                "autocast": [
+                  {
+                    "dtype": "torch.bfloat16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  },
+                  {
+                    "dtype": "torch.float16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  }
+                ],
+                "additional_signatures": []
+              },
+              "loaded_sha256": null,
+              "artifact_state": "ready",
+              "activation_reason": null,
+              "performance_qualified": false,
+              "mode": "reference",
+              "calls": {},
+              "name": "recurrence",
+              "job": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/cache/recurrence_d0943eccf4efc4327bd18d03_native_metal"
+            }
+          ],
+          "failure_tail": null
+        },
+        "benchmark": {
+          "success": true,
+          "seconds": 2.319555666996166,
+          "rehearsal": {
+            "requested_steps": 0,
+            "completed_steps": 0,
+            "complete": true
+          },
+          "work_units": {
+            "kind": "training",
+            "seconds": [
+              0.0024773330660536885,
+              0.001849208027124405,
+              0.0036636670120060444,
+              0.002335374942049384,
+              0.002132417052052915,
+              0.003290458000265062,
+              0.0017934999195858836,
+              0.0016938330372795463,
+              0.001299791969358921,
+              0.0013808750081807375,
+              0.003457167069427669,
+              0.0014443330001085997,
+              0.0016704169102013111,
+              0.001997916027903557,
+              0.0025951670249924064,
+              0.0013022079365327954,
+              0.0013050000416114926,
+              0.0012800419935956597,
+              0.0012752499897032976,
+              0.0035454999888315797,
+              0.0013697079848498106,
+              0.0012177500175312161,
+              0.001266416977159679,
+              0.002771250088699162,
+              0.001565749989822507,
+              0.0012550830142572522,
+              0.001214709016494453,
+              0.0011822909582406282,
+              0.0011735840234905481,
+              0.0032941249664872885,
+              0.0016650829929858446,
+              0.0014116669772192836,
+              0.001468457980081439,
+              0.0014290420804172754,
+              0.0029741249745711684,
+              0.0012782500125467777,
+              0.0013170000165700912,
+              0.0013878749450668693,
+              0.002712541026994586,
+              0.0013495419407263398,
+              0.0013322921004146338,
+              0.0012385000009089708,
+              0.0012596659362316132,
+              0.0014067500596866012,
+              0.0028500419575721025,
+              0.0012876249384135008,
+              0.0012310000602155924,
+              0.001305583049543202,
+              0.001522249891422689,
+              0.002913125092163682,
+              0.0013930839486420155,
+              0.0012493330286815763,
+              0.001234708004631102,
+              0.0012324589770287275,
+              0.002491457969881594,
+              0.0017066249856725335,
+              0.0013804580084979534
+            ],
+            "median_seconds": 0.0014067500596866012,
+            "synchronized": true,
+            "discarded_initial_units": 3
+          },
+          "exit_code": 0,
+          "peak_allocated_bytes": 48128,
+          "memory_measurement": {
+            "kind": "mps_sampled_allocated",
+            "exact": false,
+            "samples": 420,
+            "interval_seconds": 0.001
+          },
+          "artifacts": {
+            "recurrence_d0943eccf4efc4327bd18d03_native_metal": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f"
+          },
+          "log": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/.flint/0-benchmark.log",
+          "dispatch": [
+            {
+              "state": "ready",
+              "kernel": "kernel.py",
+              "kernel_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+              "models_used": [],
+              "provenance": "hand-authored Metal integration fixture",
+              "usd": 0,
+              "fuzz_policy": "contract_fuzz_v2",
+              "gradient_policy": "reference_bounded_v1",
+              "coverage": {
+                "total": 28,
+                "accept": 28,
+                "wrong": 0,
+                "crash": 0,
+                "refuse": 0,
+                "skip": 0,
+                "unsupported": [],
+                "skipped": [],
+                "all_cases_passed": true
+              },
+              "holdout_passed": true,
+              "memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 1,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "reference_memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 8,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "compile_passed": true,
+              "native_checks": {
+                "passed": true,
+                "opcheck": {
+                  "test_schema": "SUCCESS",
+                  "test_faketensor": "SUCCESS",
+                  "test_aot_dispatch_dynamic": "SUCCESS",
+                  "test_autograd_registration": "unsupported by installed PyTorch for MPS; compiled gradient cases required"
+                },
+                "graph_count": 1,
+                "graph_break_count": 0,
+                "operators": [
+                  "k_kernel.scan.default",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>"
+                ],
+                "compiled_case": {
+                  "outcome": "accept",
+                  "err": 1.1065175675728511e-07,
+                  "torch_err": 1.1472830274694701e-07,
+                  "scale": 0.9514391950688159,
+                  "output_path": [
+                    0
+                  ],
+                  "truth_dtype": "torch.float64",
+                  "outputs_checked": 3,
+                  "output_checks": [
+                    {
+                      "outcome": "accept",
+                      "err": 1.1065175675728511e-07,
+                      "torch_err": 1.1472830274694701e-07,
+                      "scale": 0.9514391950688159,
+                      "output_path": [
+                        0
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 8.853708084732848e-08,
+                      "torch_err": 1.0343824204117613e-07,
+                      "scale": 0.9451122557345284,
+                      "output_path": [
+                        1
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 1.6553390103091203e-07,
+                      "torch_err": 2.4771396744949215e-07,
+                      "scale": 0.8183345734000868,
+                      "output_path": [
+                        2
+                      ],
+                      "truth_dtype": "torch.float64"
+                    }
+                  ],
+                  "gradient_objectives": 4,
+                  "grad_inputs_checked": 3,
+                  "gradient_policy": "reference_bounded_v1",
+                  "gradient_checks": [
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": null,
+                      "error": 4.886202702447662e-07,
+                      "oracle_scale": 4.916091352632466,
+                      "native_reference_error": 5.73454305818899e-07,
+                      "limit": 0.09832182705264933,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": null,
+                      "error": 3.072688314897931e-07,
+                      "oracle_scale": 2.036547622105251,
+                      "native_reference_error": 4.243183264751593e-07,
+                      "limit": 0.04073095244210502,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": null,
+                      "error": 4.768032995094984e-07,
+                      "oracle_scale": 3.3922474383969274,
+                      "native_reference_error": 5.791943984423398e-07,
+                      "limit": 0.06784494876793855,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 5.61607873539316e-07,
+                      "oracle_scale": 4.764973823278708,
+                      "native_reference_error": 6.596739714481714e-07,
+                      "limit": 0.09529947646557416,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 3.8403895286087675e-07,
+                      "oracle_scale": 1.88860292591011,
+                      "native_reference_error": 3.8403895286087675e-07,
+                      "limit": 0.0377720585182022,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 2.8958089037800505e-07,
+                      "oracle_scale": 3.008261571983601,
+                      "native_reference_error": 3.682177318609092e-07,
+                      "limit": 0.06016523143967202,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 2.2182739212173175e-07,
+                      "oracle_scale": 1.886257915336859,
+                      "native_reference_error": 2.2182739212173175e-07,
+                      "limit": 0.03772515830673718,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 4.960120003616453e-08,
+                      "oracle_scale": 0.295518497695324,
+                      "native_reference_error": 9.423035160494031e-08,
+                      "limit": 0.00591036995390648,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 1.28429674450814e-07,
+                      "oracle_scale": 0.8069961167696847,
+                      "native_reference_error": 8.812493562659895e-08,
+                      "limit": 0.016139922335393696,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 6.375065053632056e-08,
+                      "oracle_scale": 0.4164691665990083,
+                      "native_reference_error": 9.355297292401588e-08,
+                      "limit": 0.008329383331980167,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 4.504005596261962e-08,
+                      "oracle_scale": 0.26488931510727093,
+                      "native_reference_error": 7.484237835031493e-08,
+                      "limit": 0.005297786302145419,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 2.8893874626234606e-07,
+                      "oracle_scale": 1.4640633373014782,
+                      "native_reference_error": 3.799763681477941e-07,
+                      "limit": 0.029281266746029565,
+                      "used_reference_bound": false
+                    }
+                  ]
+                },
+                "captured_grad_mask": true,
+                "partial_gradient_checks": [
+                  {
+                    "input": 0,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 1,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 2,
+                    "used_reference_bound": false
+                  }
+                ],
+                "fullgraph": true,
+                "backend": "mps",
+                "compiler": "inductor",
+                "autocast": [
+                  {
+                    "dtype": "torch.bfloat16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  },
+                  {
+                    "dtype": "torch.float16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  }
+                ],
+                "additional_signatures": []
+              },
+              "loaded_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+              "artifact_state": "ready",
+              "activation_reason": null,
+              "performance_qualified": false,
+              "mode": "benchmark",
+              "calls": {
+                "compiled kernel graphs": 1
+              },
+              "name": "recurrence",
+              "job": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/cache/recurrence_d0943eccf4efc4327bd18d03_native_metal"
+            }
+          ],
+          "failure_tail": null
+        }
+      },
+      {
+        "benchmark": {
+          "success": true,
+          "seconds": 2.317270249943249,
+          "rehearsal": {
+            "requested_steps": 0,
+            "completed_steps": 0,
+            "complete": true
+          },
+          "work_units": {
+            "kind": "training",
+            "seconds": [
+              0.0036813749466091394,
+              0.0024425830924883485,
+              0.001998624997213483,
+              0.0033485000021755695,
+              0.0020338749745860696,
+              0.0019972919253632426,
+              0.0015712920576334,
+              0.0025469580432400107,
+              0.002190207946114242,
+              0.0014024169649928808,
+              0.001592333079315722,
+              0.0012257089838385582,
+              0.0024625830119475722,
+              0.0015069579239934683,
+              0.0013495420571416616,
+              0.0013052920112386346,
+              0.0013033750001341105,
+              0.003133582998998463,
+              0.0013827920192852616,
+              0.0012984999921172857,
+              0.0013064160011708736,
+              0.0012205420061945915,
+              0.003220207989215851,
+              0.0014042089460417628,
+              0.001333374995738268,
+              0.0012381250271573663,
+              0.0012137079611420631,
+              0.0025693330680951476,
+              0.0013414999702945352,
+              0.0012952920515090227,
+              0.001577666960656643,
+              0.0013057499891147017,
+              0.0028142910450696945,
+              0.0014939999673515558,
+              0.0012837499380111694,
+              0.0014267500955611467,
+              0.0012328749289736152,
+              0.0026035000337287784,
+              0.0014298339374363422,
+              0.0012935830745846033,
+              0.0014305419754236937,
+              0.001362500013783574,
+              0.0025719580007717013,
+              0.0013499170308932662,
+              0.0013401249889284372,
+              0.001267625018954277,
+              0.001242582919076085,
+              0.001216250006109476,
+              0.0024997079744935036,
+              0.0014314590953290462,
+              0.0013161659007892013,
+              0.0014092921046540141,
+              0.001192582887597382,
+              0.0026326250517740846,
+              0.00141054205596447,
+              0.0013187499716877937,
+              0.0011887080036103725
+            ],
+            "median_seconds": 0.0014042089460417628,
+            "synchronized": true,
+            "discarded_initial_units": 3
+          },
+          "exit_code": 0,
+          "peak_allocated_bytes": 54784,
+          "memory_measurement": {
+            "kind": "mps_sampled_allocated",
+            "exact": false,
+            "samples": 411,
+            "interval_seconds": 0.001
+          },
+          "artifacts": {
+            "recurrence_d0943eccf4efc4327bd18d03_native_metal": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f"
+          },
+          "log": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/.flint/1-benchmark.log",
+          "dispatch": [
+            {
+              "state": "ready",
+              "kernel": "kernel.py",
+              "kernel_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+              "models_used": [],
+              "provenance": "hand-authored Metal integration fixture",
+              "usd": 0,
+              "fuzz_policy": "contract_fuzz_v2",
+              "gradient_policy": "reference_bounded_v1",
+              "coverage": {
+                "total": 28,
+                "accept": 28,
+                "wrong": 0,
+                "crash": 0,
+                "refuse": 0,
+                "skip": 0,
+                "unsupported": [],
+                "skipped": [],
+                "all_cases_passed": true
+              },
+              "holdout_passed": true,
+              "memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 1,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "reference_memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 8,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "compile_passed": true,
+              "native_checks": {
+                "passed": true,
+                "opcheck": {
+                  "test_schema": "SUCCESS",
+                  "test_faketensor": "SUCCESS",
+                  "test_aot_dispatch_dynamic": "SUCCESS",
+                  "test_autograd_registration": "unsupported by installed PyTorch for MPS; compiled gradient cases required"
+                },
+                "graph_count": 1,
+                "graph_break_count": 0,
+                "operators": [
+                  "k_kernel.scan.default",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>"
+                ],
+                "compiled_case": {
+                  "outcome": "accept",
+                  "err": 1.1065175675728511e-07,
+                  "torch_err": 1.1472830274694701e-07,
+                  "scale": 0.9514391950688159,
+                  "output_path": [
+                    0
+                  ],
+                  "truth_dtype": "torch.float64",
+                  "outputs_checked": 3,
+                  "output_checks": [
+                    {
+                      "outcome": "accept",
+                      "err": 1.1065175675728511e-07,
+                      "torch_err": 1.1472830274694701e-07,
+                      "scale": 0.9514391950688159,
+                      "output_path": [
+                        0
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 8.853708084732848e-08,
+                      "torch_err": 1.0343824204117613e-07,
+                      "scale": 0.9451122557345284,
+                      "output_path": [
+                        1
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 1.6553390103091203e-07,
+                      "torch_err": 2.4771396744949215e-07,
+                      "scale": 0.8183345734000868,
+                      "output_path": [
+                        2
+                      ],
+                      "truth_dtype": "torch.float64"
+                    }
+                  ],
+                  "gradient_objectives": 4,
+                  "grad_inputs_checked": 3,
+                  "gradient_policy": "reference_bounded_v1",
+                  "gradient_checks": [
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": null,
+                      "error": 4.886202702447662e-07,
+                      "oracle_scale": 4.916091352632466,
+                      "native_reference_error": 5.73454305818899e-07,
+                      "limit": 0.09832182705264933,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": null,
+                      "error": 3.072688314897931e-07,
+                      "oracle_scale": 2.036547622105251,
+                      "native_reference_error": 4.243183264751593e-07,
+                      "limit": 0.04073095244210502,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": null,
+                      "error": 4.768032995094984e-07,
+                      "oracle_scale": 3.3922474383969274,
+                      "native_reference_error": 5.791943984423398e-07,
+                      "limit": 0.06784494876793855,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 5.61607873539316e-07,
+                      "oracle_scale": 4.764973823278708,
+                      "native_reference_error": 6.596739714481714e-07,
+                      "limit": 0.09529947646557416,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 3.8403895286087675e-07,
+                      "oracle_scale": 1.88860292591011,
+                      "native_reference_error": 3.8403895286087675e-07,
+                      "limit": 0.0377720585182022,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 2.8958089037800505e-07,
+                      "oracle_scale": 3.008261571983601,
+                      "native_reference_error": 3.682177318609092e-07,
+                      "limit": 0.06016523143967202,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 2.2182739212173175e-07,
+                      "oracle_scale": 1.886257915336859,
+                      "native_reference_error": 2.2182739212173175e-07,
+                      "limit": 0.03772515830673718,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 4.960120003616453e-08,
+                      "oracle_scale": 0.295518497695324,
+                      "native_reference_error": 9.423035160494031e-08,
+                      "limit": 0.00591036995390648,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 1.28429674450814e-07,
+                      "oracle_scale": 0.8069961167696847,
+                      "native_reference_error": 8.812493562659895e-08,
+                      "limit": 0.016139922335393696,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 6.375065053632056e-08,
+                      "oracle_scale": 0.4164691665990083,
+                      "native_reference_error": 9.355297292401588e-08,
+                      "limit": 0.008329383331980167,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 4.504005596261962e-08,
+                      "oracle_scale": 0.26488931510727093,
+                      "native_reference_error": 7.484237835031493e-08,
+                      "limit": 0.005297786302145419,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 2.8893874626234606e-07,
+                      "oracle_scale": 1.4640633373014782,
+                      "native_reference_error": 3.799763681477941e-07,
+                      "limit": 0.029281266746029565,
+                      "used_reference_bound": false
+                    }
+                  ]
+                },
+                "captured_grad_mask": true,
+                "partial_gradient_checks": [
+                  {
+                    "input": 0,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 1,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 2,
+                    "used_reference_bound": false
+                  }
+                ],
+                "fullgraph": true,
+                "backend": "mps",
+                "compiler": "inductor",
+                "autocast": [
+                  {
+                    "dtype": "torch.bfloat16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  },
+                  {
+                    "dtype": "torch.float16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  }
+                ],
+                "additional_signatures": []
+              },
+              "loaded_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+              "artifact_state": "ready",
+              "activation_reason": null,
+              "performance_qualified": false,
+              "mode": "benchmark",
+              "calls": {
+                "compiled kernel graphs": 1
+              },
+              "name": "recurrence",
+              "job": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/cache/recurrence_d0943eccf4efc4327bd18d03_native_metal"
+            }
+          ],
+          "failure_tail": null
+        },
+        "reference": {
+          "success": true,
+          "seconds": 2.3232571249827743,
+          "rehearsal": {
+            "requested_steps": 0,
+            "completed_steps": 0,
+            "complete": true
+          },
+          "work_units": {
+            "kind": "training",
+            "seconds": [
+              0.00233729206956923,
+              0.0018407918978482485,
+              0.003332916065119207,
+              0.0022171669406816363,
+              0.0021382500417530537,
+              0.0013442080235108733,
+              0.0022204170236364007,
+              0.0013310419162735343,
+              0.0012351250043138862,
+              0.0011931660119444132,
+              0.0013483340153470635,
+              0.0012814579531550407,
+              0.0032889170106500387,
+              0.0012711250456050038,
+              0.0012405000161379576,
+              0.0012369159376248717,
+              0.0012249170104041696,
+              0.0031324580777436495,
+              0.001297249924391508,
+              0.0012984999921172857,
+              0.0011750840349122882,
+              0.0011578330304473639,
+              0.0027884169248864055,
+              0.002260458073578775,
+              0.001416624989360571,
+              0.0012071250239387155,
+              0.0029762079939246178,
+              0.0013574999757111073,
+              0.001379749970510602,
+              0.0011342919897288084,
+              0.0012543749762699008,
+              0.0019329170463606715,
+              0.0027076660189777613,
+              0.0016989170107990503,
+              0.0014675830025225878,
+              0.0012997499434277415,
+              0.0029378749895840883,
+              0.0014946670271456242,
+              0.0012720830272883177,
+              0.0013539999490603805,
+              0.0012592499842867255,
+              0.002587459050118923,
+              0.0012870000209659338,
+              0.0013169159647077322,
+              0.0012187090469524264,
+              0.0012308330042287707,
+              0.0029572920175269246,
+              0.0012685830006375909,
+              0.0012435829266905785,
+              0.0012442499864846468,
+              0.0012312090257182717,
+              0.0012417910620570183,
+              0.0032475419575348496,
+              0.0012344169663265347,
+              0.0012691660085693002,
+              0.0012842919677495956,
+              0.0011876249918714166
+            ],
+            "median_seconds": 0.0012997499434277415,
+            "synchronized": true,
+            "discarded_initial_units": 3
+          },
+          "exit_code": 0,
+          "peak_allocated_bytes": 50176,
+          "memory_measurement": {
+            "kind": "mps_sampled_allocated",
+            "exact": false,
+            "samples": 414,
+            "interval_seconds": 0.001
+          },
+          "artifacts": {},
+          "log": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/.flint/1-reference.log",
+          "dispatch": [
+            {
+              "state": "ready",
+              "kernel": "kernel.py",
+              "kernel_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+              "models_used": [],
+              "provenance": "hand-authored Metal integration fixture",
+              "usd": 0,
+              "fuzz_policy": "contract_fuzz_v2",
+              "gradient_policy": "reference_bounded_v1",
+              "coverage": {
+                "total": 28,
+                "accept": 28,
+                "wrong": 0,
+                "crash": 0,
+                "refuse": 0,
+                "skip": 0,
+                "unsupported": [],
+                "skipped": [],
+                "all_cases_passed": true
+              },
+              "holdout_passed": true,
+              "memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 1,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "reference_memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 8,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "compile_passed": true,
+              "native_checks": {
+                "passed": true,
+                "opcheck": {
+                  "test_schema": "SUCCESS",
+                  "test_faketensor": "SUCCESS",
+                  "test_aot_dispatch_dynamic": "SUCCESS",
+                  "test_autograd_registration": "unsupported by installed PyTorch for MPS; compiled gradient cases required"
+                },
+                "graph_count": 1,
+                "graph_break_count": 0,
+                "operators": [
+                  "k_kernel.scan.default",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>"
+                ],
+                "compiled_case": {
+                  "outcome": "accept",
+                  "err": 1.1065175675728511e-07,
+                  "torch_err": 1.1472830274694701e-07,
+                  "scale": 0.9514391950688159,
+                  "output_path": [
+                    0
+                  ],
+                  "truth_dtype": "torch.float64",
+                  "outputs_checked": 3,
+                  "output_checks": [
+                    {
+                      "outcome": "accept",
+                      "err": 1.1065175675728511e-07,
+                      "torch_err": 1.1472830274694701e-07,
+                      "scale": 0.9514391950688159,
+                      "output_path": [
+                        0
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 8.853708084732848e-08,
+                      "torch_err": 1.0343824204117613e-07,
+                      "scale": 0.9451122557345284,
+                      "output_path": [
+                        1
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 1.6553390103091203e-07,
+                      "torch_err": 2.4771396744949215e-07,
+                      "scale": 0.8183345734000868,
+                      "output_path": [
+                        2
+                      ],
+                      "truth_dtype": "torch.float64"
+                    }
+                  ],
+                  "gradient_objectives": 4,
+                  "grad_inputs_checked": 3,
+                  "gradient_policy": "reference_bounded_v1",
+                  "gradient_checks": [
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": null,
+                      "error": 4.886202702447662e-07,
+                      "oracle_scale": 4.916091352632466,
+                      "native_reference_error": 5.73454305818899e-07,
+                      "limit": 0.09832182705264933,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": null,
+                      "error": 3.072688314897931e-07,
+                      "oracle_scale": 2.036547622105251,
+                      "native_reference_error": 4.243183264751593e-07,
+                      "limit": 0.04073095244210502,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": null,
+                      "error": 4.768032995094984e-07,
+                      "oracle_scale": 3.3922474383969274,
+                      "native_reference_error": 5.791943984423398e-07,
+                      "limit": 0.06784494876793855,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 5.61607873539316e-07,
+                      "oracle_scale": 4.764973823278708,
+                      "native_reference_error": 6.596739714481714e-07,
+                      "limit": 0.09529947646557416,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 3.8403895286087675e-07,
+                      "oracle_scale": 1.88860292591011,
+                      "native_reference_error": 3.8403895286087675e-07,
+                      "limit": 0.0377720585182022,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 2.8958089037800505e-07,
+                      "oracle_scale": 3.008261571983601,
+                      "native_reference_error": 3.682177318609092e-07,
+                      "limit": 0.06016523143967202,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 2.2182739212173175e-07,
+                      "oracle_scale": 1.886257915336859,
+                      "native_reference_error": 2.2182739212173175e-07,
+                      "limit": 0.03772515830673718,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 4.960120003616453e-08,
+                      "oracle_scale": 0.295518497695324,
+                      "native_reference_error": 9.423035160494031e-08,
+                      "limit": 0.00591036995390648,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 1.28429674450814e-07,
+                      "oracle_scale": 0.8069961167696847,
+                      "native_reference_error": 8.812493562659895e-08,
+                      "limit": 0.016139922335393696,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 6.375065053632056e-08,
+                      "oracle_scale": 0.4164691665990083,
+                      "native_reference_error": 9.355297292401588e-08,
+                      "limit": 0.008329383331980167,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 4.504005596261962e-08,
+                      "oracle_scale": 0.26488931510727093,
+                      "native_reference_error": 7.484237835031493e-08,
+                      "limit": 0.005297786302145419,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 2.8893874626234606e-07,
+                      "oracle_scale": 1.4640633373014782,
+                      "native_reference_error": 3.799763681477941e-07,
+                      "limit": 0.029281266746029565,
+                      "used_reference_bound": false
+                    }
+                  ]
+                },
+                "captured_grad_mask": true,
+                "partial_gradient_checks": [
+                  {
+                    "input": 0,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 1,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 2,
+                    "used_reference_bound": false
+                  }
+                ],
+                "fullgraph": true,
+                "backend": "mps",
+                "compiler": "inductor",
+                "autocast": [
+                  {
+                    "dtype": "torch.bfloat16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  },
+                  {
+                    "dtype": "torch.float16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  }
+                ],
+                "additional_signatures": []
+              },
+              "loaded_sha256": null,
+              "artifact_state": "ready",
+              "activation_reason": null,
+              "performance_qualified": false,
+              "mode": "reference",
+              "calls": {},
+              "name": "recurrence",
+              "job": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/cache/recurrence_d0943eccf4efc4327bd18d03_native_metal"
+            }
+          ],
+          "failure_tail": null
+        }
+      },
+      {
+        "reference": {
+          "success": true,
+          "seconds": 2.3266160408966243,
+          "rehearsal": {
+            "requested_steps": 0,
+            "completed_steps": 0,
+            "complete": true
+          },
+          "work_units": {
+            "kind": "training",
+            "seconds": [
+              0.00461041706148535,
+              0.002304999972693622,
+              0.003462166991084814,
+              0.0019906250527128577,
+              0.002276625018566847,
+              0.001527707907371223,
+              0.0033686250681057572,
+              0.0022787919733673334,
+              0.0016097909538075328,
+              0.0016162920510396361,
+              0.002919499995186925,
+              0.0014824169920757413,
+              0.0013774579856544733,
+              0.0012186249950900674,
+              0.0012993750860914588,
+              0.0022499999031424522,
+              0.0017200830625370145,
+              0.001358833978883922,
+              0.0012597909662872553,
+              0.0012148750247433782,
+              0.0026483749970793724,
+              0.0013945000246167183,
+              0.0012442499864846468,
+              0.0011858339421451092,
+              0.0013953330926597118,
+              0.002597042010165751,
+              0.0013286659959703684,
+              0.001424583955667913,
+              0.0012659999774768949,
+              0.0012033750535920262,
+              0.0011912910267710686,
+              0.0024806249421089888,
+              0.001428541960194707,
+              0.0011863750405609608,
+              0.0012397499522194266,
+              0.001228167093358934,
+              0.00268504093401134,
+              0.0013492089929059148,
+              0.0014708749949932098,
+              0.001512250048108399,
+              0.0013249160256236792,
+              0.0012351669138297439,
+              0.0035037080524489284,
+              0.001622334006242454,
+              0.001250582979992032,
+              0.0012457079719752073,
+              0.0027020840207114816,
+              0.0012707500718533993,
+              0.0016072499565780163,
+              0.001253040973097086,
+              0.0012367500457912683,
+              0.0028133339947089553,
+              0.0014703749911859632,
+              0.001253125024959445,
+              0.001187874935567379,
+              0.0013287910260260105,
+              0.002570625045336783
+            ],
+            "median_seconds": 0.001424583955667913,
+            "synchronized": true,
+            "discarded_initial_units": 3
+          },
+          "exit_code": 0,
+          "peak_allocated_bytes": 37888,
+          "memory_measurement": {
+            "kind": "mps_sampled_allocated",
+            "exact": false,
+            "samples": 411,
+            "interval_seconds": 0.001
+          },
+          "artifacts": {},
+          "log": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/.flint/2-reference.log",
+          "dispatch": [
+            {
+              "state": "ready",
+              "kernel": "kernel.py",
+              "kernel_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+              "models_used": [],
+              "provenance": "hand-authored Metal integration fixture",
+              "usd": 0,
+              "fuzz_policy": "contract_fuzz_v2",
+              "gradient_policy": "reference_bounded_v1",
+              "coverage": {
+                "total": 28,
+                "accept": 28,
+                "wrong": 0,
+                "crash": 0,
+                "refuse": 0,
+                "skip": 0,
+                "unsupported": [],
+                "skipped": [],
+                "all_cases_passed": true
+              },
+              "holdout_passed": true,
+              "memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 1,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "reference_memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 8,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "compile_passed": true,
+              "native_checks": {
+                "passed": true,
+                "opcheck": {
+                  "test_schema": "SUCCESS",
+                  "test_faketensor": "SUCCESS",
+                  "test_aot_dispatch_dynamic": "SUCCESS",
+                  "test_autograd_registration": "unsupported by installed PyTorch for MPS; compiled gradient cases required"
+                },
+                "graph_count": 1,
+                "graph_break_count": 0,
+                "operators": [
+                  "k_kernel.scan.default",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>"
+                ],
+                "compiled_case": {
+                  "outcome": "accept",
+                  "err": 1.1065175675728511e-07,
+                  "torch_err": 1.1472830274694701e-07,
+                  "scale": 0.9514391950688159,
+                  "output_path": [
+                    0
+                  ],
+                  "truth_dtype": "torch.float64",
+                  "outputs_checked": 3,
+                  "output_checks": [
+                    {
+                      "outcome": "accept",
+                      "err": 1.1065175675728511e-07,
+                      "torch_err": 1.1472830274694701e-07,
+                      "scale": 0.9514391950688159,
+                      "output_path": [
+                        0
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 8.853708084732848e-08,
+                      "torch_err": 1.0343824204117613e-07,
+                      "scale": 0.9451122557345284,
+                      "output_path": [
+                        1
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 1.6553390103091203e-07,
+                      "torch_err": 2.4771396744949215e-07,
+                      "scale": 0.8183345734000868,
+                      "output_path": [
+                        2
+                      ],
+                      "truth_dtype": "torch.float64"
+                    }
+                  ],
+                  "gradient_objectives": 4,
+                  "grad_inputs_checked": 3,
+                  "gradient_policy": "reference_bounded_v1",
+                  "gradient_checks": [
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": null,
+                      "error": 4.886202702447662e-07,
+                      "oracle_scale": 4.916091352632466,
+                      "native_reference_error": 5.73454305818899e-07,
+                      "limit": 0.09832182705264933,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": null,
+                      "error": 3.072688314897931e-07,
+                      "oracle_scale": 2.036547622105251,
+                      "native_reference_error": 4.243183264751593e-07,
+                      "limit": 0.04073095244210502,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": null,
+                      "error": 4.768032995094984e-07,
+                      "oracle_scale": 3.3922474383969274,
+                      "native_reference_error": 5.791943984423398e-07,
+                      "limit": 0.06784494876793855,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 5.61607873539316e-07,
+                      "oracle_scale": 4.764973823278708,
+                      "native_reference_error": 6.596739714481714e-07,
+                      "limit": 0.09529947646557416,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 3.8403895286087675e-07,
+                      "oracle_scale": 1.88860292591011,
+                      "native_reference_error": 3.8403895286087675e-07,
+                      "limit": 0.0377720585182022,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 2.8958089037800505e-07,
+                      "oracle_scale": 3.008261571983601,
+                      "native_reference_error": 3.682177318609092e-07,
+                      "limit": 0.06016523143967202,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 2.2182739212173175e-07,
+                      "oracle_scale": 1.886257915336859,
+                      "native_reference_error": 2.2182739212173175e-07,
+                      "limit": 0.03772515830673718,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 4.960120003616453e-08,
+                      "oracle_scale": 0.295518497695324,
+                      "native_reference_error": 9.423035160494031e-08,
+                      "limit": 0.00591036995390648,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 1.28429674450814e-07,
+                      "oracle_scale": 0.8069961167696847,
+                      "native_reference_error": 8.812493562659895e-08,
+                      "limit": 0.016139922335393696,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 6.375065053632056e-08,
+                      "oracle_scale": 0.4164691665990083,
+                      "native_reference_error": 9.355297292401588e-08,
+                      "limit": 0.008329383331980167,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 4.504005596261962e-08,
+                      "oracle_scale": 0.26488931510727093,
+                      "native_reference_error": 7.484237835031493e-08,
+                      "limit": 0.005297786302145419,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 2.8893874626234606e-07,
+                      "oracle_scale": 1.4640633373014782,
+                      "native_reference_error": 3.799763681477941e-07,
+                      "limit": 0.029281266746029565,
+                      "used_reference_bound": false
+                    }
+                  ]
+                },
+                "captured_grad_mask": true,
+                "partial_gradient_checks": [
+                  {
+                    "input": 0,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 1,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 2,
+                    "used_reference_bound": false
+                  }
+                ],
+                "fullgraph": true,
+                "backend": "mps",
+                "compiler": "inductor",
+                "autocast": [
+                  {
+                    "dtype": "torch.bfloat16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  },
+                  {
+                    "dtype": "torch.float16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  }
+                ],
+                "additional_signatures": []
+              },
+              "loaded_sha256": null,
+              "artifact_state": "ready",
+              "activation_reason": null,
+              "performance_qualified": false,
+              "mode": "reference",
+              "calls": {},
+              "name": "recurrence",
+              "job": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/cache/recurrence_d0943eccf4efc4327bd18d03_native_metal"
+            }
+          ],
+          "failure_tail": null
+        },
+        "benchmark": {
+          "success": true,
+          "seconds": 2.258804582990706,
+          "rehearsal": {
+            "requested_steps": 0,
+            "completed_steps": 0,
+            "complete": true
+          },
+          "work_units": {
+            "kind": "training",
+            "seconds": [
+              0.002374832984060049,
+              0.0019662079866975546,
+              0.0034410000080242753,
+              0.0022885840153321624,
+              0.0021695829927921295,
+              0.0033891249913722277,
+              0.0017782499780878425,
+              0.0019514999585226178,
+              0.0015243330271914601,
+              0.0026065839920192957,
+              0.0013442080235108733,
+              0.0013289169874042273,
+              0.0011777080362662673,
+              0.0011479170061647892,
+              0.0014651250094175339,
+              0.0023427079431712627,
+              0.001491541974246502,
+              0.0012736250646412373,
+              0.001626332988962531,
+              0.001289582927711308,
+              0.0031677091028541327,
+              0.0012888750061392784,
+              0.0012625409290194511,
+              0.0013192499754950404,
+              0.001295834081247449,
+              0.0031742079881951213,
+              0.001184707973152399,
+              0.0011817089980468154,
+              0.0012178750475868583,
+              0.001164040993899107,
+              0.0025550839491188526,
+              0.001450750045478344,
+              0.0012763330014422536,
+              0.0012175829615443945,
+              0.0011597919510677457,
+              0.0018069579964503646,
+              0.0025407500797882676,
+              0.0013939589262008667,
+              0.0012283331016078591,
+              0.0012943749316036701,
+              0.001206750050187111,
+              0.0025137499906122684,
+              0.0013987499987706542,
+              0.0012677919585257769,
+              0.001255291048437357,
+              0.0014553340151906013,
+              0.0025537079200148582,
+              0.0012961250031366944,
+              0.0012562500778585672,
+              0.0012919999426230788,
+              0.0011683329939842224,
+              0.0012137090088799596,
+              0.0032055829651653767,
+              0.0014455830678343773,
+              0.0012640419881790876,
+              0.0012891669757664204,
+              0.001216916018165648
+            ],
+            "median_seconds": 0.0013289169874042273,
+            "synchronized": true,
+            "discarded_initial_units": 3
+          },
+          "exit_code": 0,
+          "peak_allocated_bytes": 54528,
+          "memory_measurement": {
+            "kind": "mps_sampled_allocated",
+            "exact": false,
+            "samples": 408,
+            "interval_seconds": 0.001
+          },
+          "artifacts": {
+            "recurrence_d0943eccf4efc4327bd18d03_native_metal": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f"
+          },
+          "log": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/project/.flint/2-benchmark.log",
+          "dispatch": [
+            {
+              "state": "ready",
+              "kernel": "kernel.py",
+              "kernel_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+              "models_used": [],
+              "provenance": "hand-authored Metal integration fixture",
+              "usd": 0,
+              "fuzz_policy": "contract_fuzz_v2",
+              "gradient_policy": "reference_bounded_v1",
+              "coverage": {
+                "total": 28,
+                "accept": 28,
+                "wrong": 0,
+                "crash": 0,
+                "refuse": 0,
+                "skip": 0,
+                "unsupported": [],
+                "skipped": [],
+                "all_cases_passed": true
+              },
+              "holdout_passed": true,
+              "memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 1,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "reference_memory": {
+                "saved_activation_bytes": 4096,
+                "saved_storages": 8,
+                "sampled_extra_bytes": 10240,
+                "memory_measurement": {
+                  "kind": "mps_sampled_allocated",
+                  "exact": false,
+                  "samples": 2,
+                  "interval_seconds": 0.001
+                }
+              },
+              "compile_passed": true,
+              "native_checks": {
+                "passed": true,
+                "opcheck": {
+                  "test_schema": "SUCCESS",
+                  "test_faketensor": "SUCCESS",
+                  "test_aot_dispatch_dynamic": "SUCCESS",
+                  "test_autograd_registration": "unsupported by installed PyTorch for MPS; compiled gradient cases required"
+                },
+                "graph_count": 1,
+                "graph_break_count": 0,
+                "operators": [
+                  "k_kernel.scan.default",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>",
+                  "<built-in function getitem>"
+                ],
+                "compiled_case": {
+                  "outcome": "accept",
+                  "err": 1.1065175675728511e-07,
+                  "torch_err": 1.1472830274694701e-07,
+                  "scale": 0.9514391950688159,
+                  "output_path": [
+                    0
+                  ],
+                  "truth_dtype": "torch.float64",
+                  "outputs_checked": 3,
+                  "output_checks": [
+                    {
+                      "outcome": "accept",
+                      "err": 1.1065175675728511e-07,
+                      "torch_err": 1.1472830274694701e-07,
+                      "scale": 0.9514391950688159,
+                      "output_path": [
+                        0
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 8.853708084732848e-08,
+                      "torch_err": 1.0343824204117613e-07,
+                      "scale": 0.9451122557345284,
+                      "output_path": [
+                        1
+                      ],
+                      "truth_dtype": "torch.float64"
+                    },
+                    {
+                      "outcome": "accept",
+                      "err": 1.6553390103091203e-07,
+                      "torch_err": 2.4771396744949215e-07,
+                      "scale": 0.8183345734000868,
+                      "output_path": [
+                        2
+                      ],
+                      "truth_dtype": "torch.float64"
+                    }
+                  ],
+                  "gradient_objectives": 4,
+                  "grad_inputs_checked": 3,
+                  "gradient_policy": "reference_bounded_v1",
+                  "gradient_checks": [
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": null,
+                      "error": 4.886202702447662e-07,
+                      "oracle_scale": 4.916091352632466,
+                      "native_reference_error": 5.73454305818899e-07,
+                      "limit": 0.09832182705264933,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": null,
+                      "error": 3.072688314897931e-07,
+                      "oracle_scale": 2.036547622105251,
+                      "native_reference_error": 4.243183264751593e-07,
+                      "limit": 0.04073095244210502,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": null,
+                      "error": 4.768032995094984e-07,
+                      "oracle_scale": 3.3922474383969274,
+                      "native_reference_error": 5.791943984423398e-07,
+                      "limit": 0.06784494876793855,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 5.61607873539316e-07,
+                      "oracle_scale": 4.764973823278708,
+                      "native_reference_error": 6.596739714481714e-07,
+                      "limit": 0.09529947646557416,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 3.8403895286087675e-07,
+                      "oracle_scale": 1.88860292591011,
+                      "native_reference_error": 3.8403895286087675e-07,
+                      "limit": 0.0377720585182022,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        0
+                      ],
+                      "error": 2.8958089037800505e-07,
+                      "oracle_scale": 3.008261571983601,
+                      "native_reference_error": 3.682177318609092e-07,
+                      "limit": 0.06016523143967202,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 2.2182739212173175e-07,
+                      "oracle_scale": 1.886257915336859,
+                      "native_reference_error": 2.2182739212173175e-07,
+                      "limit": 0.03772515830673718,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 4.960120003616453e-08,
+                      "oracle_scale": 0.295518497695324,
+                      "native_reference_error": 9.423035160494031e-08,
+                      "limit": 0.00591036995390648,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        1
+                      ],
+                      "error": 1.28429674450814e-07,
+                      "oracle_scale": 0.8069961167696847,
+                      "native_reference_error": 8.812493562659895e-08,
+                      "limit": 0.016139922335393696,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        0
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 6.375065053632056e-08,
+                      "oracle_scale": 0.4164691665990083,
+                      "native_reference_error": 9.355297292401588e-08,
+                      "limit": 0.008329383331980167,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        1
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 4.504005596261962e-08,
+                      "oracle_scale": 0.26488931510727093,
+                      "native_reference_error": 7.484237835031493e-08,
+                      "limit": 0.005297786302145419,
+                      "used_reference_bound": false
+                    },
+                    {
+                      "input": [
+                        "args",
+                        2
+                      ],
+                      "objective": [
+                        2
+                      ],
+                      "error": 2.8893874626234606e-07,
+                      "oracle_scale": 1.4640633373014782,
+                      "native_reference_error": 3.799763681477941e-07,
+                      "limit": 0.029281266746029565,
+                      "used_reference_bound": false
+                    }
+                  ]
+                },
+                "captured_grad_mask": true,
+                "partial_gradient_checks": [
+                  {
+                    "input": 0,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 1,
+                    "used_reference_bound": false
+                  },
+                  {
+                    "input": 2,
+                    "used_reference_bound": false
+                  }
+                ],
+                "fullgraph": true,
+                "backend": "mps",
+                "compiler": "inductor",
+                "autocast": [
+                  {
+                    "dtype": "torch.bfloat16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  },
+                  {
+                    "dtype": "torch.float16",
+                    "gradient_checks": [
+                      {
+                        "input": 0,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 1,
+                        "used_reference_bound": false
+                      },
+                      {
+                        "input": 2,
+                        "used_reference_bound": false
+                      }
+                    ]
+                  }
+                ],
+                "additional_signatures": []
+              },
+              "loaded_sha256": "e5739d6e92b65229f5a9bf96e8d15b954fe3129b5a1d743fd62500b50c6b840f",
+              "artifact_state": "ready",
+              "activation_reason": null,
+              "performance_qualified": false,
+              "mode": "benchmark",
+              "calls": {
+                "compiled kernel graphs": 1
+              },
+              "name": "recurrence",
+              "job": "/Users/kareemfareed/dev/Flint/runs/flint-metal/proof3/cache/recurrence_d0943eccf4efc4327bd18d03_native_metal"
+            }
+          ],
+          "failure_tail": null
+        }
+      }
+    ],
+    "approval_available": false
+  }
+}

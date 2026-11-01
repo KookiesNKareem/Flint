@@ -1,0 +1,472 @@
+{
+  "losses": [
+    0.24553516507148743,
+    0.24003897607326508,
+    0.23452158272266388,
+    0.2289852648973465,
+    0.2234324961900711,
+    0.21786577999591827,
+    0.2122878134250641,
+    0.20670151710510254,
+    0.2011103481054306,
+    0.19551819562911987,
+    0.1899292916059494,
+    0.18434855341911316,
+    0.17878128588199615,
+    0.17323343455791473,
+    0.16771158576011658,
+    0.1622229963541031,
+    0.15677569806575775,
+    0.15137867629528046,
+    0.14604175090789795,
+    0.14077593386173248,
+    0.13559328019618988,
+    0.13050702214241028,
+    0.12553158402442932,
+    0.12068253010511398,
+    0.11597654223442078,
+    0.11143124848604202,
+    0.10706507414579391,
+    0.10289694368839264,
+    0.0989459902048111,
+    0.0952310785651207,
+    0.09177031368017197,
+    0.08858034014701843,
+    0.08567555993795395,
+    0.08306723088026047,
+    0.08076249808073044,
+    0.07876341789960861,
+    0.07706616818904877,
+    0.07566045224666595,
+    0.07452930510044098,
+    0.07364925742149353,
+    0.07299113273620605,
+    0.07252128422260284,
+    0.07220354676246643,
+    0.07200135290622711,
+    0.07187988609075546,
+    0.0718078762292862,
+    0.0717587023973465,
+    0.071710966527462,
+    0.071648508310318,
+    0.07156019657850266,
+    0.07143960148096085,
+    0.0712844505906105,
+    0.07109607011079788,
+    0.0708785206079483,
+    0.07063780725002289,
+    0.07038106769323349,
+    0.07011580467224121,
+    0.06984923779964447,
+    0.06958786398172379,
+    0.06933704018592834
+  ],
+  "step_ms": [
+    52.55087499972433,
+    17.275832942686975,
+    15.760082984343171,
+    15.303125022910535,
+    15.624291962012649,
+    14.975000056438148,
+    15.480833011679351,
+    15.067833010107279,
+    15.015124925412238,
+    15.24087495636195,
+    15.011749928817153,
+    15.028499998152256,
+    15.074290917254984,
+    14.90666694007814,
+    15.113082947209477,
+    14.852500054985285,
+    14.750291942618787,
+    15.65970794763416,
+    15.19112498499453,
+    14.67337494250387,
+    16.188291017897427,
+    15.96391701605171,
+    14.72162501886487,
+    15.40083298459649,
+    15.271999989636242,
+    15.54337504785508,
+    15.489333076402545,
+    15.053250011987984,
+    15.490915975533426,
+    15.20999998319894,
+    15.605458989739418,
+    14.618832967244089,
+    15.24849992711097,
+    14.75691597443074,
+    14.953167061321437,
+    14.941000030376017,
+    14.807833009399474,
+    14.997541904449463,
+    15.083416947163641,
+    15.103959012776613,
+    14.956666971556842,
+    15.167125035077333,
+    15.081916004419327,
+    15.505457995459437,
+    14.86800005659461,
+    15.268332906998694,
+    15.072292066179216,
+    16.703833010978997,
+    15.148667036555707,
+    13.245625072158873,
+    15.163709060288966,
+    14.228041982278228,
+    14.801666024141014,
+    15.187583048827946,
+    14.718999969772995,
+    15.421416028402746,
+    14.873167034238577,
+    14.382292050868273,
+    16.773332958109677,
+    16.715124947950244
+  ],
+  "dispatch": {
+    "state": "ready",
+    "updated": 1793247213.099156,
+    "started": 1793246852.9589162,
+    "reason": null,
+    "reference_ms": 3.1519168987870216,
+    "model": "muse-wonder-1.0",
+    "attempt": 2,
+    "fuzz_policy": "contract_fuzz_v2",
+    "gradient_policy": "reference_bounded_v1",
+    "holdout_passed": true,
+    "kernel": "kernel.py",
+    "kernel_sha256": "2353c8fab100648a655a4c9cc52b512ba85036209ab0bc006d2f6a62e0912d27",
+    "coverage": {
+      "total": 28,
+      "accept": 28,
+      "wrong": 0,
+      "crash": 0,
+      "refuse": 0,
+      "skip": 0,
+      "unsupported": [],
+      "skipped": [],
+      "all_cases_passed": true
+    },
+    "fwd_bwd_ms": 0.4841958056204021,
+    "usd": 0.5117819,
+    "memory": {
+      "saved_activation_bytes": 32768,
+      "saved_storages": 1,
+      "sampled_extra_bytes": 67584,
+      "memory_measurement": {
+        "kind": "mps_sampled_allocated",
+        "exact": false,
+        "samples": 2,
+        "interval_seconds": 0.001
+      }
+    },
+    "reference_memory": {
+      "saved_activation_bytes": 32768,
+      "saved_storages": 64,
+      "sampled_extra_bytes": 127232,
+      "memory_measurement": {
+        "kind": "mps_sampled_allocated",
+        "exact": false,
+        "samples": 6,
+        "interval_seconds": 0.001
+      }
+    },
+    "models_used": [
+      "meta-models/muse-spark-open-1026",
+      "muse-wonder-1.0"
+    ],
+    "verified_cases": 28,
+    "cases": 28,
+    "compile_passed": true,
+    "native_checks": {
+      "passed": true,
+      "opcheck": {
+        "test_schema": "SUCCESS",
+        "test_faketensor": "SUCCESS",
+        "test_aot_dispatch_dynamic": "SUCCESS",
+        "test_autograd_registration": "unsupported by installed PyTorch for MPS; compiled gradient cases required"
+      },
+      "graph_count": 1,
+      "graph_break_count": 0,
+      "operators": [
+        "k_02_bwd.recurrence_fwd.default",
+        "<built-in function getitem>",
+        "<built-in function getitem>",
+        "<built-in function getitem>"
+      ],
+      "compiled_case": {
+        "outcome": "accept",
+        "err": 1.452904155319068e-07,
+        "torch_err": 1.9718930377443655e-07,
+        "scale": 0.954403232644736,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 1.452904155319068e-07,
+            "torch_err": 1.9718930377443655e-07,
+            "scale": 0.954403232644736,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 9.200336581471902e-08,
+            "torch_err": 1.202426986018218e-07,
+            "scale": 0.937785352184963,
+            "output_path": [
+              1
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 1.9128572426030388e-07,
+            "torch_err": 3.1049501381108513e-07,
+            "scale": 0.6561465388084599,
+            "output_path": [
+              2
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 3,
+        "gradient_policy": "reference_bounded_v1",
+        "gradient_checks": [
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": null,
+            "error": 8.41450530586485e-07,
+            "oracle_scale": 5.015971559028689,
+            "native_reference_error": 8.41450530586485e-07,
+            "limit": 0.10031943118057378,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": null,
+            "error": 2.961777532117793e-07,
+            "oracle_scale": 2.53401336506618,
+            "native_reference_error": 2.727687460346573e-07,
+            "limit": 0.0506802673013236,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": null,
+            "error": 6.383373373219925e-07,
+            "oracle_scale": 2.60255089540907,
+            "native_reference_error": 5.531732987229532e-07,
+            "limit": 0.052051017908181396,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": [
+              0
+            ],
+            "error": 8.601275227615446e-07,
+            "oracle_scale": 4.996288812922999,
+            "native_reference_error": 8.601275227615446e-07,
+            "limit": 0.09992577625845998,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": [
+              0
+            ],
+            "error": 4.5245148960759707e-07,
+            "oracle_scale": 2.529931568391173,
+            "native_reference_error": 3.361240050736569e-07,
+            "limit": 0.050598631367823464,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": [
+              0
+            ],
+            "error": 4.905486401529657e-07,
+            "oracle_scale": 2.607179642388711,
+            "native_reference_error": 4.7027022842538457e-07,
+            "limit": 0.05214359284777422,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": [
+              1
+            ],
+            "error": 2.2623119699805017e-07,
+            "oracle_scale": 2.434088321803282,
+            "native_reference_error": 2.653335005042834e-07,
+            "limit": 0.048681766436065636,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": [
+              1
+            ],
+            "error": 5.038197009761547e-09,
+            "oracle_scale": 0.004241337449963062,
+            "native_reference_error": 5.038197009761547e-09,
+            "limit": 8.482674899926124e-05,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": [
+              1
+            ],
+            "error": 2.313892418989716e-08,
+            "oracle_scale": 0.018899933290882655,
+            "native_reference_error": 2.845760835659683e-08,
+            "limit": 0.0003779986658176531,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": [
+              2
+            ],
+            "error": 1.2779611247015765e-07,
+            "oracle_scale": 0.47480958123461525,
+            "native_reference_error": 1.2606924554292576e-07,
+            "limit": 0.009496191624692306,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": [
+              2
+            ],
+            "error": 6.275632282067012e-09,
+            "oracle_scale": 0.007802173251666923,
+            "native_reference_error": 7.67261614399023e-09,
+            "limit": 0.00015604346503333847,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": [
+              2
+            ],
+            "error": 4.329691610793773e-08,
+            "oracle_scale": 0.040631121749871595,
+            "native_reference_error": 5.148403666582757e-08,
+            "limit": 0.0008126224349974319,
+            "used_reference_bound": false
+          }
+        ]
+      },
+      "captured_grad_mask": true,
+      "partial_gradient_checks": [
+        {
+          "input": 0,
+          "used_reference_bound": false
+        },
+        {
+          "input": 1,
+          "used_reference_bound": false
+        },
+        {
+          "input": 2,
+          "used_reference_bound": false
+        }
+      ],
+      "fullgraph": true,
+      "backend": "mps",
+      "compiler": "inductor",
+      "autocast": [
+        {
+          "dtype": "torch.bfloat16",
+          "gradient_checks": [
+            {
+              "input": 0,
+              "used_reference_bound": false
+            },
+            {
+              "input": 1,
+              "used_reference_bound": false
+            },
+            {
+              "input": 2,
+              "used_reference_bound": false
+            }
+          ]
+        },
+        {
+          "dtype": "torch.float16",
+          "gradient_checks": [
+            {
+              "input": 0,
+              "used_reference_bound": false
+            },
+            {
+              "input": 1,
+              "used_reference_bound": false
+            },
+            {
+              "input": 2,
+              "used_reference_bound": false
+            }
+          ]
+        }
+      ],
+      "additional_signatures": []
+    },
+    "loaded_sha256": null,
+    "artifact_state": "ready",
+    "activation_reason": null,
+    "performance_qualified": false,
+    "mode": "reference",
+    "calls": {
+      "reference": 60
+    }
+  }
+}

@@ -1,14 +1,14 @@
-"""End-to-end check of @muse_kernel.fast: observe, build in the background, swap in the verified kernel."""
+"""End-to-end check of @flint.fast: observe, build in the background, swap in the verified kernel."""
 
 import time
 
 import torch
 import torch.nn.functional as F
 
-import muse_kernel
+import flint_gpu as flint
 
 
-@muse_kernel.fast
+@flint.fast
 def gated_delta(q, k, v, g, beta, scale):
     B, H, T, K = q.shape
     S = q.new_zeros(B, H, K, v.shape[-1]).float()

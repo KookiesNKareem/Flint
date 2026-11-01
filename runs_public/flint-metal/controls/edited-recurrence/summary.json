@@ -1,0 +1,18 @@
+{
+  "session": "7e754f6107ee4b2cb8d97ca2620fefea",
+  "accepted": false,
+  "rounds": [],
+  "command": [
+    "train.py",
+    "--steps",
+    "60",
+    "--length",
+    "64",
+    "--eager"
+  ],
+  "reason": "generation_failed_or_budget_exhausted",
+  "budget": {
+    "usd": 7.458358150000001,
+    "reserved_usd": 0
+  }
+}

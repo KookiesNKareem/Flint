@@ -8,6 +8,7 @@ contract is seed + values + sizes at the observed layout; the strided contract a
 from __future__ import annotations
 
 from .spec import OpSpec
+from .tree import descriptors
 
 VALUE_TRANSFORMS = {
     "scale_up": lambda x: x * 1e3,
@@ -20,6 +21,8 @@ VALUE_TRANSFORMS = {
     "shift_neg": lambda x: x - 100.0,
 }
 
+FUZZ_POLICY = 'contract_fuzz_v2'
+
 LAYOUTS = ("contiguous", "strided2", "strided3_off1", "transposed", "leading_swap")
 
 
@@ -30,7 +33,7 @@ def build_cases(spec: OpSpec, contract: str = "strided") -> list[dict]:
     for s, v in spec.sizes.items():
         for nv in sorted({v + 1, v // 2 + 1} - {v}):
             cases.append({"name": f"{s}={nv}", "axis": "sizes", "seed": 0, "sizes": {s: nv}})
-    domains = {a["tensor"].get("domain") for a in spec.args if isinstance(a, dict) and "tensor" in a}
+    domains = {t.get("domain") for t in descriptors(spec)}
     if "logdecay" in domains:
         cases += [{"name": n, "axis": "values", "seed": 0, "stress": n} for n in ("decay_none", "decay_strong")]
     if "unit" in domains:
@@ -38,4 +41,8 @@ def build_cases(spec: OpSpec, contract: str = "strided") -> list[dict]:
                   for n in ("gate_edges", "gate_typical", "gate_high", "gate_mid")]
     if contract == "strided":
         cases += [{"name": lay, "axis": "layout", "seed": 0, "layout": lay} for lay in LAYOUTS]
+    if contract == 'strided':
+        # Orthogonal axes alone miss candidates whose shortcuts fail only in combination.
+        for i,(layout,transform) in enumerate(zip(LAYOUTS,('scale_down','scale_mid','negative','half_zero','constant'))):
+            cases.append({'name':f'compound_{i}','axis':'compound','seed':31+i,'layout':layout,'transform':transform})
     return cases

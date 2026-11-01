@@ -1,0 +1,13 @@
+{
+  "model_usd": 3.5764718,
+  "gpu_hourly_usd": 0.59,
+  "gpu_started_utc": "2026-10-28T00:31:16+00:00",
+  "gpu_deleted_confirmed_by_utc": "2026-10-28T01:41:44+00:00",
+  "gpu_elapsed_estimate_usd": 0.6929222222222221,
+  "total_estimate_usd": 4.269394022222222,
+  "gpu_cost_note": "Elapsed reservation estimate at advertised rate, not provider invoice; includes setup, compilation, failed attempts and all tests. Earlier portability and hackathon runs are excluded.",
+  "deletion": {
+    "deleted": true,
+    "id": "gi8x6b6g3i9580"
+  }
+}

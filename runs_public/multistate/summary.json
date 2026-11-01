@@ -1,0 +1,24 @@
+{
+  "reference_median_step_ms": 395.52731066942215,
+  "kernel_median_step_ms": 18.83636205457151,
+  "speedup_vs_eager": 20.998073275695464,
+  "peak_memory_reduction_vs_eager": 0.4795880203688253,
+  "checkpoint_seed0_speedup": 34.873729462706024,
+  "checkpoint_peak_memory_reduction": 0.2715594483036343,
+  "max_validation_loss_difference": 5.683302879333496e-05,
+  "max_whole_model_gradient_relative_l2_error": 0.0009532638359814882,
+  "kernel_calls": {
+    "kernel": 390
+  },
+  "models_used": [
+    "meta-models/muse-spark-open-1026",
+    "muse-wonder-1.0"
+  ],
+  "model_usd": 1.23817925,
+  "development_cases": 32,
+  "fresh_holdout_cases": 24,
+  "checkpoint_resume": {
+    "max_parameter_abs_error": 0.0,
+    "max_loss_abs_error": 0.0
+  }
+}

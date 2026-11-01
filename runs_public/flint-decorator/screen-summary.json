@@ -1,0 +1,84 @@
+{
+  "accepted": true,
+  "reason": "all measured commands faster beyond margin with no allocated-memory regression",
+  "pairs": 3,
+  "preparation": {
+    "reference": {
+      "success": true,
+      "seconds": 680.5948744390007,
+      "peak_allocated_bytes": 103895040
+    },
+    "benchmark": {
+      "success": true,
+      "seconds": 26.25304298899937,
+      "peak_allocated_bytes": 102738432
+    }
+  },
+  "qualification_seconds": 829.8768444789966,
+  "seconds": {
+    "reference": [
+      30.839631020000525,
+      29.289881153999886,
+      29.554979598997306
+    ],
+    "benchmark": [
+      11.244507585000974,
+      10.898470628999348,
+      11.201457063998532
+    ]
+  },
+  "peak_allocated_bytes": {
+    "reference": [
+      29079552,
+      29079552,
+      29079552
+    ],
+    "benchmark": [
+      28417024,
+      28417024,
+      28417024
+    ]
+  },
+  "steady_update_ms": {
+    "reference": [
+      84.3629900009546,
+      83.75319599872455,
+      93.554918999871
+    ],
+    "benchmark": [
+      17.89316899885307,
+      17.344892999972217,
+      18.301438001799397
+    ]
+  },
+  "seconds_speedup": 2.638494209292376,
+  "steady_update_ms_speedup": 4.714815469879157,
+  "peak_memory_reduction": 0.022783294598211157,
+  "application_checks": [
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.0006487765746922039,
+      "validation_reference": 4.272632598876953,
+      "validation_candidate": 4.2713470458984375,
+      "relative_validation_error": 0.0003008807681834212,
+      "passed": true
+    },
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.0006828111075403144,
+      "validation_reference": 4.272632598876953,
+      "validation_candidate": 4.272655487060547,
+      "relative_validation_error": 5.356927623443701e-06,
+      "passed": true
+    },
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.0006828111075403144,
+      "validation_reference": 4.272632598876953,
+      "validation_candidate": 4.272655487060547,
+      "relative_validation_error": 5.356927623443701e-06,
+      "passed": true
+    }
+  ],
+  "application_passed": true
+}

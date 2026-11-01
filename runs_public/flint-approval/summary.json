@@ -1,0 +1,132 @@
+{
+  "accepted": true,
+  "reason": "measured memory tradeoff explicitly approved for this workload and artifact set",
+  "pairs": 3,
+  "preparation": {
+    "reference": {
+      "success": true,
+      "seconds": 17.85485864803195,
+      "peak_allocated_bytes": 29079552
+    },
+    "benchmark": {
+      "success": true,
+      "seconds": 8.472025778028183,
+      "peak_allocated_bytes": 29211136
+    }
+  },
+  "qualification_seconds": 101.54378920211457,
+  "seconds": {
+    "reference": [
+      18.45728546800092,
+      17.533031889004633,
+      18.03234222601168
+    ],
+    "benchmark": [
+      7.1309063790831715,
+      7.031856453046203,
+      7.03148236090783
+    ]
+  },
+  "peak_allocated_bytes": {
+    "reference": [
+      29079552,
+      29079552,
+      29079552
+    ],
+    "benchmark": [
+      29211136,
+      29211136,
+      29211136
+    ]
+  },
+  "steady_update_ms": {
+    "reference": [
+      36.64121904876083,
+      37.17396198771894,
+      37.0642920024693
+    ],
+    "benchmark": [
+      9.755232953466475,
+      9.773773024789989,
+      10.138616082258523
+    ]
+  },
+  "seconds_speedup": 2.564378602779933,
+  "steady_update_ms_speedup": 3.7922194334225097,
+  "peak_memory_reduction": -0.0045249665469400124,
+  "application_checks": [
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.0007798088864178415,
+      "validation_reference": 4.272785186767578,
+      "validation_candidate": 4.269458770751953,
+      "relative_validation_error": 0.0007785123450452421,
+      "passed": true,
+      "parameter_relative_l2": 0.00013145352060487918,
+      "per_parameter_relative_l2": {
+        "_orig_mod.fast": 0.002081006590374833,
+        "_orig_mod.slow": 0.002706281876410392,
+        "_orig_mod.emb.weight": 2.5252517297755157e-05,
+        "_orig_mod.proj.weight": 0.0011865475231416596,
+        "_orig_mod.proj.bias": 0.001059963420998436,
+        "_orig_mod.out.weight": 0.001101087374029832,
+        "_orig_mod.out.bias": 0.00016478998668247854,
+        "_orig_mod.norm.weight": 1.2173575141606268e-05,
+        "_orig_mod.norm.bias": 0.0005071764652753931,
+        "_orig_mod.mlp.0.weight": 0.0006496134705728722,
+        "_orig_mod.mlp.0.bias": 0.00025422456018263996,
+        "_orig_mod.mlp.2.weight": 0.0008811877165465054,
+        "_orig_mod.mlp.2.bias": 0.00022305199739660475
+      }
+    },
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.000777039771619156,
+      "validation_reference": 4.273502349853516,
+      "validation_candidate": 4.269458770751953,
+      "relative_validation_error": 0.000946197935681749,
+      "passed": true,
+      "parameter_relative_l2": 0.00013164990442268576,
+      "per_parameter_relative_l2": {
+        "_orig_mod.fast": 0.002087132693895301,
+        "_orig_mod.slow": 0.0026740236944546203,
+        "_orig_mod.emb.weight": 2.5221073271658988e-05,
+        "_orig_mod.proj.weight": 0.0011861795094476096,
+        "_orig_mod.proj.bias": 0.001071610740113973,
+        "_orig_mod.out.weight": 0.0011122015710573986,
+        "_orig_mod.out.bias": 0.00016483857819178562,
+        "_orig_mod.norm.weight": 1.2421473552503737e-05,
+        "_orig_mod.norm.bias": 0.0004991691516819845,
+        "_orig_mod.mlp.0.weight": 0.0006486543595064962,
+        "_orig_mod.mlp.0.bias": 0.0002588775105764176,
+        "_orig_mod.mlp.2.weight": 0.000886446261393212,
+        "_orig_mod.mlp.2.bias": 0.00023000442622835138
+      }
+    },
+    {
+      "finite": true,
+      "max_relative_step_loss_error": 0.0005550981200659812,
+      "validation_reference": 4.2767791748046875,
+      "validation_candidate": 4.273323059082031,
+      "relative_validation_error": 0.0008081118012865568,
+      "passed": true,
+      "parameter_relative_l2": 0.0001312623688307695,
+      "per_parameter_relative_l2": {
+        "_orig_mod.fast": 0.002144774148811621,
+        "_orig_mod.slow": 0.0027345223669355454,
+        "_orig_mod.emb.weight": 2.5095596556594823e-05,
+        "_orig_mod.proj.weight": 0.0011823187433487622,
+        "_orig_mod.proj.bias": 0.001056340441306204,
+        "_orig_mod.out.weight": 0.0011027660117443317,
+        "_orig_mod.out.bias": 0.0001542167804937917,
+        "_orig_mod.norm.weight": 1.2107667260921205e-05,
+        "_orig_mod.norm.bias": 0.00048147617206541443,
+        "_orig_mod.mlp.0.weight": 0.0006488531123726627,
+        "_orig_mod.mlp.0.bias": 0.00026192033754483026,
+        "_orig_mod.mlp.2.weight": 0.0008818072720689446,
+        "_orig_mod.mlp.2.bias": 0.00022396849121027686
+      }
+    }
+  ],
+  "application_passed": true
+}

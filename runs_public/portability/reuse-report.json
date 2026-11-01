@@ -1,0 +1,92 @@
+[
+  {
+    "state": "ready",
+    "updated": 1793144548.341038,
+    "started": 1793144293.34246,
+    "reference_ms": 0.05755700112786144,
+    "model": "muse-wonder-1.0",
+    "attempt": 2,
+    "holdout_passed": true,
+    "kernel": "kernel.py",
+    "kernel_sha256": "fe30fa42a427f660fdbb8d777d0343983b47e4dea1a5a227c90360bd3bca06a1",
+    "coverage": {
+      "total": 23,
+      "accept": 23,
+      "wrong": 0,
+      "crash": 0,
+      "refuse": 0,
+      "skip": 0,
+      "unsupported": [],
+      "skipped": [],
+      "all_cases_passed": true
+    },
+    "fwd_bwd_ms": 0.41696910047903657,
+    "usd": 0.4668782,
+    "memory": {
+      "saved_activation_bytes": 4096,
+      "saved_storages": 2,
+      "peak_extra_bytes": 1190912
+    },
+    "reference_memory": {
+      "saved_activation_bytes": 4096,
+      "saved_storages": 2,
+      "peak_extra_bytes": 1186816
+    },
+    "models_used": [
+      "meta-models/muse-spark-open-1026",
+      "muse-wonder-1.0"
+    ],
+    "verified_cases": 23,
+    "cases": 23,
+    "compile_passed": true,
+    "native_checks": {
+      "passed": true,
+      "opcheck": {
+        "test_schema": "SUCCESS",
+        "test_autograd_registration": "SUCCESS",
+        "test_faketensor": "SUCCESS",
+        "test_aot_dispatch_dynamic": "SUCCESS"
+      },
+      "graph_count": 1,
+      "graph_break_count": 0,
+      "operators": [
+        "k_02_repair_bwd.muse_ln_forward.default",
+        "<built-in function getitem>"
+      ],
+      "compiled_case": {
+        "outcome": "accept",
+        "err": 3.371715520117391e-07,
+        "torch_err": 3.261694536682569e-07,
+        "scale": 2.772155005251434,
+        "output_path": [],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 1,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 3.371715520117391e-07,
+            "torch_err": 3.261694536682569e-07,
+            "scale": 2.772155005251434,
+            "output_path": [],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 1,
+        "grad_inputs_checked": 3
+      },
+      "captured_grad_mask": true,
+      "fullgraph": true,
+      "autocast": [
+        "torch.bfloat16",
+        "torch.float16"
+      ]
+    },
+    "calls": {
+      "compiled kernel graphs": 10
+    },
+    "name": "forward",
+    "hash": "d42166810a52e335b05d333a",
+    "job": "/workspace/muse-cache/forward_d42166810a52e335b05d333a_native",
+    "native_loaded": true
+  }
+]

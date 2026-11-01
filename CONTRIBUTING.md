@@ -1,6 +1,6 @@
-# Contributing to KernelAgent
+# Contributing to Flint
 
-Thanks for your interest in improving KernelAgent! We aim to make
+Thanks for your interest in improving Flint! We aim to make
 contributions straightforward, transparent, and welcoming.
 
 ## Code of Conduct
@@ -15,50 +15,19 @@ By participating, you agree to abide by our Code of Conduct. See `CODE_OF_CONDUC
 
 ## Development Setup
 
-Supported Python: 3.8–3.12. A CUDA‑enabled GPU and an API key are only required
-for end‑to‑end runs; basic tests do not require them.
-
-1) Clone and install (choose one):
+Use Python 3.10 or newer. Clone this repository and install the runtime and test dependencies in a virtual environment.
 
 ```bash
-git clone https://github.com/pytorch-labs/KernelAgent.git
-cd KernelAgent
-
-# Using pip
-python -m venv .venv && source .venv/bin/activate
-pip install -e .
-pip install -e ".[dev]"
-
-# Or using uv (matches CI)
-uv venv && source .venv/bin/activate
-uv pip install -e ".[dev]"
+git clone https://github.com/KookiesNKareem/Flint.git
+cd Flint
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install '.[build,test]'
+python -m pytest -q tests/package tests/kernel_contract tests/workbench
+python tools/verify_submission_evidence.py
 ```
 
-2) Optional: set environment for e2e runs (LLM + GPU):
-
-```bash
-cp .env.example .env   # then edit with your API key(s)
-```
-
-## Running Tests
-
-Unit tests:
-
-```bash
-uv run pytest tests/ -v
-```
-
-Coverage (optional):
-
-```bash
-uv run pytest tests/ -v --cov=triton_kernel_agent
-```
-
-End‑to‑end example (requires network + GPU):
-
-```bash
-uv run python e2e_test.py
-```
+Tests requiring a GPU skip when the relevant backend is unavailable. Fresh generation uses provider credentials and a shared budget configured with `flint setup`. See the [Flint README](README.md) for the standalone wheel and CPU example.
 
 ## Linting and Style
 
@@ -111,11 +80,11 @@ prompted by the bot during your PR, please complete the form here:
 https://code.facebook.com/cla
 
 ## License
-By contributing to KernelAgent, you agree that your contributions will be
+By contributing to Flint, you agree that your contributions will be
 licensed under the `LICENSE` file in the root of this repository.
 
 ## Notes for Kernel/Template Contributions
-- Changes to Jinja2 templates in [`triton_kernel_agent/templates/`](https://github.com/meta-pytorch/KernelAgent/tree/main/triton_kernel_agent/templates) should be validated with an
+- Changes to Jinja2 templates in [`triton_kernel_agent/templates/`](triton_kernel_agent/templates) should be validated with an
   end‑to‑end run (see e2e section) since they affect generation behavior.
 - For GPU kernels or performance‑sensitive code, include a short note about
   observed correctness and performance if available.

@@ -71,6 +71,7 @@ class OpenAICompatibleProvider(BaseProvider):
             content=response.choices[0].message.content,
             model=model_name,
             provider=self.name,
+            response_id=getattr(response, "id", None),
             usage=response.usage.dict()
             if hasattr(response, "usage") and response.usage
             else None,
@@ -95,6 +96,7 @@ class OpenAICompatibleProvider(BaseProvider):
                 content=choice.message.content,
                 model=model_name,
                 provider=self.name,
+                response_id=getattr(response, "id", None),
                 usage=response.usage.dict()
                 if hasattr(response, "usage") and response.usage
                 else None,

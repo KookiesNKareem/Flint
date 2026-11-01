@@ -1,0 +1,9 @@
+{
+  "initial_runtime": "0.10.0",
+  "current_runtime": "0.10.1",
+  "change": "Clarified positional Metal shader arguments and added an AST-based diagnostic to failed development checks.",
+  "candidate_sources_edited_by_controller": false,
+  "numerical_thresholds_changed": false,
+  "holdout_feedback_used": false,
+  "diagnostic_test": "tests/package/test_metal.py::test_metal_argument_diagnostic_is_specific_and_does_not_rewrite_source"
+}

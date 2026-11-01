@@ -1,7 +1,7 @@
 # The researcher interface: code first
 
 Open `examples/muse_kernel/research.py` in a code editor. The researcher's interface is the PyTorch
-function with `@muse_kernel.fast`; the workbench is an evidence viewer and experiment comparison surface.
+function with `@flint_gpu.fast`; the workbench is an evidence viewer and experiment comparison surface.
 The example trains a real byte-level language model and uses `train_step` so an ordinary backward failure
 can discard partial gradients and retry on the reference before the optimizer changes parameters.
 
@@ -15,7 +15,7 @@ MUSE_KERNEL_MODEL=muse-spark-1.3-contributor MUSE_KERNEL_MAX_USD=1 \
 Or keep model credentials on your laptop and execute the edited file on an installed CUDA worker:
 
 ```bash
-python -m muse_kernel.remote_run examples/muse_kernel/research.py \
+python -m flint_gpu.remote_run examples/muse_kernel/research.py \
   --remote 'ssh gpu-host' --remote-dir /workspace/recurrence \
   --out runs/editor-demo --max-usd 1 --minutes 30
 ```
@@ -26,6 +26,28 @@ It also draws fresh post-selection checks before publishing. Unchanged source an
 can reuse the guarded cache on a later invocation. Model API keys are never uploaded to the worker.
 The demo pauses after two training calls while checks run, avoiding overlap with timing measurements;
 ordinary decorator use can continue training on its reference while generation runs.
+
+`examples/muse_kernel/write_then_erase.py` contains the structural edit: the write now precedes the
+erase. For a concrete distinction, start with zero memory, use the same unit vector for the key,
+query and erase direction, and set both gates to one. Erase-then-write returns the supplied value;
+write-then-erase returns zero. This changes how the model retains new information.
+
+In a second editor terminal, follow the actual generation attempts, numerical checks and training calls:
+
+```bash
+python examples/muse_kernel/watch_run.py runs/editor-demo
+```
+
+The viewer only reads receipts; it does not generate kernels or launch another training job. For a
+completed recording, add `--replay`; the terminal explicitly labels it as recorded.
+
+The fresh edited-source run is retained in `runs_public/editor/changed/`: generated forward and backward
+implementations, 27 passing development cases, 12 passing fresh holdout cases, then 30 training calls
+through the accepted kernel. Neither candidate required repair in this run. To show its actual trace:
+
+```bash
+python examples/muse_kernel/watch_run.py runs_public/editor/changed --replay
+```
 
 Use an actual structural edit: move the erase block below the write block, or change which state the
 readout observes. Re-run the file. The source hash and contract change; the previous implementation cannot
@@ -52,6 +74,6 @@ A small experiment does not establish architecture superiority or a general end-
 
 The remote cache lives under the worker's `.muse_kernels/remote/`. The controller retains a copy in the
 output directory. To reuse that copy on a different environment, copy it into your chosen cache directory,
-run `python -m muse_kernel.revalidate /path/to/reference_HASH` there, and set `MUSE_KERNEL_CACHE` to its parent.
+run `python -m flint_gpu.revalidate /path/to/reference_HASH` there, and set `MUSE_KERNEL_CACHE` to its parent.
 Revalidation requires CUDA, checks the candidate bytes and both development and required holdout cases,
 and does not call a model.

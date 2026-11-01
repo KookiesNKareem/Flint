@@ -40,7 +40,7 @@ def test_bundle_integrity_and_no_secrets(tmp_path):
     (tmp_path/'variant_1/reference.py').write_text(c['variants'][0]['source'])
     archive=export_bundle(tmp_path)
     with zipfile.ZipFile(archive) as z:
-        assert 'reproduce.py' in z.namelist()
+        assert {'reproduce.py','source/flint_gpu/__init__.py','source/tools/flint_backend.py'} <= set(z.namelist())
         assert not any('.env' in n or n.endswith('budget.json') for n in z.namelist())
         manifest=json.loads(z.read('manifest.json'))
         import hashlib
@@ -68,7 +68,7 @@ def test_replay_withholds_training_when_current_gpu_checks_fail(tmp_path,monkeyp
     monkeypatch.setattr(sys,'argv',['reproduce.py','--train'])
     with pytest.raises(SystemExit,match='Numerical recheck failed'):
         exec(REPRODUCE,{'__file__':str(tmp_path/'bundle/reproduce.py'),'__name__':'__main__'})
-    assert len(calls)==1 and 'muse_kernel.remote_eval' in calls[0]
+    assert len(calls)==1 and 'flint_gpu.remote_eval' in calls[0]
 
 
 def test_busy_worker_exports_failure_without_running_gpu(tmp_path,monkeypatch):

@@ -3,3 +3,9 @@ runs_public/workbench/**/dataset.txt -whitespace
 # Captured transcripts and receipts are evidence artifacts, not authored source.
 runs_public/workbench/** linguist-generated=true
 runs_public/editor/** linguist-generated=true
+# The example is hash-bound to the recorded workload. Imported patches and compiler
+# diagnostics retain original whitespace for replay and integrity checks.
+examples/flint/dataset.txt -whitespace
+examples/flint/recurrence.py -whitespace
+runs_public/**/*.patch -whitespace
+runs_public/flint-metal/controls/*.txt -whitespace

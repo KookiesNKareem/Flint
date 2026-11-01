@@ -44,7 +44,7 @@ def run_contract(spec: OpSpec, kernel: Path, contract: str = "strided", device: 
             try:
                 p = subprocess.run([sys.executable, "-m", "kernel_contract.worker", str(d / "spec.json"),
                                     str(kernel.resolve()), str(d / "cases.json"), str(out), str(seen), device],
-                                   cwd=REPO, capture_output=True, text=True, timeout=timeout)
+                                   capture_output=True, text=True, timeout=timeout)
                 if p.returncode:
                     why = f"process died (exit {p.returncode}): {p.stderr.strip()[-400:]}"
             except subprocess.TimeoutExpired:
@@ -64,5 +64,6 @@ def run_contract(spec: OpSpec, kernel: Path, contract: str = "strided", device: 
                 lines.append(r)
             seen = len(lines)
         results = [json.loads(x) for x in out.read_text().splitlines() if x.strip()]
+    for case,result in zip(cases,results):result['reproducer']=case
     worst = max(results, key=lambda r: SEVERITY[r["outcome"]])["outcome"] if results else "accept"
     return Verdict("accept" if worst == "skip" else worst, results)

@@ -125,7 +125,7 @@ class Experiment:
     def build(self, job):
         env={**self.env,'MUSE_KERNEL_REMOTE_TIMEOUT':str(self.remaining())}
         with open(job/'driver.log','w') as log:
-            p=subprocess.Popen([sys.executable,'-m','muse_kernel.build',str(job)],env=env,stdout=log,stderr=subprocess.STDOUT,
+            p=subprocess.Popen([sys.executable,'-m','flint_gpu.build',str(job)],env=env,stdout=log,stderr=subprocess.STDOUT,
                                start_new_session=True)
             try:
                 rc=p.wait(timeout=self.remaining())
@@ -146,7 +146,7 @@ class Experiment:
         rjob=f'{self.remote_dir}/muse_jobs/{v["hash"]}'
         self.upload(rjob+'/selected.py',(job/'kernel.py').read_bytes())
         self.upload(rjob+'/holdout.json',json.dumps(protocol).encode())
-        cmd=shlex.join(['python','-m','muse_kernel.remote_eval',rjob,rjob+'/selected.py','--grads','--holdout',rjob+'/holdout.json'])
+        cmd=shlex.join(['python','-m','flint_gpu.remote_eval',rjob,rjob+'/selected.py','--grads','--holdout',rjob+'/holdout.json'])
         p=self.remote_run(f'cd {shlex.quote(self.remote_dir)} && {cmd}')
         result=json.loads(next(x[7:] for x in p.stdout.decode().splitlines() if x.startswith('RESULT ')))
         result['coverage']=coverage(result['results']);result['candidate_sha256']=protocol['candidate_sha256']
@@ -200,7 +200,7 @@ class Experiment:
             return []
         try:
             p=self.remote_run(f'cd {shlex.quote(self.remote_dir)} && python -c '+shlex.quote(
-                'import json,torch,importlib.metadata; from muse_kernel.identity import environment; assert torch.cuda.is_available(), "CUDA is required"; e=environment(); e["packages"]={d.metadata["Name"]:d.version for d in importlib.metadata.distributions()}; print(json.dumps(e))'))
+                'import json,torch,importlib.metadata; from flint_gpu.identity import environment; assert torch.cuda.is_available(), "CUDA is required"; e=environment(); e["packages"]={d.metadata["Name"]:d.version for d in importlib.metadata.distributions()}; print(json.dumps(e))'))
             write_json(self.out/'environment.json',json.loads(p.stdout))
             for i,v in enumerate(self.config['variants']):
                 job=self.out/f'variant_{i+1}'

@@ -1,0 +1,36 @@
+{
+  "session": "9deed27c07b84204ba8bac9d0785b97f",
+  "accepted": false,
+  "rounds": [
+    {
+      "round": 0,
+      "diagnosis": {
+        "kind": "performance",
+        "repairable": false,
+        "approval_available": true,
+        "failures": [
+          "memory_measurement_incomplete"
+        ]
+      },
+      "accepted": false
+    }
+  ],
+  "command": [
+    "train.py",
+    "--steps",
+    "60",
+    "--length",
+    "64",
+    "--eager"
+  ],
+  "reason": "performance_tradeoff_needs_review",
+  "budget": {
+    "usd": 6.610368950000001,
+    "reserved_usd": 0
+  },
+  "initial_budget": {
+    "usd": 6.098587050000001,
+    "reserved_usd": 0
+  },
+  "additional_model_usd": 0.5117818999999999
+}

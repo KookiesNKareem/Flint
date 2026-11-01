@@ -18,13 +18,14 @@ for name,digest in manifest['files'].items():
     if hashlib.sha256(path.read_bytes()).hexdigest()!=digest:raise SystemExit('Hash mismatch: '+name)
 print('All bundle hashes match. This verifies integrity, not numerical correctness.')
 if a.train:
+    runtime='flint_gpu' if (root/'source/flint_gpu').is_dir() else 'muse_kernel'
     c=json.loads((root/'experiment/config.json').read_text())
     env={**os.environ,'PYTHONPATH':str(root/'source')}
     for i,v in enumerate(c['variants'],1):
         job=root/f'experiment/variant_{i}'
         if not (job/'kernel.py').exists() or not (job/'holdout_results.json').exists():continue
         if not json.loads((job/'holdout_results.json').read_text())['coverage']['all_cases_passed']:continue
-        check=subprocess.run([sys.executable,'-m','muse_kernel.remote_eval',str(job),str(job/'kernel.py'),
+        check=subprocess.run([sys.executable,'-m',runtime+'.remote_eval',str(job),str(job/'kernel.py'),
                               '--grads','--holdout',str(job/'holdout_protocol.json')],
                              env=env,check=True,cwd=root/'source',capture_output=True,text=True)
         result=json.loads(next(line[7:] for line in check.stdout.splitlines() if line.startswith('RESULT ')))
@@ -63,7 +64,7 @@ def export_bundle(experiment):
         p=experiment/f'variant_{i}/reference.py'
         if p.exists():shutil.copy2(p,jobs/f'j_{v["hash"]}.py')
     (bundle/'reproduce.py').write_text(REPRODUCE)
-    (bundle/'README.txt').write_text('Run python reproduce.py to verify file integrity.\nInstall source with pip install -e "./source[research]" on CUDA Linux.\nRun python reproduce.py --train to repeat paired training from the frozen kernels, without model calls.\nEnvironment versions and dataset hashes are in the receipts. Training reruns first repeat the frozen numerical checks and enforce the recorded dataset hash.\nFailures and unsupported cases are retained. No architecture-discovery claim is made.\n')
+    (bundle/'README.txt').write_text('Run python reproduce.py to verify file integrity.\nInstall source with pip install "./source" on CUDA Linux.\nRun python reproduce.py --train to repeat paired training from the frozen kernels, without model calls.\nEnvironment versions and dataset hashes are in the receipts. Training reruns first repeat the frozen numerical checks and enforce the recorded dataset hash.\nFailures and unsupported cases are retained. No architecture-discovery claim is made.\n')
     files={str(p.relative_to(bundle)):sha256(p) for p in sorted(bundle.rglob('*')) if p.is_file() and p.name!='manifest.json'}
     (bundle/'manifest.json').write_text(json.dumps({'schema_version':1,'source_snapshot_phase':'experiment_start' if frozen.exists() else 'export','files':files},indent=2))
     dest=experiment/'reproducible-bundle.zip'
@@ -75,9 +76,10 @@ def export_bundle(experiment):
 
 def snapshot_source(destination):
     destination=Path(destination);destination.mkdir(parents=True,exist_ok=True)
-    for package in ('kernel_contract','muse_kernel','utils','triton_kernel_agent','kernel_perf_agent','Fuser','scripts'):
+    for package in ('kernel_contract','flint_gpu','muse_kernel','utils','triton_kernel_agent','kernel_perf_agent','Fuser','scripts'):
         for p in (ROOT/package).rglob('*'):
             if p.suffix not in ('.py','.html','.j2','.yaml','.json') or '__pycache__' in p.parts or 'recur_cands' in p.parts:continue
             dest=destination/p.relative_to(ROOT);dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,dest)
-    for name in ('pyproject.toml','README.md','LICENSE'):
+    for name in ('pyproject.toml','README.md','LICENSE','tools/flint_backend.py','tools/build_flint_package.py'):
+        (destination/name).parent.mkdir(parents=True,exist_ok=True)
         shutil.copy2(ROOT/name,destination/name)

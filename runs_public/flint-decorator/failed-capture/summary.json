@@ -1,0 +1,17 @@
+{
+  "session": "839d31574c1a4509a34b3a6b391aaa25",
+  "accepted": false,
+  "rounds": [],
+  "command": [
+    "train.py",
+    "--steps",
+    "60",
+    "--data",
+    "dataset.txt"
+  ],
+  "reason": "baseline_capture_failed",
+  "budget": {
+    "usd": 4.6580873,
+    "reserved_usd": 0
+  }
+}

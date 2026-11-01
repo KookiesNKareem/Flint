@@ -1,0 +1,11 @@
+[
+  {
+    "name": "recurrence",
+    "state": "ready",
+    "loaded_sha256": "8162bf51128f908a216dfb7b5acba8e6e5386c763cabba3edb50b6984c554eee",
+    "performance_qualified": true,
+    "calls": {
+      "compiled kernel graphs": 4
+    }
+  }
+]

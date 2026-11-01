@@ -1,0 +1,377 @@
+{
+  "launched": true,
+  "result": {
+    "success": true,
+    "work_units": null,
+    "live": null,
+    "rehearsal": {
+      "requested_steps": 0,
+      "completed_steps": 0,
+      "complete": true
+    },
+    "peak_allocated_bytes": 333056,
+    "memory_measurement": {
+      "kind": "mps_sampled_allocated",
+      "exact": false,
+      "samples": 303,
+      "interval_seconds": 0.001
+    },
+    "artifacts": {
+      "recurrence_d0943eccf4efc4327bd18d03_native_metal": "2353c8fab100648a655a4c9cc52b512ba85036209ab0bc006d2f6a62e0912d27"
+    },
+    "dispatch": [
+      {
+        "state": "ready",
+        "updated": 1793247213.099156,
+        "started": 1793246852.9589162,
+        "reason": null,
+        "reference_ms": 3.1519168987870216,
+        "model": "muse-wonder-1.0",
+        "attempt": 2,
+        "fuzz_policy": "contract_fuzz_v2",
+        "gradient_policy": "reference_bounded_v1",
+        "holdout_passed": true,
+        "kernel": "kernel.py",
+        "kernel_sha256": "2353c8fab100648a655a4c9cc52b512ba85036209ab0bc006d2f6a62e0912d27",
+        "coverage": {
+          "total": 28,
+          "accept": 28,
+          "wrong": 0,
+          "crash": 0,
+          "refuse": 0,
+          "skip": 0,
+          "unsupported": [],
+          "skipped": [],
+          "all_cases_passed": true
+        },
+        "fwd_bwd_ms": 0.4841958056204021,
+        "usd": 0.5117819,
+        "memory": {
+          "saved_activation_bytes": 32768,
+          "saved_storages": 1,
+          "sampled_extra_bytes": 67584,
+          "memory_measurement": {
+            "kind": "mps_sampled_allocated",
+            "exact": false,
+            "samples": 2,
+            "interval_seconds": 0.001
+          }
+        },
+        "reference_memory": {
+          "saved_activation_bytes": 32768,
+          "saved_storages": 64,
+          "sampled_extra_bytes": 127232,
+          "memory_measurement": {
+            "kind": "mps_sampled_allocated",
+            "exact": false,
+            "samples": 6,
+            "interval_seconds": 0.001
+          }
+        },
+        "models_used": [
+          "meta-models/muse-spark-open-1026",
+          "muse-wonder-1.0"
+        ],
+        "verified_cases": 28,
+        "cases": 28,
+        "compile_passed": true,
+        "native_checks": {
+          "passed": true,
+          "opcheck": {
+            "test_schema": "SUCCESS",
+            "test_faketensor": "SUCCESS",
+            "test_aot_dispatch_dynamic": "SUCCESS",
+            "test_autograd_registration": "unsupported by installed PyTorch for MPS; compiled gradient cases required"
+          },
+          "graph_count": 1,
+          "graph_break_count": 0,
+          "operators": [
+            "k_02_bwd.recurrence_fwd.default",
+            "<built-in function getitem>",
+            "<built-in function getitem>",
+            "<built-in function getitem>"
+          ],
+          "compiled_case": {
+            "outcome": "accept",
+            "err": 1.452904155319068e-07,
+            "torch_err": 1.9718930377443655e-07,
+            "scale": 0.954403232644736,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64",
+            "outputs_checked": 3,
+            "output_checks": [
+              {
+                "outcome": "accept",
+                "err": 1.452904155319068e-07,
+                "torch_err": 1.9718930377443655e-07,
+                "scale": 0.954403232644736,
+                "output_path": [
+                  0
+                ],
+                "truth_dtype": "torch.float64"
+              },
+              {
+                "outcome": "accept",
+                "err": 9.200336581471902e-08,
+                "torch_err": 1.202426986018218e-07,
+                "scale": 0.937785352184963,
+                "output_path": [
+                  1
+                ],
+                "truth_dtype": "torch.float64"
+              },
+              {
+                "outcome": "accept",
+                "err": 1.9128572426030388e-07,
+                "torch_err": 3.1049501381108513e-07,
+                "scale": 0.6561465388084599,
+                "output_path": [
+                  2
+                ],
+                "truth_dtype": "torch.float64"
+              }
+            ],
+            "gradient_objectives": 4,
+            "grad_inputs_checked": 3,
+            "gradient_policy": "reference_bounded_v1",
+            "gradient_checks": [
+              {
+                "input": [
+                  "args",
+                  0
+                ],
+                "objective": null,
+                "error": 8.41450530586485e-07,
+                "oracle_scale": 5.015971559028689,
+                "native_reference_error": 8.41450530586485e-07,
+                "limit": 0.10031943118057378,
+                "used_reference_bound": false
+              },
+              {
+                "input": [
+                  "args",
+                  1
+                ],
+                "objective": null,
+                "error": 2.961777532117793e-07,
+                "oracle_scale": 2.53401336506618,
+                "native_reference_error": 2.727687460346573e-07,
+                "limit": 0.0506802673013236,
+                "used_reference_bound": false
+              },
+              {
+                "input": [
+                  "args",
+                  2
+                ],
+                "objective": null,
+                "error": 6.383373373219925e-07,
+                "oracle_scale": 2.60255089540907,
+                "native_reference_error": 5.531732987229532e-07,
+                "limit": 0.052051017908181396,
+                "used_reference_bound": false
+              },
+              {
+                "input": [
+                  "args",
+                  0
+                ],
+                "objective": [
+                  0
+                ],
+                "error": 8.601275227615446e-07,
+                "oracle_scale": 4.996288812922999,
+                "native_reference_error": 8.601275227615446e-07,
+                "limit": 0.09992577625845998,
+                "used_reference_bound": false
+              },
+              {
+                "input": [
+                  "args",
+                  1
+                ],
+                "objective": [
+                  0
+                ],
+                "error": 4.5245148960759707e-07,
+                "oracle_scale": 2.529931568391173,
+                "native_reference_error": 3.361240050736569e-07,
+                "limit": 0.050598631367823464,
+                "used_reference_bound": false
+              },
+              {
+                "input": [
+                  "args",
+                  2
+                ],
+                "objective": [
+                  0
+                ],
+                "error": 4.905486401529657e-07,
+                "oracle_scale": 2.607179642388711,
+                "native_reference_error": 4.7027022842538457e-07,
+                "limit": 0.05214359284777422,
+                "used_reference_bound": false
+              },
+              {
+                "input": [
+                  "args",
+                  0
+                ],
+                "objective": [
+                  1
+                ],
+                "error": 2.2623119699805017e-07,
+                "oracle_scale": 2.434088321803282,
+                "native_reference_error": 2.653335005042834e-07,
+                "limit": 0.048681766436065636,
+                "used_reference_bound": false
+              },
+              {
+                "input": [
+                  "args",
+                  1
+                ],
+                "objective": [
+                  1
+                ],
+                "error": 5.038197009761547e-09,
+                "oracle_scale": 0.004241337449963062,
+                "native_reference_error": 5.038197009761547e-09,
+                "limit": 8.482674899926124e-05,
+                "used_reference_bound": false
+              },
+              {
+                "input": [
+                  "args",
+                  2
+                ],
+                "objective": [
+                  1
+                ],
+                "error": 2.313892418989716e-08,
+                "oracle_scale": 0.018899933290882655,
+                "native_reference_error": 2.845760835659683e-08,
+                "limit": 0.0003779986658176531,
+                "used_reference_bound": false
+              },
+              {
+                "input": [
+                  "args",
+                  0
+                ],
+                "objective": [
+                  2
+                ],
+                "error": 1.2779611247015765e-07,
+                "oracle_scale": 0.47480958123461525,
+                "native_reference_error": 1.2606924554292576e-07,
+                "limit": 0.009496191624692306,
+                "used_reference_bound": false
+              },
+              {
+                "input": [
+                  "args",
+                  1
+                ],
+                "objective": [
+                  2
+                ],
+                "error": 6.275632282067012e-09,
+                "oracle_scale": 0.007802173251666923,
+                "native_reference_error": 7.67261614399023e-09,
+                "limit": 0.00015604346503333847,
+                "used_reference_bound": false
+              },
+              {
+                "input": [
+                  "args",
+                  2
+                ],
+                "objective": [
+                  2
+                ],
+                "error": 4.329691610793773e-08,
+                "oracle_scale": 0.040631121749871595,
+                "native_reference_error": 5.148403666582757e-08,
+                "limit": 0.0008126224349974319,
+                "used_reference_bound": false
+              }
+            ]
+          },
+          "captured_grad_mask": true,
+          "partial_gradient_checks": [
+            {
+              "input": 0,
+              "used_reference_bound": false
+            },
+            {
+              "input": 1,
+              "used_reference_bound": false
+            },
+            {
+              "input": 2,
+              "used_reference_bound": false
+            }
+          ],
+          "fullgraph": true,
+          "backend": "mps",
+          "compiler": "inductor",
+          "autocast": [
+            {
+              "dtype": "torch.bfloat16",
+              "gradient_checks": [
+                {
+                  "input": 0,
+                  "used_reference_bound": false
+                },
+                {
+                  "input": 1,
+                  "used_reference_bound": false
+                },
+                {
+                  "input": 2,
+                  "used_reference_bound": false
+                }
+              ]
+            },
+            {
+              "dtype": "torch.float16",
+              "gradient_checks": [
+                {
+                  "input": 0,
+                  "used_reference_bound": false
+                },
+                {
+                  "input": 1,
+                  "used_reference_bound": false
+                },
+                {
+                  "input": 2,
+                  "used_reference_bound": false
+                }
+              ]
+            }
+          ],
+          "additional_signatures": []
+        },
+        "loaded_sha256": "2353c8fab100648a655a4c9cc52b512ba85036209ab0bc006d2f6a62e0912d27",
+        "artifact_state": "ready",
+        "activation_reason": null,
+        "performance_qualified": true,
+        "mode": "auto",
+        "calls": {
+          "kernel": 60
+        },
+        "name": "recurrence",
+        "job": "/Users/kareemfareed/dev/Flint/runs/flint-metal/generated/cache/recurrence_d0943eccf4efc4327bd18d03_native_metal"
+      }
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "log": "/Users/kareemfareed/dev/Flint/runs/flint-metal/generated/project/.flint/workflows/7a26a7a05083485eb549450079b23e99/training.log"
+  },
+  "worker_evidence": "/Users/kareemfareed/dev/Flint/runs/flint-metal/generated/project/.flint/workflows/7a26a7a05083485eb549450079b23e99"
+}

@@ -1,0 +1,4 @@
+[tool.flint]
+auto_build = false
+replay_safe = true
+workload_kind = "training"

@@ -1,7 +1,7 @@
 # Editor and decorator validation — October 27, 2026
 
 The runnable `examples/muse_kernel/research.py` trains a byte-level LM on an NVIDIA L4.
-The reference carries `@muse_kernel.fast`; the training loop uses `muse_kernel.train_step`.
+The reference carries `@flint_gpu.fast`; the training loop uses `flint_gpu.train_step`.
 Model credentials remained on the local controller. The worker captured the actual model inputs,
 including non-contiguous projection strides and storage offsets, rather than a synthetic contiguous call.
 

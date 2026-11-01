@@ -1,0 +1,663 @@
+[flint] queued /Users/kareemfareed/dev/Flint/runs/flint-metal/proof2/cache/recurrence_d0943eccf4efc4327bd18d03_native_metal
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flint_gpu/launch.py", line 55, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flint_gpu/launch.py", line 28, in main
+    runpy.run_path(script,run_name='__main__')
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "train.py", line 30, in <module>
+    y,h,c=fn(x*weight,h0,c0)
+          ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 749, in compile_wrapper
+    raise e.remove_dynamo_frames() from None  # see TORCHDYNAMO_VERBOSE=1
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/_inductor/compile_fx.py", line 923, in _compile_fx_inner
+    raise InductorError(e, currentframe()).with_traceback(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/_inductor/compile_fx.py", line 907, in _compile_fx_inner
+    mb_compiled_graph = fx_codegen_and_compile(
+                        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/_inductor/compile_fx.py", line 1578, in fx_codegen_and_compile
+    return scheme.codegen_and_compile(gm, example_inputs, inputs_to_check, graph_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/_inductor/compile_fx.py", line 1456, in codegen_and_compile
+    compiled_module = graph.compile_to_module()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/_inductor/graph.py", line 2293, in compile_to_module
+    return self._compile_to_module()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/_inductor/graph.py", line 2303, in _compile_to_module
+    mod = self._compile_to_module_lines(wrapper_code)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/_inductor/graph.py", line 2371, in _compile_to_module_lines
+    mod = PyCodeCache.load_by_key_path(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/_inductor/codecache.py", line 3296, in load_by_key_path
+    mod = _reload_python_module(key, path, set_sys_modules=in_toplevel)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/_inductor/runtime/compile_tasks.py", line 31, in _reload_python_module
+    exec(code, mod.__dict__, mod.__dict__)
+  File "/var/folders/8c/t8rqhd1d5f18qg2lnjsbhb300000gn/T/torchinductor_kareemfareed/a7/ca7dznugsiaotusjz652ehan6t5mm42hyzcas4fvgf4t4cfbgd4f.py", line 804, in <module>
+    mps_lib_0 = compile_mps_shader('''
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/_inductor/runtime/runtime_utils.py", line 184, in compile_mps_shader
+    raise SyntaxError(f"failed to compile {source} with {err.msg}") from err
+torch._inductor.exc.InductorError: SyntaxError: failed to compile 
+    #include <c10/metal/utils.h>
+    kernel void generated_kernel(
+        device float* out_ptr0,
+        device float* out_ptr1,
+        device float* out_ptr3,
+        device float* out_ptr4,
+        device float* out_ptr5,
+        device float* out_ptr7,
+        device float* out_ptr8,
+        device float* out_ptr9,
+        device float* out_ptr11,
+        device float* out_ptr12,
+        device float* out_ptr13,
+        device float* out_ptr15,
+        device float* out_ptr16,
+        device float* out_ptr17,
+        device float* out_ptr19,
+        device float* out_ptr20,
+        device float* out_ptr21,
+        device float* out_ptr23,
+        device float* out_ptr24,
+        device float* out_ptr25,
+        device float* out_ptr27,
+        device float* out_ptr28,
+        device float* out_ptr29,
+        device float* out_ptr31,
+        device float* out_ptr32,
+        device float* out_ptr33,
+        device float* out_ptr35,
+        device float* out_ptr36,
+        device float* out_ptr37,
+        device float* out_ptr39,
+        device float* out_ptr40,
+        device float* out_ptr41,
+        device float* out_ptr43,
+        device float* out_ptr44,
+        device float* out_ptr45,
+        device float* out_ptr47,
+        device float* out_ptr48,
+        device float* out_ptr49,
+        device float* out_ptr51,
+        device float* out_ptr52,
+        device float* out_ptr53,
+        device float* out_ptr55,
+        device float* out_ptr56,
+        device float* out_ptr57,
+        device float* out_ptr59,
+        device float* out_ptr60,
+        device float* out_ptr61,
+        device float* out_ptr62,
+        device float* out_ptr63,
+        constant float* in_ptr0,
+        constant float* in_ptr1,
+        constant float* in_ptr2,
+        uint xindex [[thread_position_in_grid]]
+    ) {
+        int x0 = (xindex) % (32);
+        int x1 = c10::metal::floor_divide(xindex, 32);
+        int x2 = xindex;
+        auto tmp0 = in_ptr0[x0 + 2048*x1];
+        auto tmp1 = in_ptr1[x2];
+        auto tmp5 = in_ptr2[x2];
+        auto tmp10 = in_ptr0[64 + x0 + 2048*x1];
+        auto tmp11 = in_ptr0[32 + x0 + 2048*x1];
+        auto tmp33 = in_ptr0[96 + x0 + 2048*x1];
+        auto tmp39 = in_ptr0[160 + x0 + 2048*x1];
+        auto tmp40 = in_ptr0[128 + x0 + 2048*x1];
+        auto tmp60 = in_ptr0[192 + x0 + 2048*x1];
+        auto tmp66 = in_ptr0[256 + x0 + 2048*x1];
+        auto tmp67 = in_ptr0[224 + x0 + 2048*x1];
+        auto tmp87 = in_ptr0[288 + x0 + 2048*x1];
+        auto tmp93 = in_ptr0[352 + x0 + 2048*x1];
+        auto tmp94 = in_ptr0[320 + x0 + 2048*x1];
+        auto tmp114 = in_ptr0[384 + x0 + 2048*x1];
+        auto tmp120 = in_ptr0[448 + x0 + 2048*x1];
+        auto tmp121 = in_ptr0[416 + x0 + 2048*x1];
+        auto tmp141 = in_ptr0[480 + x0 + 2048*x1];
+        auto tmp147 = in_ptr0[544 + x0 + 2048*x1];
+        auto tmp148 = in_ptr0[512 + x0 + 2048*x1];
+        auto tmp168 = in_ptr0[576 + x0 + 2048*x1];
+        auto tmp174 = in_ptr0[640 + x0 + 2048*x1];
+        auto tmp175 = in_ptr0[608 + x0 + 2048*x1];
+        auto tmp195 = in_ptr0[672 + x0 + 2048*x1];
+        auto tmp201 = in_ptr0[736 + x0 + 2048*x1];
+        auto tmp202 = in_ptr0[704 + x0 + 2048*x1];
+        auto tmp222 = in_ptr0[768 + x0 + 2048*x1];
+        auto tmp228 = in_ptr0[832 + x0 + 2048*x1];
+        auto tmp229 = in_ptr0[800 + x0 + 2048*x1];
+        auto tmp249 = in_ptr0[864 + x0 + 2048*x1];
+        auto tmp255 = in_ptr0[928 + x0 + 2048*x1];
+        auto tmp256 = in_ptr0[896 + x0 + 2048*x1];
+        auto tmp276 = in_ptr0[960 + x0 + 2048*x1];
+        auto tmp282 = in_ptr0[1024 + x0 + 2048*x1];
+        auto tmp283 = in_ptr0[992 + x0 + 2048*x1];
+        auto tmp303 = in_ptr0[1056 + x0 + 2048*x1];
+        auto tmp309 = in_ptr0[1120 + x0 + 2048*x1];
+        auto tmp310 = in_ptr0[1088 + x0 + 2048*x1];
+        auto tmp330 = in_ptr0[1152 + x0 + 2048*x1];
+        auto tmp336 = in_ptr0[1216 + x0 + 2048*x1];
+        auto tmp337 = in_ptr0[1184 + x0 + 2048*x1];
+        auto tmp357 = in_ptr0[1248 + x0 + 2048*x1];
+        auto tmp363 = in_ptr0[1312 + x0 + 2048*x1];
+        auto tmp364 = in_ptr0[1280 + x0 + 2048*x1];
+        auto tmp384 = in_ptr0[1344 + x0 + 2048*x1];
+        auto tmp390 = in_ptr0[1408 + x0 + 2048*x1];
+        auto tmp391 = in_ptr0[1376 + x0 + 2048*x1];
+        auto tmp411 = in_ptr0[1440 + x0 + 2048*x1];
+        auto tmp417 = in_ptr0[1504 + x0 + 2048*x1];
+        auto tmp418 = in_ptr0[1472 + x0 + 2048*x1];
+        auto tmp2 = 0.8;
+        auto tmp3 = tmp1 * tmp2;
+        auto tmp4 = tmp0 + tmp3;
+        auto tmp6 = 0.2;
+        auto tmp7 = tmp5 * tmp6;
+        auto tmp8 = tmp4 + tmp7;
+        auto tmp9 = metal::tanh(tmp8);
+        auto tmp12 = tmp9 * tmp2;
+        auto tmp13 = tmp11 + tmp12;
+        auto tmp14 = 0.9;
+        auto tmp15 = tmp5 * tmp14;
+        auto tmp16 = 0.1;
+        auto tmp17 = tmp9 * tmp16;
+        auto tmp18 = tmp15 + tmp17;
+        auto tmp19 = tmp18 * tmp6;
+        auto tmp20 = tmp13 + tmp19;
+        auto tmp21 = metal::tanh(tmp20);
+        auto tmp22 = tmp21 * tmp2;
+        auto tmp23 = tmp10 + tmp22;
+        auto tmp24 = tmp18 * tmp14;
+        auto tmp25 = tmp21 * tmp16;
+        auto tmp26 = tmp24 + tmp25;
+        auto tmp27 = tmp26 * tmp6;
+        auto tmp28 = tmp23 + tmp27;
+        auto tmp29 = metal::tanh(tmp28);
+        auto tmp30 = tmp26 * tmp14;
+        auto tmp31 = tmp29 * tmp16;
+        auto tmp32 = tmp30 + tmp31;
+        auto tmp34 = tmp29 * tmp2;
+        auto tmp35 = tmp33 + tmp34;
+        auto tmp36 = tmp32 * tmp6;
+        auto tmp37 = tmp35 + tmp36;
+        auto tmp38 = metal::tanh(tmp37);
+        auto tmp41 = tmp38 * tmp2;
+        auto tmp42 = tmp40 + tmp41;
+        auto tmp43 = tmp32 * tmp14;
+        auto tmp44 = tmp38 * tmp16;
+        auto tmp45 = tmp43 + tmp44;
+        auto tmp46 = tmp45 * tmp6;
+        auto tmp47 = tmp42 + tmp46;
+        auto tmp48 = metal::tanh(tmp47);
+        auto tmp49 = tmp48 * tmp2;
+        auto tmp50 = tmp39 + tmp49;
+        auto tmp51 = tmp45 * tmp14;
+        auto tmp52 = tmp48 * tmp16;
+        auto tmp53 = tmp51 + tmp52;
+        auto tmp54 = tmp53 * tmp6;
+        auto tmp55 = tmp50 + tmp54;
+        auto tmp56 = metal::tanh(tmp55);
+        auto tmp57 = tmp53 * tmp14;
+        auto tmp58 = tmp56 * tmp16;
+        auto tmp59 = tmp57 + tmp58;
+        auto tmp61 = tmp56 * tmp2;
+        auto tmp62 = tmp60 + tmp61;
+        auto tmp63 = tmp59 * tmp6;
+        auto tmp64 = tmp62 + tmp63;
+        auto tmp65 = metal::tanh(tmp64);
+        auto tmp68 = tmp65 * tmp2;
+        auto tmp69 = tmp67 + tmp68;
+        auto tmp70 = tmp59 * tmp14;
+        auto tmp71 = tmp65 * tmp16;
+        auto tmp72 = tmp70 + tmp71;
+        auto tmp73 = tmp72 * tmp6;
+        auto tmp74 = tmp69 + tmp73;
+        auto tmp75 = metal::tanh(tmp74);
+        auto tmp76 = tmp75 * tmp2;
+        auto tmp77 = tmp66 + tmp76;
+        auto tmp78 = tmp72 * tmp14;
+        auto tmp79 = tmp75 * tmp16;
+        auto tmp80 = tmp78 + tmp79;
+        auto tmp81 = tmp80 * tmp6;
+        auto tmp82 = tmp77 + tmp81;
+        auto tmp83 = metal::tanh(tmp82);
+        auto tmp84 = tmp80 * tmp14;
+        auto tmp85 = tmp83 * tmp16;
+        auto tmp86 = tmp84 + tmp85;
+        auto tmp88 = tmp83 * tmp2;
+        auto tmp89 = tmp87 + tmp88;
+        auto tmp90 = tmp86 * tmp6;
+        auto tmp91 = tmp89 + tmp90;
+        auto tmp92 = metal::tanh(tmp91);
+        auto tmp95 = tmp92 * tmp2;
+        auto tmp96 = tmp94 + tmp95;
+        auto tmp97 = tmp86 * tmp14;
+        auto tmp98 = tmp92 * tmp16;
+        auto tmp99 = tmp97 + tmp98;
+        auto tmp100 = tmp99 * tmp6;
+        auto tmp101 = tmp96 + tmp100;
+        auto tmp102 = metal::tanh(tmp101);
+        auto tmp103 = tmp102 * tmp2;
+        auto tmp104 = tmp93 + tmp103;
+        auto tmp105 = tmp99 * tmp14;
+        auto tmp106 = tmp102 * tmp16;
+        auto tmp107 = tmp105 + tmp106;
+        auto tmp108 = tmp107 * tmp6;
+        auto tmp109 = tmp104 + tmp108;
+        auto tmp110 = metal::tanh(tmp109);
+        auto tmp111 = tmp107 * tmp14;
+        auto tmp112 = tmp110 * tmp16;
+        auto tmp113 = tmp111 + tmp112;
+        auto tmp115 = tmp110 * tmp2;
+        auto tmp116 = tmp114 + tmp115;
+        auto tmp117 = tmp113 * tmp6;
+        auto tmp118 = tmp116 + tmp117;
+        auto tmp119 = metal::tanh(tmp118);
+        auto tmp122 = tmp119 * tmp2;
+        auto tmp123 = tmp121 + tmp122;
+        auto tmp124 = tmp113 * tmp14;
+        auto tmp125 = tmp119 * tmp16;
+        auto tmp126 = tmp124 + tmp125;
+        auto tmp127 = tmp126 * tmp6;
+        auto tmp128 = tmp123 + tmp127;
+        auto tmp129 = metal::tanh(tmp128);
+        auto tmp130 = tmp129 * tmp2;
+        auto tmp131 = tmp120 + tmp130;
+        auto tmp132 = tmp126 * tmp14;
+        auto tmp133 = tmp129 * tmp16;
+        auto tmp134 = tmp132 + tmp133;
+        auto tmp135 = tmp134 * tmp6;
+        auto tmp136 = tmp131 + tmp135;
+        auto tmp137 = metal::tanh(tmp136);
+        auto tmp138 = tmp134 * tmp14;
+        auto tmp139 = tmp137 * tmp16;
+        auto tmp140 = tmp138 + tmp139;
+        auto tmp142 = tmp137 * tmp2;
+        auto tmp143 = tmp141 + tmp142;
+        auto tmp144 = tmp140 * tmp6;
+        auto tmp145 = tmp143 + tmp144;
+        auto tmp146 = metal::tanh(tmp145);
+        auto tmp149 = tmp146 * tmp2;
+        auto tmp150 = tmp148 + tmp149;
+        auto tmp151 = tmp140 * tmp14;
+        auto tmp152 = tmp146 * tmp16;
+        auto tmp153 = tmp151 + tmp152;
+        auto tmp154 = tmp153 * tmp6;
+        auto tmp155 = tmp150 + tmp154;
+        auto tmp156 = metal::tanh(tmp155);
+        auto tmp157 = tmp156 * tmp2;
+        auto tmp158 = tmp147 + tmp157;
+        auto tmp159 = tmp153 * tmp14;
+        auto tmp160 = tmp156 * tmp16;
+        auto tmp161 = tmp159 + tmp160;
+        auto tmp162 = tmp161 * tmp6;
+        auto tmp163 = tmp158 + tmp162;
+        auto tmp164 = metal::tanh(tmp163);
+        auto tmp165 = tmp161 * tmp14;
+        auto tmp166 = tmp164 * tmp16;
+        auto tmp167 = tmp165 + tmp166;
+        auto tmp169 = tmp164 * tmp2;
+        auto tmp170 = tmp168 + tmp169;
+        auto tmp171 = tmp167 * tmp6;
+        auto tmp172 = tmp170 + tmp171;
+        auto tmp173 = metal::tanh(tmp172);
+        auto tmp176 = tmp173 * tmp2;
+        auto tmp177 = tmp175 + tmp176;
+        auto tmp178 = tmp167 * tmp14;
+        auto tmp179 = tmp173 * tmp16;
+        auto tmp180 = tmp178 + tmp179;
+        auto tmp181 = tmp180 * tmp6;
+        auto tmp182 = tmp177 + tmp181;
+        auto tmp183 = metal::tanh(tmp182);
+        auto tmp184 = tmp183 * tmp2;
+        auto tmp185 = tmp174 + tmp184;
+        auto tmp186 = tmp180 * tmp14;
+        auto tmp187 = tmp183 * tmp16;
+        auto tmp188 = tmp186 + tmp187;
+        auto tmp189 = tmp188 * tmp6;
+        auto tmp190 = tmp185 + tmp189;
+        auto tmp191 = metal::tanh(tmp190);
+        auto tmp192 = tmp188 * tmp14;
+        auto tmp193 = tmp191 * tmp16;
+        auto tmp194 = tmp192 + tmp193;
+        auto tmp196 = tmp191 * tmp2;
+        auto tmp197 = tmp195 + tmp196;
+        auto tmp198 = tmp194 * tmp6;
+        auto tmp199 = tmp197 + tmp198;
+        auto tmp200 = metal::tanh(tmp199);
+        auto tmp203 = tmp200 * tmp2;
+        auto tmp204 = tmp202 + tmp203;
+        auto tmp205 = tmp194 * tmp14;
+        auto tmp206 = tmp200 * tmp16;
+        auto tmp207 = tmp205 + tmp206;
+        auto tmp208 = tmp207 * tmp6;
+        auto tmp209 = tmp204 + tmp208;
+        auto tmp210 = metal::tanh(tmp209);
+        auto tmp211 = tmp210 * tmp2;
+        auto tmp212 = tmp201 + tmp211;
+        auto tmp213 = tmp207 * tmp14;
+        auto tmp214 = tmp210 * tmp16;
+        auto tmp215 = tmp213 + tmp214;
+        auto tmp216 = tmp215 * tmp6;
+        auto tmp217 = tmp212 + tmp216;
+        auto tmp218 = metal::tanh(tmp217);
+        auto tmp219 = tmp215 * tmp14;
+        auto tmp220 = tmp218 * tmp16;
+        auto tmp221 = tmp219 + tmp220;
+        auto tmp223 = tmp218 * tmp2;
+        auto tmp224 = tmp222 + tmp223;
+        auto tmp225 = tmp221 * tmp6;
+        auto tmp226 = tmp224 + tmp225;
+        auto tmp227 = metal::tanh(tmp226);
+        auto tmp230 = tmp227 * tmp2;
+        auto tmp231 = tmp229 + tmp230;
+        auto tmp232 = tmp221 * tmp14;
+        auto tmp233 = tmp227 * tmp16;
+        auto tmp234 = tmp232 + tmp233;
+        auto tmp235 = tmp234 * tmp6;
+        auto tmp236 = tmp231 + tmp235;
+        auto tmp237 = metal::tanh(tmp236);
+        auto tmp238 = tmp237 * tmp2;
+        auto tmp239 = tmp228 + tmp238;
+        auto tmp240 = tmp234 * tmp14;
+        auto tmp241 = tmp237 * tmp16;
+        auto tmp242 = tmp240 + tmp241;
+        auto tmp243 = tmp242 * tmp6;
+        auto tmp244 = tmp239 + tmp243;
+        auto tmp245 = metal::tanh(tmp244);
+        auto tmp246 = tmp242 * tmp14;
+        auto tmp247 = tmp245 * tmp16;
+        auto tmp248 = tmp246 + tmp247;
+        auto tmp250 = tmp245 * tmp2;
+        auto tmp251 = tmp249 + tmp250;
+        auto tmp252 = tmp248 * tmp6;
+        auto tmp253 = tmp251 + tmp252;
+        auto tmp254 = metal::tanh(tmp253);
+        auto tmp257 = tmp254 * tmp2;
+        auto tmp258 = tmp256 + tmp257;
+        auto tmp259 = tmp248 * tmp14;
+        auto tmp260 = tmp254 * tmp16;
+        auto tmp261 = tmp259 + tmp260;
+        auto tmp262 = tmp261 * tmp6;
+        auto tmp263 = tmp258 + tmp262;
+        auto tmp264 = metal::tanh(tmp263);
+        auto tmp265 = tmp264 * tmp2;
+        auto tmp266 = tmp255 + tmp265;
+        auto tmp267 = tmp261 * tmp14;
+        auto tmp268 = tmp264 * tmp16;
+        auto tmp269 = tmp267 + tmp268;
+        auto tmp270 = tmp269 * tmp6;
+        auto tmp271 = tmp266 + tmp270;
+        auto tmp272 = metal::tanh(tmp271);
+        auto tmp273 = tmp269 * tmp14;
+        auto tmp274 = tmp272 * tmp16;
+        auto tmp275 = tmp273 + tmp274;
+        auto tmp277 = tmp272 * tmp2;
+        auto tmp278 = tmp276 + tmp277;
+        auto tmp279 = tmp275 * tmp6;
+        auto tmp280 = tmp278 + tmp279;
+        auto tmp281 = metal::tanh(tmp280);
+        auto tmp284 = tmp281 * tmp2;
+        auto tmp285 = tmp283 + tmp284;
+        auto tmp286 = tmp275 * tmp14;
+        auto tmp287 = tmp281 * tmp16;
+        auto tmp288 = tmp286 + tmp287;
+        auto tmp289 = tmp288 * tmp6;
+        auto tmp290 = tmp285 + tmp289;
+        auto tmp291 = metal::tanh(tmp290);
+        auto tmp292 = tmp291 * tmp2;
+        auto tmp293 = tmp282 + tmp292;
+        auto tmp294 = tmp288 * tmp14;
+        auto tmp295 = tmp291 * tmp16;
+        auto tmp296 = tmp294 + tmp295;
+        auto tmp297 = tmp296 * tmp6;
+        auto tmp298 = tmp293 + tmp297;
+        auto tmp299 = metal::tanh(tmp298);
+        auto tmp300 = tmp296 * tmp14;
+        auto tmp301 = tmp299 * tmp16;
+        auto tmp302 = tmp300 + tmp301;
+        auto tmp304 = tmp299 * tmp2;
+        auto tmp305 = tmp303 + tmp304;
+        auto tmp306 = tmp302 * tmp6;
+        auto tmp307 = tmp305 + tmp306;
+        auto tmp308 = metal::tanh(tmp307);
+        auto tmp311 = tmp308 * tmp2;
+        auto tmp312 = tmp310 + tmp311;
+        auto tmp313 = tmp302 * tmp14;
+        auto tmp314 = tmp308 * tmp16;
+        auto tmp315 = tmp313 + tmp314;
+        auto tmp316 = tmp315 * tmp6;
+        auto tmp317 = tmp312 + tmp316;
+        auto tmp318 = metal::tanh(tmp317);
+        auto tmp319 = tmp318 * tmp2;
+        auto tmp320 = tmp309 + tmp319;
+        auto tmp321 = tmp315 * tmp14;
+        auto tmp322 = tmp318 * tmp16;
+        auto tmp323 = tmp321 + tmp322;
+        auto tmp324 = tmp323 * tmp6;
+        auto tmp325 = tmp320 + tmp324;
+        auto tmp326 = metal::tanh(tmp325);
+        auto tmp327 = tmp323 * tmp14;
+        auto tmp328 = tmp326 * tmp16;
+        auto tmp329 = tmp327 + tmp328;
+        auto tmp331 = tmp326 * tmp2;
+        auto tmp332 = tmp330 + tmp331;
+        auto tmp333 = tmp329 * tmp6;
+        auto tmp334 = tmp332 + tmp333;
+        auto tmp335 = metal::tanh(tmp334);
+        auto tmp338 = tmp335 * tmp2;
+        auto tmp339 = tmp337 + tmp338;
+        auto tmp340 = tmp329 * tmp14;
+        auto tmp341 = tmp335 * tmp16;
+        auto tmp342 = tmp340 + tmp341;
+        auto tmp343 = tmp342 * tmp6;
+        auto tmp344 = tmp339 + tmp343;
+        auto tmp345 = metal::tanh(tmp344);
+        auto tmp346 = tmp345 * tmp2;
+        auto tmp347 = tmp336 + tmp346;
+        auto tmp348 = tmp342 * tmp14;
+        auto tmp349 = tmp345 * tmp16;
+        auto tmp350 = tmp348 + tmp349;
+        auto tmp351 = tmp350 * tmp6;
+        auto tmp352 = tmp347 + tmp351;
+        auto tmp353 = metal::tanh(tmp352);
+        auto tmp354 = tmp350 * tmp14;
+        auto tmp355 = tmp353 * tmp16;
+        auto tmp356 = tmp354 + tmp355;
+        auto tmp358 = tmp353 * tmp2;
+        auto tmp359 = tmp357 + tmp358;
+        auto tmp360 = tmp356 * tmp6;
+        auto tmp361 = tmp359 + tmp360;
+        auto tmp362 = metal::tanh(tmp361);
+        auto tmp365 = tmp362 * tmp2;
+        auto tmp366 = tmp364 + tmp365;
+        auto tmp367 = tmp356 * tmp14;
+        auto tmp368 = tmp362 * tmp16;
+        auto tmp369 = tmp367 + tmp368;
+        auto tmp370 = tmp369 * tmp6;
+        auto tmp371 = tmp366 + tmp370;
+        auto tmp372 = metal::tanh(tmp371);
+        auto tmp373 = tmp372 * tmp2;
+        auto tmp374 = tmp363 + tmp373;
+        auto tmp375 = tmp369 * tmp14;
+        auto tmp376 = tmp372 * tmp16;
+        auto tmp377 = tmp375 + tmp376;
+        auto tmp378 = tmp377 * tmp6;
+        auto tmp379 = tmp374 + tmp378;
+        auto tmp380 = metal::tanh(tmp379);
+        auto tmp381 = tmp377 * tmp14;
+        auto tmp382 = tmp380 * tmp16;
+        auto tmp383 = tmp381 + tmp382;
+        auto tmp385 = tmp380 * tmp2;
+        auto tmp386 = tmp384 + tmp385;
+        auto tmp387 = tmp383 * tmp6;
+        auto tmp388 = tmp386 + tmp387;
+        auto tmp389 = metal::tanh(tmp388);
+        auto tmp392 = tmp389 * tmp2;
+        auto tmp393 = tmp391 + tmp392;
+        auto tmp394 = tmp383 * tmp14;
+        auto tmp395 = tmp389 * tmp16;
+        auto tmp396 = tmp394 + tmp395;
+        auto tmp397 = tmp396 * tmp6;
+        auto tmp398 = tmp393 + tmp397;
+        auto tmp399 = metal::tanh(tmp398);
+        auto tmp400 = tmp399 * tmp2;
+        auto tmp401 = tmp390 + tmp400;
+        auto tmp402 = tmp396 * tmp14;
+        auto tmp403 = tmp399 * tmp16;
+        auto tmp404 = tmp402 + tmp403;
+        auto tmp405 = tmp404 * tmp6;
+        auto tmp406 = tmp401 + tmp405;
+        auto tmp407 = metal::tanh(tmp406);
+        auto tmp408 = tmp404 * tmp14;
+        auto tmp409 = tmp407 * tmp16;
+        auto tmp410 = tmp408 + tmp409;
+        auto tmp412 = tmp407 * tmp2;
+        auto tmp413 = tmp411 + tmp412;
+        auto tmp414 = tmp410 * tmp6;
+        auto tmp415 = tmp413 + tmp414;
+        auto tmp416 = metal::tanh(tmp415);
+        auto tmp419 = tmp416 * tmp2;
+        auto tmp420 = tmp418 + tmp419;
+        auto tmp421 = tmp410 * tmp14;
+        auto tmp422 = tmp416 * tmp16;
+        auto tmp423 = tmp421 + tmp422;
+        auto tmp424 = tmp423 * tmp6;
+        auto tmp425 = tmp420 + tmp424;
+        auto tmp426 = metal::tanh(tmp425);
+        auto tmp427 = tmp426 * tmp2;
+        auto tmp428 = tmp417 + tmp427;
+        auto tmp429 = tmp423 * tmp14;
+        auto tmp430 = tmp426 * tmp16;
+        auto tmp431 = tmp429 + tmp430;
+        auto tmp432 = tmp431 * tmp6;
+        auto tmp433 = tmp428 + tmp432;
+        auto tmp434 = metal::tanh(tmp433);
+        auto tmp435 = tmp431 * tmp14;
+        auto tmp436 = tmp434 * tmp16;
+        auto tmp437 = tmp435 + tmp436;
+        out_ptr0[x0 + 2048*x1] = static_cast<float>(tmp9);
+        out_ptr1[x0 + 2048*x1] = static_cast<float>(tmp29);
+        out_ptr3[x0 + 2048*x1] = static_cast<float>(tmp21);
+        out_ptr4[x0 + 2048*x1] = static_cast<float>(tmp38);
+        out_ptr5[x0 + 2048*x1] = static_cast<float>(tmp56);
+        out_ptr7[x0 + 2048*x1] = static_cast<float>(tmp48);
+        out_ptr8[x0 + 2048*x1] = static_cast<float>(tmp65);
+        out_ptr9[x0 + 2048*x1] = static_cast<float>(tmp83);
+        out_ptr11[x0 + 2048*x1] = static_cast<float>(tmp75);
+        out_ptr12[x0 + 2048*x1] = static_cast<float>(tmp92);
+        out_ptr13[x0 + 2048*x1] = static_cast<float>(tmp110);
+        out_ptr15[x0 + 2048*x1] = static_cast<float>(tmp102);
+        out_ptr16[x0 + 2048*x1] = static_cast<float>(tmp119);
+        out_ptr17[x0 + 2048*x1] = static_cast<float>(tmp137);
+        out_ptr19[x0 + 2048*x1] = static_cast<float>(tmp129);
+        out_ptr20[x0 + 2048*x1] = static_cast<float>(tmp146);
+        out_ptr21[x0 + 2048*x1] = static_cast<float>(tmp164);
+        out_ptr23[x0 + 2048*x1] = static_cast<float>(tmp156);
+        out_ptr24[x0 + 2048*x1] = static_cast<float>(tmp173);
+        out_ptr25[x0 + 2048*x1] = static_cast<float>(tmp191);
+        out_ptr27[x0 + 2048*x1] = static_cast<float>(tmp183);
+        out_ptr28[x0 + 2048*x1] = static_cast<float>(tmp200);
+        out_ptr29[x0 + 2048*x1] = static_cast<float>(tmp218);
+        out_ptr31[x0 + 2048*x1] = static_cast<float>(tmp210);
+        out_ptr32[x0 + 2048*x1] = static_cast<float>(tmp227);
+        out_ptr33[x0 + 2048*x1] = static_cast<float>(tmp245);
+        out_ptr35[x0 + 2048*x1] = static_cast<float>(tmp237);
+        out_ptr36[x0 + 2048*x1] = static_cast<float>(tmp254);
+        out_ptr37[x0 + 2048*x1] = static_cast<float>(tmp272);
+        out_ptr39[x0 + 2048*x1] = static_cast<float>(tmp264);
+        out_ptr40[x0 + 2048*x1] = static_cast<float>(tmp281);
+        out_ptr41[x0 + 2048*x1] = static_cast<float>(tmp299);
+        out_ptr43[x0 + 2048*x1] = static_cast<float>(tmp291);
+        out_ptr44[x0 + 2048*x1] = static_cast<float>(tmp308);
+        out_ptr45[x0 + 2048*x1] = static_cast<float>(tmp326);
+        out_ptr47[x0 + 2048*x1] = static_cast<float>(tmp318);
+        out_ptr48[x0 + 2048*x1] = static_cast<float>(tmp335);
+        out_ptr49[x0 + 2048*x1] = static_cast<float>(tmp353);
+        out_ptr51[x0 + 2048*x1] = static_cast<float>(tmp345);
+        out_ptr52[x0 + 2048*x1] = static_cast<float>(tmp362);
+        out_ptr53[x0 + 2048*x1] = static_cast<float>(tmp380);
+        out_ptr55[x0 + 2048*x1] = static_cast<float>(tmp372);
+        out_ptr56[x0 + 2048*x1] = static_cast<float>(tmp389);
+        out_ptr57[x0 + 2048*x1] = static_cast<float>(tmp407);
+        out_ptr59[x0 + 2048*x1] = static_cast<float>(tmp399);
+        out_ptr60[x0 + 2048*x1] = static_cast<float>(tmp416);
+        out_ptr61[x0 + 2048*x1] = static_cast<float>(tmp434);
+        out_ptr62[x2] = static_cast<float>(tmp437);
+        out_ptr63[x0 + 2048*x1] = static_cast<float>(tmp426);
+    }
+ with program_source:413:23: error: no 'buffer' resource location available for 'out_ptr41'
+        device float* out_ptr41,
+                      ^
+program_source:414:23: error: no 'buffer' resource location available for 'out_ptr43'
+        device float* out_ptr43,
+                      ^
+program_source:415:23: error: no 'buffer' resource location available for 'out_ptr44'
+        device float* out_ptr44,
+                      ^
+program_source:416:23: error: no 'buffer' resource location available for 'out_ptr45'
+        device float* out_ptr45,
+                      ^
+program_source:417:23: error: no 'buffer' resource location available for 'out_ptr47'
+        device float* out_ptr47,
+                      ^
+program_source:418:23: error: no 'buffer' resource location available for 'out_ptr48'
+        device float* out_ptr48,
+                      ^
+program_source:419:23: error: no 'buffer' resource location available for 'out_ptr49'
+        device float* out_ptr49,
+                      ^
+program_source:420:23: error: no 'buffer' resource location available for 'out_ptr51'
+        device float* out_ptr51,
+                      ^
+program_source:421:23: error: no 'buffer' resource location available for 'out_ptr52'
+        device float* out_ptr52,
+                      ^
+program_source:422:23: error: no 'buffer' resource location available for 'out_ptr53'
+        device float* out_ptr53,
+                      ^
+program_source:423:23: error: no 'buffer' resource location available for 'out_ptr55'
+        device float* out_ptr55,
+                      ^
+program_source:424:23: error: no 'buffer' resource location available for 'out_ptr56'
+        device float* out_ptr56,
+                      ^
+program_source:425:23: error: no 'buffer' resource location available for 'out_ptr57'
+        device float* out_ptr57,
+                      ^
+program_source:426:23: error: no 'buffer' resource location available for 'out_ptr59'
+        device float* out_ptr59,
+                      ^
+program_source:427:23: error: no 'buffer' resource location available for 'out_ptr60'
+        device float* out_ptr60,
+                      ^
+program_source:428:23: error: no 'buffer' resource location available for 'out_ptr61'
+        device float* out_ptr61,
+                      ^
+program_source:429:23: error: no 'buffer' resource location available for 'out_ptr62'
+        device float* out_ptr62,
+                      ^
+program_source:430:23: error: no 'buffer' resource location available for 'out_ptr63'
+        device float* out_ptr63,
+                      ^
+program_source:431:25: error: no 'buffer' resource location available for 'in_ptr0'
+        constant float* in_ptr0,
+                        ^
+program_source:432:25: error: no 'buffer' resource location available for 'in_ptr1'
+        constant float* in_ptr1,
+                        ^
+program_source:433:25: error: no 'buffer' resource location available for 'in_ptr2'
+        constant float* in_ptr2,
+                        ^
+
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+

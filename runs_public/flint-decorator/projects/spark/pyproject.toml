@@ -1,0 +1,7 @@
+[tool.flint]
+auto_build=false
+native=true
+replay_safe=true
+workload_kind="training"
+cache_dir="/workspace/cache/spark-03"
+worker_dir="/workspace/flint-worker"

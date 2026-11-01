@@ -1,9 +1,9 @@
 import torch
 
-import muse_kernel
+import flint_gpu as flint
 
 
-@muse_kernel.fast
+@flint.fast
 def decayed_scan(x, a):
     """y_t = a_t * y_{t-1} + x_t over the time axis (dim 1)."""
     y = torch.zeros_like(x[:, 0])

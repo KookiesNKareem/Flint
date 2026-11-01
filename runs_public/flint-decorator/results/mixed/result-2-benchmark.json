@@ -1,0 +1,819 @@
+{
+  "losses": [
+    61.27001953125,
+    62.0087890625,
+    60.987060546875,
+    60.09228515625,
+    60.348388671875,
+    58.2041015625,
+    57.410400390625,
+    56.509033203125,
+    56.1806640625,
+    54.044677734375,
+    53.86767578125,
+    52.5693359375,
+    52.263427734375,
+    49.623779296875,
+    47.823974609375,
+    45.6181640625,
+    46.363037109375,
+    43.20060729980469,
+    40.95277404785156,
+    41.18296432495117,
+    38.61064147949219,
+    38.079275131225586,
+    35.4830322265625,
+    35.09031295776367,
+    32.8800048828125,
+    31.70001220703125,
+    29.75037384033203,
+    29.266254425048828,
+    28.267623901367188,
+    29.070354461669922,
+    26.08272933959961,
+    22.92678737640381,
+    23.126150131225586,
+    19.82188320159912,
+    18.402016639709473,
+    18.6248779296875,
+    18.862000465393066,
+    15.033801555633545,
+    14.7250337600708,
+    14.814111232757568,
+    12.942516803741455,
+    13.099329471588135,
+    11.978828430175781,
+    11.009057521820068,
+    10.96574354171753,
+    9.966204643249512,
+    9.806729793548584,
+    8.379601001739502,
+    9.000486850738525,
+    7.308848857879639,
+    8.610287189483643,
+    7.515518426895142,
+    6.600109815597534,
+    7.507905960083008,
+    6.948261260986328,
+    6.0692243576049805,
+    6.069140911102295,
+    5.536985397338867,
+    5.131708145141602,
+    6.032122611999512
+  ],
+  "times_ms": [
+    4212.84075499716,
+    17.56462599587394,
+    15.03907499863999,
+    14.846145997580606,
+    14.919057000952307,
+    15.356038995378185,
+    16.121699998620898,
+    17.639769001107197,
+    17.811568002798595,
+    17.378563999955077,
+    17.11794000584632,
+    16.523822996532544,
+    17.137041002570186,
+    18.077284999890253,
+    16.86483500088798,
+    16.79502700426383,
+    16.759539001213852,
+    16.59695099806413,
+    17.075446994567756,
+    17.93907400133321,
+    18.424779002089053,
+    19.236200001614634,
+    18.978699001308996,
+    18.495995995181147,
+    19.423949997872114,
+    19.475848996080458,
+    19.533345999661833,
+    19.825227005640045,
+    20.17697400151519,
+    20.203644002322108,
+    19.36735100025544,
+    21.51778900588397,
+    20.732511002279352,
+    20.923773001413792,
+    22.64969699899666,
+    21.18093999888515,
+    19.753460001084022,
+    19.5629040026688,
+    19.47194300009869,
+    21.530129000893794,
+    20.719476000522263,
+    21.34566399763571,
+    20.911223997245543,
+    21.10447399900295,
+    21.47569099906832,
+    20.76876300270669,
+    20.865992999461014,
+    21.059122002043296,
+    21.148914005607367,
+    20.572950998030137,
+    20.363589996122755,
+    20.55272200232139,
+    20.538207005301956,
+    21.084840002004057,
+    20.804692001547664,
+    20.20870800333796,
+    20.363824995001778,
+    20.797659999516327,
+    21.188694998272695,
+    20.521386999462266
+  ],
+  "validation_loss": 4.2716064453125,
+  "peak_bytes": 28417024,
+  "dispatch": {
+    "state": "ready",
+    "updated": 1793170728.4426901,
+    "started": 1793169574.400737,
+    "reason": null,
+    "reference_ms": 16.386509058065712,
+    "model": "muse-wonder-1.0",
+    "attempt": 2,
+    "fuzz_policy": "contract_fuzz_v2",
+    "gradient_policy": "reference_bounded_v1",
+    "holdout_passed": true,
+    "kernel": "kernel.py",
+    "kernel_sha256": "218d24e3f26fb44dd77e608528624d26d838ac31851c01ce970644a572743474",
+    "coverage": {
+      "total": 28,
+      "accept": 28,
+      "wrong": 0,
+      "crash": 0,
+      "refuse": 0,
+      "skip": 0,
+      "unsupported": [],
+      "skipped": [],
+      "all_cases_passed": true
+    },
+    "fwd_bwd_ms": 2.1050414885394275,
+    "usd": 0.74385205,
+    "memory": {
+      "saved_activation_bytes": 0,
+      "saved_storages": 0,
+      "peak_extra_bytes": 183296
+    },
+    "reference_memory": {
+      "saved_activation_bytes": 2328576,
+      "saved_storages": 646,
+      "peak_extra_bytes": 2620928
+    },
+    "models_used": [
+      "meta-models/muse-spark-open-1026",
+      "muse-wonder-1.0",
+      "meta-models/muse-spark-open-1026",
+      "muse-wonder-1.0"
+    ],
+    "verified_cases": 28,
+    "cases": 28,
+    "compile_passed": true,
+    "native_checks": {
+      "passed": true,
+      "opcheck": {
+        "test_schema": "SUCCESS",
+        "test_autograd_registration": "SUCCESS",
+        "test_faketensor": "SUCCESS",
+        "test_aot_dispatch_dynamic": "SUCCESS"
+      },
+      "graph_count": 1,
+      "graph_break_count": 0,
+      "operators": [
+        "k_kernel.recurrence_fwd.default",
+        "<built-in function getitem>",
+        "<built-in function getitem>",
+        "<built-in function getitem>"
+      ],
+      "compiled_case": {
+        "outcome": "accept",
+        "err": 3.9804178508795474e-08,
+        "torch_err": 6.412965225521816e-08,
+        "scale": 0.5371521070052965,
+        "output_path": [
+          0
+        ],
+        "truth_dtype": "torch.float64",
+        "outputs_checked": 3,
+        "output_checks": [
+          {
+            "outcome": "accept",
+            "err": 3.9804178508795474e-08,
+            "torch_err": 6.412965225521816e-08,
+            "scale": 0.5371521070052965,
+            "output_path": [
+              0
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.5394650543807415e-08,
+            "torch_err": 3.5394650543807415e-08,
+            "scale": 0.3089479095690395,
+            "output_path": [
+              1,
+              "fast"
+            ],
+            "truth_dtype": "torch.float64"
+          },
+          {
+            "outcome": "accept",
+            "err": 3.903135070704167e-08,
+            "torch_err": 3.07855650971689e-08,
+            "scale": 0.26797377196763306,
+            "output_path": [
+              1,
+              "slow"
+            ],
+            "truth_dtype": "torch.float64"
+          }
+        ],
+        "gradient_objectives": 4,
+        "grad_inputs_checked": 8,
+        "gradient_policy": "reference_bounded_v1",
+        "gradient_checks": [
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": null,
+            "error": 0.0037064986333485983,
+            "oracle_scale": 1.1291060013666514,
+            "native_reference_error": 0.0037064986333485983,
+            "limit": 0.02258212002733303,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": null,
+            "error": 0.007233459535635145,
+            "oracle_scale": 2.524016540464365,
+            "native_reference_error": 0.007233459535635145,
+            "limit": 0.0504803308092873,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": null,
+            "error": 0.003583565035244929,
+            "oracle_scale": 1.44431660511701,
+            "native_reference_error": 0.003583565035244929,
+            "limit": 0.0288863321023402,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              3
+            ],
+            "objective": null,
+            "error": 0.0004736567684652804,
+            "oracle_scale": 0.35136643586394284,
+            "native_reference_error": 0.0004736567684652804,
+            "limit": 0.007027328717278857,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              4
+            ],
+            "objective": null,
+            "error": 0.003084771970708333,
+            "oracle_scale": 1.0343347719707083,
+            "native_reference_error": 0.003084771970708333,
+            "limit": 0.020686695439414166,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              5
+            ],
+            "objective": null,
+            "error": 0.001920997597032792,
+            "oracle_scale": 0.6191084975970328,
+            "native_reference_error": 0.001920997597032792,
+            "limit": 0.012382169951940657,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              6,
+              "fast"
+            ],
+            "objective": null,
+            "error": 6.089782722540349e-08,
+            "oracle_scale": 0.357062118000215,
+            "native_reference_error": 4.8966446786202766e-08,
+            "limit": 0.0071412423600043,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              6,
+              "slow"
+            ],
+            "objective": null,
+            "error": 1.591775855569466e-08,
+            "oracle_scale": 0.2068068670691233,
+            "native_reference_error": 2.4847966156871237e-08,
+            "limit": 0.004136137341382466,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": [
+              0
+            ],
+            "error": 0.0037064986333485983,
+            "oracle_scale": 1.1291060013666514,
+            "native_reference_error": 0.0037064986333485983,
+            "limit": 0.02258212002733303,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": [
+              0
+            ],
+            "error": 0.0009714420823033199,
+            "oracle_scale": 0.7460652262242408,
+            "native_reference_error": 0.0009714420823033199,
+            "limit": 0.014921304524484815,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": [
+              0
+            ],
+            "error": 0.0009578009547299704,
+            "oracle_scale": 0.726174545682245,
+            "native_reference_error": 0.0009578009547299704,
+            "limit": 0.014523490913644901,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              3
+            ],
+            "objective": [
+              0
+            ],
+            "error": 0.0004537846224486053,
+            "oracle_scale": 0.2710305903775514,
+            "native_reference_error": 0.0004537846224486053,
+            "limit": 0.005420611807551028,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              4
+            ],
+            "objective": [
+              0
+            ],
+            "error": 0.0008945176179568359,
+            "oracle_scale": 0.4136536477349224,
+            "native_reference_error": 0.0008945176179568359,
+            "limit": 0.008273072954698448,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              5
+            ],
+            "objective": [
+              0
+            ],
+            "error": 0.0004867128690099476,
+            "oracle_scale": 0.44725178002357246,
+            "native_reference_error": 0.0004867128690099476,
+            "limit": 0.008945035600471449,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              6,
+              "fast"
+            ],
+            "objective": [
+              0
+            ],
+            "error": 6.089782722540349e-08,
+            "oracle_scale": 0.357062118000215,
+            "native_reference_error": 4.8966446786202766e-08,
+            "limit": 0.0071412423600043,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              6,
+              "slow"
+            ],
+            "objective": [
+              0
+            ],
+            "error": 1.591775855569466e-08,
+            "oracle_scale": 0.2068068670691233,
+            "native_reference_error": 2.4847966156871237e-08,
+            "limit": 0.004136137341382466,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": [
+              1,
+              "fast"
+            ],
+            "error": 0.0,
+            "oracle_scale": 0.0,
+            "native_reference_error": 0.0,
+            "limit": 2e-32,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": [
+              1,
+              "fast"
+            ],
+            "error": 0.002457000078615046,
+            "oracle_scale": 1.342020083235695,
+            "native_reference_error": 0.002457000078615046,
+            "limit": 0.026840401664713902,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": [
+              1,
+              "fast"
+            ],
+            "error": 0.0036694054022843314,
+            "oracle_scale": 1.3892740432086605,
+            "native_reference_error": 0.0036694054022843314,
+            "limit": 0.02778548086417321,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              3
+            ],
+            "objective": [
+              1,
+              "fast"
+            ],
+            "error": 0.00042356669866114305,
+            "oracle_scale": 0.22554949163289076,
+            "native_reference_error": 0.00042356669866114305,
+            "limit": 0.004510989832657815,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              4
+            ],
+            "objective": [
+              1,
+              "fast"
+            ],
+            "error": 0.001389904310261425,
+            "oracle_scale": 0.8722363601539248,
+            "native_reference_error": 0.001389904310261425,
+            "limit": 0.017444727203078495,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              5
+            ],
+            "objective": [
+              1,
+              "fast"
+            ],
+            "error": 0.0,
+            "oracle_scale": 0.0,
+            "native_reference_error": 0.0,
+            "limit": 2e-32,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              6,
+              "fast"
+            ],
+            "objective": [
+              1,
+              "fast"
+            ],
+            "error": 1.241900841898242e-24,
+            "oracle_scale": 1.1967255146351245e-18,
+            "native_reference_error": 1.1271969191615207e-24,
+            "limit": 2.393451029270249e-20,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              6,
+              "slow"
+            ],
+            "objective": [
+              1,
+              "fast"
+            ],
+            "error": 0.0,
+            "oracle_scale": 0.0,
+            "native_reference_error": 0.0,
+            "limit": 2e-32,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              0
+            ],
+            "objective": [
+              1,
+              "slow"
+            ],
+            "error": 0.0,
+            "oracle_scale": 0.0,
+            "native_reference_error": 0.0,
+            "limit": 2e-32,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              1
+            ],
+            "objective": [
+              1,
+              "slow"
+            ],
+            "error": 0.0033737126827104724,
+            "oracle_scale": 1.178648682799204,
+            "native_reference_error": 0.0033737126827104724,
+            "limit": 0.02357297365598408,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              2
+            ],
+            "objective": [
+              1,
+              "slow"
+            ],
+            "error": 0.003246237251953943,
+            "oracle_scale": 1.018871237251954,
+            "native_reference_error": 0.003246237251953943,
+            "limit": 0.02037742474503908,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              3
+            ],
+            "objective": [
+              1,
+              "slow"
+            ],
+            "error": 0.00026979496050594243,
+            "oracle_scale": 0.15695676753949406,
+            "native_reference_error": 0.00026979496050594243,
+            "limit": 0.003139135350789881,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              4
+            ],
+            "objective": [
+              1,
+              "slow"
+            ],
+            "error": 0.0014400270489015599,
+            "oracle_scale": 0.6410004333318818,
+            "native_reference_error": 0.0014400270489015599,
+            "limit": 0.012820008666637637,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              5
+            ],
+            "objective": [
+              1,
+              "slow"
+            ],
+            "error": 0.001006147391726775,
+            "oracle_scale": 0.6064748973917268,
+            "native_reference_error": 0.001006147391726775,
+            "limit": 0.012129497947834536,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              6,
+              "fast"
+            ],
+            "objective": [
+              1,
+              "slow"
+            ],
+            "error": 2.7053968055216074e-23,
+            "oracle_scale": 3.2354431230716827e-17,
+            "native_reference_error": 1.1096097313715167e-23,
+            "limit": 6.4708862461433655e-19,
+            "used_reference_bound": false
+          },
+          {
+            "input": [
+              "args",
+              6,
+              "slow"
+            ],
+            "objective": [
+              1,
+              "slow"
+            ],
+            "error": 2.927549663308227e-25,
+            "oracle_scale": 2.4046877955812646e-19,
+            "native_reference_error": 9.837221044293917e-26,
+            "limit": 4.8093755911625295e-21,
+            "used_reference_bound": false
+          }
+        ]
+      },
+      "captured_grad_mask": true,
+      "partial_gradient_checks": [
+        {
+          "input": 0,
+          "used_reference_bound": false
+        },
+        {
+          "input": 1,
+          "used_reference_bound": false
+        },
+        {
+          "input": 2,
+          "used_reference_bound": false
+        },
+        {
+          "input": 3,
+          "used_reference_bound": false
+        },
+        {
+          "input": 4,
+          "used_reference_bound": false
+        },
+        {
+          "input": 5,
+          "used_reference_bound": false
+        },
+        {
+          "input": 6,
+          "used_reference_bound": false
+        },
+        {
+          "input": 7,
+          "used_reference_bound": false
+        }
+      ],
+      "fullgraph": true,
+      "autocast": [
+        {
+          "dtype": "torch.bfloat16",
+          "gradient_checks": [
+            {
+              "input": 0,
+              "used_reference_bound": false
+            },
+            {
+              "input": 1,
+              "used_reference_bound": false
+            },
+            {
+              "input": 2,
+              "used_reference_bound": false
+            },
+            {
+              "input": 3,
+              "used_reference_bound": false
+            },
+            {
+              "input": 4,
+              "used_reference_bound": false
+            },
+            {
+              "input": 5,
+              "used_reference_bound": false
+            },
+            {
+              "input": 6,
+              "used_reference_bound": false
+            },
+            {
+              "input": 7,
+              "used_reference_bound": false
+            }
+          ]
+        },
+        {
+          "dtype": "torch.float16",
+          "gradient_checks": [
+            {
+              "input": 0,
+              "used_reference_bound": false
+            },
+            {
+              "input": 1,
+              "used_reference_bound": false
+            },
+            {
+              "input": 2,
+              "used_reference_bound": false
+            },
+            {
+              "input": 3,
+              "used_reference_bound": false
+            },
+            {
+              "input": 4,
+              "used_reference_bound": false
+            },
+            {
+              "input": 5,
+              "used_reference_bound": false
+            },
+            {
+              "input": 6,
+              "used_reference_bound": false
+            },
+            {
+              "input": 7,
+              "used_reference_bound": false
+            }
+          ]
+        }
+      ],
+      "additional_signatures": []
+    },
+    "repair_usd": 0.225476,
+    "loaded_sha256": "218d24e3f26fb44dd77e608528624d26d838ac31851c01ce970644a572743474",
+    "artifact_state": "ready",
+    "activation_reason": null,
+    "performance_qualified": false,
+    "mode": "benchmark",
+    "calls": {
+      "compiled kernel graphs": 4
+    }
+  }
+}

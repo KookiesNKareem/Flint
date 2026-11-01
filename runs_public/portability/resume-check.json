@@ -1,0 +1,14 @@
+{
+  "reference": {
+    "iteration": 44,
+    "optimizer_state_entries": 28,
+    "all_parameters_finite": true,
+    "best_val_loss": 2.635392665863037
+  },
+  "native": {
+    "iteration": 44,
+    "optimizer_state_entries": 28,
+    "all_parameters_finite": true,
+    "best_val_loss": 2.635159492492676
+  }
+}

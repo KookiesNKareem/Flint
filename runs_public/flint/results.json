@@ -1,0 +1,63 @@
+{
+  "command": "python train.py --steps 100",
+  "compiler_cache": "prewarmed; fresh process for every measurement",
+  "data": "Tiny Shakespeare fixed byte sequence, 90/10 split",
+  "training": "BF16 autocast, two accumulated microbatches, AdamW, connected fast/slow recurrent states across two 64-token chunks, sequence length 128",
+  "comparisons": {
+    "reference": {
+      "command_seconds": [
+        19.698154593002982,
+        19.602525406051427,
+        19.5853782199556
+      ],
+      "median_command_seconds": 19.602525406051427,
+      "peak_allocated_bytes": [
+        29079552,
+        29079552,
+        29079552
+      ],
+      "median_warm_optimizer_step_ms": 30.36343608982861,
+      "validation_loss": [
+        2.7925796508789062,
+        2.7956695556640625,
+        2.7948226928710938
+      ]
+    },
+    "benchmark": {
+      "command_seconds": [
+        7.0723399120615795,
+        7.487582262954675,
+        7.22237168205902
+      ],
+      "median_command_seconds": 7.22237168205902,
+      "peak_allocated_bytes": [
+        28855296,
+        28855296,
+        28855296
+      ],
+      "median_warm_optimizer_step_ms": 5.209666909649968,
+      "validation_loss": [
+        2.7969436645507812,
+        2.79718017578125,
+        2.79364013671875
+      ]
+    }
+  },
+  "whole_command_speedup": 2.714139657855847,
+  "whole_command_peak_allocated_reduction": 0.007711810690893772,
+  "qualified": true,
+  "normal_auto_activation": true,
+  "qualification_seconds": 80.66835207608528,
+  "qualification_break_even_runs": 7,
+  "break_even_scope": "Qualification execution only; excludes model generation and prior preparation.",
+  "gradient_relative_l2_max": 0.004198381211608648,
+  "native_audit_graphs": 1,
+  "native_audit_graph_breaks": 0,
+  "development_checks": 23,
+  "fresh_holdout_checks": 12,
+  "local_tests": {
+    "passed": 106,
+    "skipped": 1
+  },
+  "scope": "One L4 and one recurrence workload; 100-step training smoke, not a model-quality or architecture discovery result."
+}

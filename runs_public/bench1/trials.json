@@ -1,0 +1,1353 @@
+[
+  {
+    "trial": "muse-spark-1.3-contributor__b01_gdr",
+    "event_count": 20,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-1.3-contributor__b02_kda",
+    "event_count": 17,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-1.3-contributor__b03_eda",
+    "event_count": 17,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-1.3-contributor__b04_eda_channel",
+    "event_count": 14,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-1.3-contributor__b05_write_erase",
+    "event_count": 14,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-1.3-contributor__b06_value_erase",
+    "event_count": 17,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-1.3-contributor__b07_coupled",
+    "event_count": 14,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-1.3-contributor__b08_read_before",
+    "event_count": 23,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-1.3-contributor__b09_decay_after",
+    "event_count": 20,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-1.3-contributor__b10_neg_eig",
+    "event_count": 20,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-1.3-contributor__b11_add_write",
+    "event_count": 14,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-1.3-contributor__b12_two_sided",
+    "event_count": 23,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b01_gdr",
+    "event_count": 23,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b02_kda",
+    "event_count": 20,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b03_eda",
+    "event_count": 20,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b04_eda_channel",
+    "event_count": 20,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b05_write_erase",
+    "event_count": 29,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b06_value_erase",
+    "event_count": 29,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b07_coupled",
+    "event_count": 23,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b08_read_before",
+    "event_count": 23,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b09_decay_after",
+    "event_count": 23,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b10_neg_eig",
+    "event_count": 23,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b11_add_write",
+    "event_count": 23,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-spark-open-1026__b12_two_sided",
+    "event_count": 13,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b01_gdr",
+    "event_count": 32,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b02_kda",
+    "event_count": 30,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b03_eda",
+    "event_count": 13,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b04_eda_channel",
+    "event_count": 20,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b05_write_erase",
+    "event_count": 20,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b06_value_erase",
+    "event_count": 17,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b07_coupled",
+    "event_count": 26,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b08_read_before",
+    "event_count": 23,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b09_decay_after",
+    "event_count": 23,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b10_neg_eig",
+    "event_count": 20,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "crash",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b11_add_write",
+    "event_count": 20,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "wrong",
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "trial": "muse-wonder-1.0__b12_two_sided",
+    "event_count": 20,
+    "evaluations": [
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "refuse",
+        "sha256": null
+      },
+      {
+        "stage": "forward",
+        "outcome": "wrong",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      },
+      {
+        "stage": "gradient",
+        "outcome": "accept",
+        "sha256": null
+      }
+    ]
+  }
+]

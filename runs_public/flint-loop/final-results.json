@@ -1,0 +1,29 @@
+[
+  {
+    "repository": "mingru",
+    "accepted": false,
+    "reason": "repair_round_limit",
+    "reference_s": 15.590953076956794,
+    "candidate_s": 16.640393988927826,
+    "reference_bytes": 52531712,
+    "candidate_bytes": 48697856
+  },
+  {
+    "repository": "llms",
+    "accepted": false,
+    "reason": "repair_round_limit",
+    "reference_s": 9.695758705027401,
+    "candidate_s": 9.798433015937917,
+    "reference_bytes": 282472960,
+    "candidate_bytes": 282472960
+  },
+  {
+    "repository": "nanogpt",
+    "accepted": false,
+    "reason": "repair_round_limit",
+    "reference_s": 8.190824236022308,
+    "candidate_s": 8.696634773979895,
+    "reference_bytes": 42292224,
+    "candidate_bytes": 43529216
+  }
+]

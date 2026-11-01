@@ -15,6 +15,7 @@ import os
 import re
 import shlex
 import subprocess
+import sys
 import time
 from pathlib import Path
 
@@ -163,8 +164,9 @@ approach and anything you are unsure about."""
 
 
 def job_prompt(J: dict) -> str:
+    timing = f'Measured forward time: {J["eager_ms"]:.6g} ms.' if J.get('eager_ms') is not None else 'Forward time has not been measured separately.'
     facts = "".join(f"\n- {d}" for d in J["domains"]) or "\n- (no value constraints observed)"
-    return f"""This PyTorch function is part of a model being trained. It is too slow to train with:
+    prompt=f"""This PyTorch function is part of a model being trained. It is too slow to train with:
 
 ```python
 {J["source"]}
@@ -176,26 +178,84 @@ The model calls it like this (shapes, dtypes and strides as observed):
 
 Observed on every call:{facts}
 
-It takes {J["eager_ms"]:.0f} ms forward on this call. Target environment: {J.get("target_environment", "NVIDIA L4 (Ada, sm_89)")}.
+{timing} Target environment: {J.get("target_environment", J.get("environment", "unspecified"))}.
 Write a fast Triton implementation for that environment.
 
 Requirements:
 - Define `def kernel_function({J["signature"]}):` with the same arguments and semantics, returning the same result.
 - It must match the function on any inputs it accepts within the observed constraints.
+- This stage is FORWARD ONLY. Do not implement backward or autograd.Function yet; a later stage adds backward.
+- Preserve this output tree exactly: {J.get("output_structure", "same as reference")}. Every output tensor will be checked.
+- Input state trees may contain multiple tensors. Return the correct final state values and preserve output dtypes. Do not mutate inputs.
 - The computation must happen in your own @triton.jit kernels; the Python wrapper may only allocate, reshape,
   launch and do cheap elementwise prep. Do not import or copy any existing implementation.
 
 You cannot run anything. Return the complete module in one ```python block, then 2-4 sentences on your
 approach and anything you are unsure about."""
+    if J.get('backend')=='mps':
+        prompt=prompt.replace('Triton implementation','Metal Shading Language implementation').replace('your own @triton.jit kernels','your own Metal shaders compiled with torch.mps.compile_shader')
+        prompt+='\n'+metal_guidance()
+    return prompt
+
+
+def metal_guidance():
+    return """Target Apple Metal/MPS, not CUDA. Do not import triton or use CUDA APIs.
+Compile MSL once at module import with torch.mps.compile_shader(source), then call lib.kernel(x, h, c, out, h_out, c_out, B, T, D, threads=B*D).
+Pass EVERY tensor and scalar as a separate positional argument in shader declaration order, never grouped lists.
+Explicitly set threads and mask every tail. Scalar Python int is bound as 64-bit; use constant long& in MSL.
+For scalar float use constant float&. Input strides/storage offsets must be respected; .contiguous() is allowed.
+Metal tensor pointers address the tensor's storage offset; no host tensor reads or CPU computation.
+MPS has no float64. Use float accumulation for half/bfloat; preserve the reference output dtypes.
+Export FLINT_BACKEND = 'mps'. Keep all kernels and registrations at module scope.
+"""
 
 
 def backward_prompt(L: dict) -> str:
     names = L.get("grad_names") or L["signature"].rsplit(", ", 1)[0]
-    return f"""Next, make it trainable. Write a new self-contained module whose kernel_function({L["signature"]})
-returns the output through a torch.autograd.Function, so that out.backward(grad) yields correct gradients for
-{names}, each in its input's dtype. The backward must also run in your own Triton kernels; Python
-may only allocate, launch, and do cheap elementwise or reduction glue. You cannot run anything. Return the
-complete module in one ```python block, then 3-5 sentences on your approach."""
+    policy = L.get('memory_policy')
+    memory_text = (f"\nMemory limit: forward+backward peak extra CUDA allocated bytes (above resident inputs) must be <= {policy['max_peak_extra_bytes']}. "
+                   "Optimize retained activation memory: choose a checkpoint interval and recompute intermediate states in backward. "
+                   "Do not save every matrix state for every timestep. Measure-compatible allocations include backward workspace and input gradients. "
+                   "Describe the saved tensors, checkpoint schedule and recomputation complexity.") if policy else ''
+    native_text = '''
+Native PyTorch compiler integration is REQUIRED. Export FLINT_NATIVE = True.
+Use torch.library.triton_op and torch.library.wrap_triton for BOTH forward and backward Triton launches.
+Inside the triton_op function, launch with torch.library.wrap_triton(jit_kernel)[grid](arguments).
+wrap_triton is a launch wrapper, NOT a decorator for a Python launcher. Never use @wrap_triton(...).
+API reference: https://docs.pytorch.org/tutorials/recipes/torch_compile_user_defined_triton_kernel_tutorial.html
+Register autograd with forward_op.register_autograd(backward, setup_context=setup_context).
+Do NOT use torch.autograd.Function. Operator signatures must have explicit torch.Tensor/scalar type annotations.
+The backward formula may call only PyTorch-understood operations, including your wrapped backward triton_op.
+If forward needs auxiliary tensors for backward, return them from the internal forward operator, save them in
+setup_context, and expose only the reference's output tree from kernel_function. Mark auxiliary outputs
+non-differentiable where appropriate. Handle missing cotangents and partial input requires_grad masks.
+Use namespace = __name__.replace('.', '_') for registration so independently versioned artifacts coexist.
+All operator implementations must be FakeTensor traceable and work in torch.compile(fullgraph=True).
+Avoid .item(), host reads, data-dependent Python branches, or registration inside kernel_function.
+Inputs have no inferred value restrictions unless the contract explicitly lists them.
+Export def opcheck_arguments(*original_args): returning (forward_op, tuple_of_flat_forward_arguments)
+for torch.library.opcheck. This validation helper is outside the execution hot path.
+''' if L.get('native') else ''
+    prompt=f"""Next, make it trainable. Write a new self-contained module whose kernel_function({L["signature"]})
+returns the complete reference output tree through {'torch.library operators with registered autograd' if L.get('native') else 'torch.autograd.Function'}, yielding correct gradients for
+{names}, each in its input's dtype. If inputs are nested, flatten tensor leaves before calling Function.apply
+and reconstruct the public output tree afterward. Return gradients for initial states as well as sequence inputs.
+Every output leaf is checked both jointly and with its own independent cotangent, including losses depending
+only on a final state. Some final-state outputs may be unused by the caller: handle absent cotangents correctly.
+The backward must run in your own Triton kernels; Python may only allocate, launch, and do cheap elementwise
+or reduction glue. Do not mutate inputs. {memory_text}
+{native_text}
+You cannot run anything. Return the complete module in one ```python block, then 3-5 sentences on your approach."""
+    if L.get('backend')=='mps':
+        start=prompt.index('Use torch.library.triton_op') if L.get('native') else -1
+        if start>=0:
+            end=prompt.index('Register autograd',start)
+            prompt=prompt[:start]+"Use torch.library.custom_op with mutates_args=() and device_types='mps' for forward AND backward.\nRegister fake implementations with op.register_fake using only tensor metadata and empty tensors.\n"+prompt[end:]
+        prompt=prompt.replace('wrapped backward triton_op','registered backward custom_op').replace('Triton kernels','Metal shaders').replace('CUDA allocated','MPS allocated')
+        prompt+='\n'+metal_guidance()
+    return prompt
+
+
 
 
 WORKLOAD_TEXT = {"timed": "B=4, H=8, T=2048, K=V=128", "timed_b1h2": "B=1, H=2, T=2048, K=V=128", "train": "B=8, H=4, T=512, K=V=128",
@@ -233,17 +293,26 @@ def blocking(results: list[dict]) -> list[dict]:
 
 
 def report(results: list[dict]) -> str:
-    lines = []
+    # Import/compiler failures often repeat across every case. Preserve the case
+    # list while sending each identical diagnostic once, to keep repair costs bounded.
+    groups = {}
     for r in results:
         if r["outcome"] in ("accept", "skip"):
             continue
+        key = (r["outcome"], r.get("reason"), r.get("err"))
+        groups.setdefault(key, []).append(r)
+    lines = []
+    for cases in groups.values():
+        r = cases[0]
         if r["outcome"] == "wrong":
             how = r.get("reason") or f"returned wrong values (error {r.get('err', 0):.3g} relative to the output scale)"
         elif r["outcome"] == "refuse":
             how = f"raised {r.get('reason', '')}"
         else:
             how = f"crashed the process ({r.get('reason', '')})"
-        lines.append(f"- {r['name']}: {describe(r['name'])}. The kernel {how[:600]}")
+        names = ", ".join(case["name"] for case in cases)
+        context = describe(r["name"]) if len(cases) == 1 else f"{len(cases)} cases with this identical diagnostic"
+        lines.append(f"- {names}: {context}. The kernel {how if len(how)<=1400 else how[:500]+' ... '+how[-850:]}")
     passed = ", ".join(r["name"] for r in results if r["outcome"] == "accept") or "none"
     return "\n".join(lines) + f"\n\nIt passed: {passed}."
 
@@ -260,6 +329,18 @@ def usage_cost(model: str, usage: dict | None) -> float:
             + usage.get("completion_tokens", 0) * price_out) / 1e6
 
 
+def repair_api_hint(source, results):
+    """Explain a diagnosed API misuse without editing the model's implementation."""
+    if 'wrap_triton' in source and any('Triton kernels should always be called with a grid' in r.get('reason','') for r in results):
+        return ("\nThis is an import/registration error, before tensor inputs are evaluated. "
+                "torch.library.wrap_triton is not a Python function decorator. Remove its use as a decorator "
+                "and perform each launch inside the triton_op body as "
+                "torch.library.wrap_triton(jit_kernel)[grid](arguments). Keep @triton.jit on the GPU kernel. "
+                "Apply this to both forward and backward; preserve the equations and all gradient checks. "
+                "See https://docs.pytorch.org/tutorials/recipes/torch_compile_user_defined_triton_kernel_tutorial.html")
+    return ''
+
+
 class Run:
     def __init__(self, a):
         self.a, self.out = a, Path(a.out)
@@ -272,6 +353,7 @@ class Run:
         self.last_path: Path | None = None
 
     def log(self, **e):
+        e.setdefault("model", self.a.model)
         e["t"] = time.time()
         with open(self.out / "events.jsonl", "a") as f:
             f.write(json.dumps(e, default=str) + "\n")
@@ -296,10 +378,18 @@ class Run:
             path.write_text(extract_code(content))
         except ValueError:
             path.write_text("def kernel_function(*a, **k):\n    raise RuntimeError('model returned no code')\n")
+            # Reasoning can consume the entire completion before code is emitted.
+            # Increase the next call's allowance; ask() and the shared provider ledger
+            # still reserve its full worst-case cost before making that call.
+            if (resp.usage or {}).get('completion_tokens', 0) >= self.a.max_tokens and self.a.max_tokens < 64000:
+                previous = self.a.max_tokens
+                self.a.max_tokens = min(64000, previous * 2)
+                self.log(event='completion_budget_increased', previous=previous,
+                         max_tokens=self.a.max_tokens, reason='truncated_without_code')
         (self.out / f"{self.n:02d}_{tag}.md").write_text(content)
         self.last_path = path
         self.log(event="llm_done", tag=tag, path=str(path), seconds=time.time() - t0, usage=resp.usage, usd=call_usd,
-                 run_usd=self.cost)
+                 run_usd=self.cost, provider=resp.provider, response_id=resp.response_id)
         return path
 
     def evaluate(self, path: Path, grads: bool) -> dict:
@@ -307,14 +397,15 @@ class Run:
         pre = shlex.split(self.a.remote)
         subprocess.run(pre + [f"mkdir -p {shlex.quote(str(Path(dest).parent))} && cat > {shlex.quote(dest)}"], input=path.read_bytes(), check=True)
         if self.a.job:
-            cmd = (f"cd {shlex.quote(self.a.remote_dir)} && python -m muse_kernel.remote_eval {shlex.quote(self.a.remote_job)} {shlex.quote(dest)}"
+            cmd = (f"cd {shlex.quote(self.a.remote_dir)} && python -m flint_gpu.remote_eval {shlex.quote(self.a.remote_job)} {shlex.quote(dest)}"
                    + (" --grads" if grads else ""))
         else:
             cmd = (f"cd {shlex.quote(self.a.remote_dir)} && python -m kernel_contract.recur_eval {shlex.quote(dest)} --layer {shlex.quote(self.a.layer)}"
                    + (" --grads" if grads else ""))
         limit = int(os.environ.get("MUSE_KERNEL_REMOTE_TIMEOUT", 7200))
+        if pre==['bash','-c']:cmd=cmd.replace('&& python ', '&& '+shlex.quote(sys.executable)+' ')
         if os.environ.get("MUSE_KERNEL_REMOTE_TIMEOUT"):
-            cmd = f"timeout --kill-after=10s {limit}s bash -c {shlex.quote(cmd)}"
+            cmd = f"{shlex.quote(sys.executable) if pre==['bash','-c'] else 'python'} -m flint_gpu.deadline {limit} bash -c {shlex.quote(cmd)}"
         p = subprocess.run(pre + [cmd], capture_output=True, text=True, timeout=limit + 15)
         line = next((x for x in p.stdout.splitlines() if x.startswith("RESULT ")), None)
         if not line:
@@ -330,7 +421,7 @@ class Run:
             res["blocking"] = ["no accepted observed case"]
         self.log(event="eval", path=str(path), grads=grads, outcome=res["outcome"], blocking=res["blocking"],
                  ms=res.get("ms"), results=res["results"], profile=res.get("profile"),
-                 coverage=res["coverage"], sha256=sha256(path))
+                 coverage=res["coverage"], sha256=sha256(path), memory=res.get("memory"), reference_memory=res.get("reference_memory"), native_checks=res.get('native_checks'))
         return res
 
     def until_correct(self, path: Path, res: dict, grads: bool, repairs: int, what: str):
@@ -339,7 +430,8 @@ class Run:
                 break
             path = self.ask(f"A contract checker compiled and ran your {what} on the configured GPU against the reference "
                             f"loop. It failed these cases:\n\n{report(res['results'])}\n\nDiagnose which assumption "
-                            f"the failing inputs violate and fix exactly that. Return the complete fixed module.",
+                            f"the failing inputs violate and fix exactly that. Return the complete fixed module."
+                            + repair_api_hint(path.read_text(), res['results']),
                             "repair_bwd" if grads else "repair")
             res = self.evaluate(path, grads)
         return path, res
@@ -355,14 +447,18 @@ class Run:
         best = (path, res)
         for _ in range(rounds):
             p, r = best
+            policy = getattr(self, 'memory_policy', None) if grads else None
+            objective = (f"Reduce forward+backward peak extra memory below the current {r.get('memory')} while honoring the hard budget {policy['max_peak_extra_bytes']}. Reference memory: {r.get('reference_memory')}. Use checkpoint/recompute choices; retain useful speed." if policy else "Optimize for speed while keeping it correct.")
             new = self.ask(self.anchor(p) + f"That passed the checker. It runs in {r['ms']:.2f} ms ({'forward+backward' if grads else 'forward'}, "
                            f"on the measured target workload). "
-                           f"GPU profile per step:\n{profile_text(r)}\n\nOptimize for speed while keeping it correct. "
+                           f"GPU profile per step:\n{profile_text(r)}\n\n{objective} "
                            f"The checker bounds error relative to the output scale at 2e-2. Return the complete module.",
                            "opt_bwd" if grads else "opt")
             nres = self.evaluate(new, grads)
             new, nres = self.until_correct(new, nres, grads, 1, "optimized kernel")
-            if not nres["blocking"] and nres.get("ms") and nres["ms"] < r["ms"]:
+            if not nres["blocking"] and nres.get("ms") and (
+                    nres.get('memory', {}).get('peak_extra_bytes', float('inf')) < r.get('memory', {}).get('peak_extra_bytes', float('inf'))
+                    if policy else nres['ms'] < r['ms']):
                 best = (new, nres)
         return best
 
@@ -382,7 +478,7 @@ class Run:
         if self.a.job:
             J = json.loads((Path(self.a.job) / "job.json").read_text())
             JOB_SIZES.update(J["sizes"])
-            L = {"signature": J["signature"], "grad_names": J["grad_names"]}
+            L = {"signature": J["signature"], "grad_names": J["grad_names"], "memory_policy": J.get("memory_policy"), 'native':J.get('native'),'backend':J.get('backend')}
             if self.a.handoff:
                 return self.take_over(job_prompt(J), L, Path(self.a.handoff))
             path = self.ask(job_prompt(J), "write")
@@ -392,6 +488,8 @@ class Run:
                 return self.log(event="done", stage="forward", ok=False, run_usd=self.cost)
             path, res = self.optimize(path, res, False, self.a.opt_rounds, 0)
             self.log(event="forward_final", path=str(path), ms=res["ms"])
+            if getattr(self.a, 'forward_only', False):
+                return self.log(event='done', stage='forward', ok=True, forward=str(path), forward_ms=res['ms'], run_usd=self.cost)
             return self.backward(L, path, res)
         L = dict(LAYERS[self.a.layer]) if self.a.layer in LAYERS else module_layer(self.a.layer)
         L["eager_ms"] = self.a.eager_ms or L["eager_ms"]
@@ -442,6 +540,7 @@ class Run:
         return self.backward(L, path, res)
 
     def backward(self, L, path, res):
+        self.memory_policy = L.get('memory_policy')
         bpath = self.ask(self.anchor(path) + backward_prompt(L), "bwd")
         bres = self.evaluate(bpath, True)
         bpath, bres = self.until_correct(bpath, bres, True, self.a.repairs, "backward")
@@ -449,13 +548,14 @@ class Run:
             bpath, bres = self.optimize(bpath, bres, True, self.a.bwd_opt_rounds, 5.36)
         self.log(event="done", stage="backward", ok=not bres["blocking"], forward=str(path), forward_ms=res["ms"],
                  backward=str(bpath), fwd_bwd_ms=bres.get("ms"), calls=self.n, run_usd=self.cost,
-                 sha256=sha256(bpath), coverage=coverage(bres["results"]))
+                 sha256=sha256(bpath), coverage=coverage(bres["results"]), memory=bres.get("memory"), reference_memory=bres.get("reference_memory"), native_checks=bres.get('native_checks'))
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="muse-wonder-1.0")
     ap.add_argument("--effort", default="high")
+    ap.add_argument("--forward-only", action="store_true", help="Handoff a checked forward to a different backward model")
     ap.add_argument("--layer", default="gdr", help="gdr, eda, wek, vse, or a module path")
     ap.add_argument("--eager-ms", type=float)
     ap.add_argument("--remote", required=True)
@@ -466,7 +566,7 @@ def main():
     ap.add_argument("--bwd-opt-rounds", type=int, default=1)
     ap.add_argument("--max-usd", type=float, default=15.0)
     ap.add_argument("--max-tokens", type=int, default=64000)
-    ap.add_argument("--job", help="a muse_kernel build directory (job.json) instead of a named layer")
+    ap.add_argument("--job", help="a flint build directory (job.json) instead of a named layer")
     ap.add_argument("--remote-job", help="that build's directory on the GPU host")
     ap.add_argument("--repair-from", type=int, help="replay the first N calls of --out and repair call N")
     ap.add_argument("--grads", action="store_true")

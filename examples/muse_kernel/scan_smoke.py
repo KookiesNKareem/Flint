@@ -1,4 +1,4 @@
-"""@muse_kernel.fast on a two-argument recurrence (examples/muse_kernel/slow_layer.py): train until the kernel lands."""
+"""@flint.fast on a two-argument recurrence (examples/muse_kernel/slow_layer.py): train until the kernel lands."""
 
 import time
 

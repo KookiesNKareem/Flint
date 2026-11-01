@@ -7,11 +7,11 @@ PyTorch reference; the exact source is hashed before generation.
 
 ## Run locally with a CUDA worker
 
-Install the same checkout on both machines (`pip install -e '.[research]'` on CUDA Linux). Put
+Install the same checkout on both machines (`pip install '.[build]'` on CUDA Linux). Put
 `MODEL_API_KEY` or `BASETEN_API_KEY` only on the machine calling models. Then:
 
 ```bash
-recurrence-workbench --remote 'ssh gpu-host' --remote-dir /workspace/recurrence
+python -m kernel_contract.workbench.server --remote 'ssh gpu-host' --remote-dir /workspace/recurrence
 ```
 
 Open the printed localhost address. Choose or edit one to three references, set a shared model budget,
@@ -58,7 +58,7 @@ logs, a content manifest, and `reproduce.py`. Unzip and run:
 
 ```bash
 python reproduce.py                    # integrity verification, no model calls
-pip install -e './source[research]'     # CUDA Linux
+pip install './source'     # CUDA Linux
 python reproduce.py --train            # repeat training from frozen kernels, no model calls
 ```
 
@@ -69,11 +69,11 @@ records identify their earlier protocol and are never presented as new workbench
 
 ## Recovery and caching
 
-`muse_kernel.fast` only routes exact captured device/shape/dtype/stride/offset/grad signatures and checked
+`flint_gpu.fast` only routes exact captured device/shape/dtype/stride/offset/grad signatures and checked
 value domains. Caches bind reference dependencies, software/hardware identity and kernel bytes. Old or
 changed-environment caches are not silently reused. Recreate the decorator after changing code/globals. To recheck a current-format committed cache on a new
-CUDA environment without model calls, run `python -m muse_kernel.revalidate /path/to/cache`.
+CUDA environment without model calls, run `python -m flint_gpu.revalidate /path/to/cache`.
 
-For backward recovery, use `muse_kernel.train_step(model, optimizer, loss_closure, kernels=[decorated_fn])`.
+For backward recovery, use `flint_gpu.train_step(model, optimizer, loss_closure, kernels=[decorated_fn])`.
 It restores RNG/buffers and discards partial gradients before retrying with references. The closure computes
 loss only; it must not mutate parameters or call the optimizer. Fatal CUDA errors require worker restart.

@@ -1,0 +1,11 @@
+{
+  "training": {
+    "max_relative_step_loss_error": 0.001,
+    "max_absolute_validation_loss_error": 0.01
+  },
+  "batch": {
+    "relative_l2_logit_error": 0.001,
+    "minimum_top1_agreement": 0.999
+  },
+  "note": "Application checks for the final release replay; independent kernel tolerances and performance gates are unchanged."
+}

@@ -1,0 +1,112 @@
+{
+  "seed": 961281039,
+  "fuzz_policy": "contract_fuzz_v2",
+  "policy": "sampled after candidate selection; no repair feedback",
+  "cases": [
+    {
+      "name": "holdout_0",
+      "axis": "holdout",
+      "seed": 347570849,
+      "layout": "contiguous"
+    },
+    {
+      "name": "holdout_1",
+      "axis": "holdout",
+      "seed": 1599375292,
+      "layout": "strided2",
+      "transform": "shift_neg"
+    },
+    {
+      "name": "holdout_2",
+      "axis": "holdout",
+      "seed": 1094759272,
+      "layout": "strided3_off1"
+    },
+    {
+      "name": "holdout_3",
+      "axis": "holdout",
+      "seed": 1408290100,
+      "layout": "transposed",
+      "transform": "scale_down"
+    },
+    {
+      "name": "holdout_4",
+      "axis": "holdout",
+      "seed": 1690612345,
+      "layout": "leading_swap"
+    },
+    {
+      "name": "holdout_5",
+      "axis": "holdout",
+      "seed": 274979330,
+      "layout": "contiguous",
+      "transform": "shift"
+    },
+    {
+      "name": "holdout_6",
+      "axis": "holdout",
+      "seed": 1855500627,
+      "layout": "strided2"
+    },
+    {
+      "name": "holdout_7",
+      "axis": "holdout",
+      "seed": 1664279149,
+      "layout": "strided3_off1",
+      "transform": "scale_mid"
+    },
+    {
+      "name": "holdout_8",
+      "axis": "holdout",
+      "seed": 415681409,
+      "layout": "transposed"
+    },
+    {
+      "name": "holdout_9",
+      "axis": "holdout",
+      "seed": 1197997776,
+      "layout": "leading_swap",
+      "transform": "shift_neg"
+    },
+    {
+      "name": "holdout_10",
+      "axis": "holdout",
+      "seed": 2125810752,
+      "layout": "contiguous"
+    },
+    {
+      "name": "holdout_11",
+      "axis": "holdout",
+      "seed": 438680460,
+      "layout": "strided2",
+      "transform": "negative"
+    },
+    {
+      "name": "holdout_12",
+      "axis": "holdout",
+      "seed": 1597277874,
+      "layout": "strided3_off1"
+    },
+    {
+      "name": "holdout_13",
+      "axis": "holdout",
+      "seed": 1046336927,
+      "layout": "transposed",
+      "transform": "shift_neg"
+    },
+    {
+      "name": "holdout_14",
+      "axis": "holdout",
+      "seed": 994313629,
+      "layout": "leading_swap"
+    },
+    {
+      "name": "holdout_15",
+      "axis": "holdout",
+      "seed": 1376834887,
+      "layout": "contiguous",
+      "transform": "scale_down"
+    }
+  ],
+  "candidate_sha256": "218d24e3f26fb44dd77e608528624d26d838ac31851c01ce970644a572743474"
+}

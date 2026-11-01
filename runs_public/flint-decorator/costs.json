@@ -1,0 +1,30 @@
+{
+  "model_usd_this_work": 1.4404997500000007,
+  "cumulative_model_usd": 6.098587050000001,
+  "initial_cumulative_model_usd": 4.6580873,
+  "initial_cap_usd": 6,
+  "approved_cap_usd": 8,
+  "reservations": {},
+  "rentals": [
+    {
+      "pod": "fooud7wtlu0hhu",
+      "rate_usd_per_hour": 0.89,
+      "started_utc": "2026-10-28T22:48:22+00:00",
+      "deleted_receipt_utc": "2026-10-29T00:14:18.714660+00:00",
+      "elapsed_seconds_estimate": 5156.71466,
+      "compute_usd_estimate": 1.274854457611111,
+      "deletion_verified_404": true
+    },
+    {
+      "pod": "et2d72eitfhpo5",
+      "rate_usd_per_hour": 0.89,
+      "started_utc": "2026-10-29T00:14:45+00:00",
+      "deleted_receipt_utc": "2026-10-29T00:49:25.582623+00:00",
+      "elapsed_seconds_estimate": 2080.582623,
+      "compute_usd_estimate": 0.5143662595749999,
+      "deletion_verified_404": true
+    }
+  ],
+  "gpu_compute_usd_estimate": 1.7892207171861108,
+  "note": "GPU estimate uses rental rate and creation-to-deletion receipt time; excludes storage and billing adjustments. Original host became unavailable; its completed evidence was saved before replacement."
+}

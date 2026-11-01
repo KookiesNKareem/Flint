@@ -1,0 +1,156 @@
+{
+  "model_calls": [
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "tag": "write",
+      "usd": 0.03337625,
+      "usage": {
+        "completion_tokens": 7605,
+        "prompt_tokens": 844,
+        "total_tokens": 8449,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 5400,
+          "audio_tokens": 0,
+          "reasoning_tokens": 6269,
+          "rejected_prediction_tokens": 10035
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 0
+        }
+      },
+      "provider": "baseten",
+      "response_id": "chatcmpl-bae3682b5986436e9eb94e02b7c344fa"
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "tag": "repair",
+      "usd": 0.048648199999999996,
+      "usage": {
+        "completion_tokens": 10776,
+        "prompt_tokens": 2956,
+        "total_tokens": 13732,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 7187,
+          "audio_tokens": 0,
+          "reasoning_tokens": 8976,
+          "rejected_prediction_tokens": 17936
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 768
+        }
+      },
+      "provider": "baseten",
+      "response_id": "chatcmpl-15ba83ab05fa4c3d8f87836426ff5d7b"
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "tag": "repair",
+      "usd": 0.1057566,
+      "usage": {
+        "completion_tokens": 24000,
+        "prompt_tokens": 5596,
+        "total_tokens": 29596,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 15309,
+          "audio_tokens": 0,
+          "reasoning_tokens": 23999,
+          "rejected_prediction_tokens": 45528
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 2944
+        }
+      },
+      "provider": "baseten",
+      "response_id": "chatcmpl-28c17646cfde41c08bbcfa17e1fa460e"
+    },
+    {
+      "model": "meta-models/muse-spark-open-1026",
+      "tag": "repair",
+      "usd": 0.02312085,
+      "usage": {
+        "completion_tokens": 5168,
+        "prompt_tokens": 5769,
+        "total_tokens": 10937,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 3516,
+          "audio_tokens": 0,
+          "reasoning_tokens": 3951,
+          "rejected_prediction_tokens": 8055
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cached_tokens": 5504
+        }
+      },
+      "provider": "baseten",
+      "response_id": "chatcmpl-fd92dc284e3049f99ac682c603e73d59"
+    },
+    {
+      "model": "muse-wonder-1.0",
+      "tag": "repair",
+      "usd": 0.052512,
+      "usage": {
+        "completion_tokens": 2076,
+        "prompt_tokens": 2748,
+        "total_tokens": 4824,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 979,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        }
+      },
+      "provider": "meta",
+      "response_id": "chatcmpl-01a185db-0f31-7006-afc6-95d060d4ea64"
+    },
+    {
+      "model": "muse-wonder-1.0",
+      "tag": "bwd",
+      "usd": 0.248368,
+      "usage": {
+        "completion_tokens": 11519,
+        "prompt_tokens": 4497,
+        "total_tokens": 16016,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 8642,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        }
+      },
+      "provider": "meta",
+      "response_id": "chatcmpl-01a185dc-b545-73e5-822d-927edd7b7662"
+    }
+  ],
+  "additional_model_usd": 0.5117819,
+  "rented_gpu_cost_usd": 0,
+  "command_speedup": 1.7471187530062082,
+  "work_unit_speedup": 13.20225016371864,
+  "memory_review": {
+    "unit_speedup": 13.20225016371864,
+    "approvable": true,
+    "reason": "all measured commands faster beyond margin within the approved memory allowance",
+    "evidence_sha256": "e3d444116bd8e3e956d5515afc4e449e46220e008a619b122b8ab58803f14a73",
+    "command_speedup": 1.7471187530062082,
+    "reference_peak_bytes": 334336,
+    "candidate_peak_bytes": 398848,
+    "extra_bytes": 64512,
+    "memory_growth": 0.1929555895865238,
+    "memory_measurement": "mps_sampled_allocated",
+    "already_accepted": false
+  },
+  "normal_dispatch_verified": true,
+  "artifact_provenance": "Spark Open proposals and repairs; Wonder forward repair and backward implementation; no manual kernel edits",
+  "admission": "Pending user review; isolated terminal approval test succeeded and original pending receipt was restored"
+}

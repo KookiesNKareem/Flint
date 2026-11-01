@@ -1,0 +1,14 @@
+[
+  {
+    "answer": "'n\\n'",
+    "exit": 1,
+    "prompt": true,
+    "normal_dispatch": false
+  },
+  {
+    "answer": "'\\n'",
+    "exit": 0,
+    "prompt": true,
+    "normal_dispatch": true
+  }
+]

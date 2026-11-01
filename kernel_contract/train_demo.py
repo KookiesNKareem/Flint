@@ -207,7 +207,7 @@ def main():
     gen = torch.Generator(device=device).manual_seed(a.seed + 1)
     val_gen = torch.Generator(device=device).manual_seed(a.seed + 2)
     vx = [batch(val, a.batch, a.seq, val_gen) for _ in range(a.val_batches)]
-    from muse_kernel.identity import environment
+    from flint_gpu.identity import environment
     data_path = Path(a.data) if a.data else Path("/tmp/tinyshakespeare.txt")
     meta = {"config": vars(a), "environment": environment(), "dataset_sha256": hashlib.sha256(data_path.read_bytes()).hexdigest(),
             "dataset_url": DATA_URL if not a.data else None, "validation": "mean over fixed disjoint-split batches",
