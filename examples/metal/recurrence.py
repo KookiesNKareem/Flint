@@ -1,5 +1,5 @@
 import torch
-import flint_gpu as flint
+import flint
 
 
 @flint.fast

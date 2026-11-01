@@ -1,6 +1,6 @@
 # Earlier Flint experiments
 
-The measurements in the submission were collected with the versions and hardware recorded in their receipts. The current package is 0.10.2. This packaging release did not regenerate the benchmark kernels.
+The measurements in the submission were collected with the versions and hardware recorded in their receipts. The 0.10.3 package unifies the distribution, import, and CLI under `flint`. This packaging release did not regenerate the benchmark kernels.
 
 | Stage | What was exercised | Retained evidence |
 | --- | --- | --- |

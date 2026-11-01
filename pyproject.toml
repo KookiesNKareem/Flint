@@ -4,8 +4,8 @@ build-backend = "flint_backend"
 backend-path = ["tools"]
 
 [project]
-name = "flint-gpu"
-version = "0.10.2"
+name = "flint"
+version = "0.10.3"
 description = "Checked GPU kernels for ordinary PyTorch functions"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -17,14 +17,14 @@ build = ["openai>=1", "anthropic"]
 test = ["pytest>=7"]
 
 [project.scripts]
-flint = "flint_gpu.cli:main"
+flint = "flint.__main__:main"
 
 [project.urls]
 Repository = "https://github.com/KookiesNKareem/Flint"
 Issues = "https://github.com/KookiesNKareem/Flint/issues"
 
 [tool.setuptools.packages.find]
-include = ["flint_gpu*", "muse_kernel*"]
+include = ["flint", "flint_gpu*", "muse_kernel*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

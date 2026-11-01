@@ -31,7 +31,9 @@ jobs:
           cp -R examples/quickstart "$RUNNER_TEMP/example"
           cd "$RUNNER_TEMP/example"
           flint --help
-          python -c "import flint_gpu, muse_kernel; assert muse_kernel.fast is flint_gpu.fast"
+          python -m flint --help
+          python -c "import flint, sys; assert 'torch' not in sys.modules; import sympy, torch; assert flint.fast"
+          python -c "import flint, flint_gpu, muse_kernel; assert flint.fast is flint_gpu.fast is muse_kernel.fast"
           flint run --policy observe -- train.py
       - name: Run contract, runtime, and workbench tests
         run: |

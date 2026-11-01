@@ -1,6 +1,6 @@
 import torch
 import torch.nn.functional as F
-import flint_gpu as flint
+import flint
 
 @flint.fast
 def recurrence(q, k, v, decay, beta, transfer, state, scale):
@@ -26,4 +26,3 @@ def recurrence(q, k, v, decay, beta, transfer, state, scale):
         slow = (1 - gate) * slow + gate * fast
         outputs.append(((fast + slow) * (0.5 * scale * q[:, :, t])[..., None]).sum(-2))
     return torch.stack(outputs, dim=2), {'fast': fast, 'slow': slow}
-

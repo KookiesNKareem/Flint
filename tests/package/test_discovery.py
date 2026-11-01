@@ -13,7 +13,7 @@ def test_proposal_preserves_reference_and_refuses_stale_or_modified_patch(tmp_pa
     proposal=propose(tmp_path,item,{'share':.6})
     assert p.read_text()==source
     assert '@flint.fast\ndef recurrence' in proposal['after']
-    assert proposal['after'].index('from __future__')<proposal['after'].index('import flint_gpu')
+    assert proposal['after'].index('from __future__')<proposal['after'].index('import flint\n')
     altered={**proposal,'after':proposal['after'].replace('sin()','exp()')}
     with pytest.raises(ValueError,match='more than'):apply_proposal(altered)
     apply_proposal(proposal);assert p.read_text()==proposal['after']

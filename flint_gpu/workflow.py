@@ -236,8 +236,8 @@ def has_targets(root):
     for item in inventory.values():
         aliases=set();direct=set()
         for n in item['tree'].body:
-            if isinstance(n,ast.Import):aliases.update(a.asname or a.name for a in n.names if a.name in ('flint_gpu','muse_kernel'))
-            if isinstance(n,ast.ImportFrom) and n.module in ('flint_gpu','muse_kernel'):
+            if isinstance(n,ast.Import):aliases.update(a.asname or a.name for a in n.names if a.name in ('flint','flint_gpu','muse_kernel'))
+            if isinstance(n,ast.ImportFrom) and n.module in ('flint','flint_gpu','muse_kernel'):
                 direct.update(a.asname or a.name for a in n.names if a.name=='fast')
         for decorator in item['node'].decorator_list:
             d=decorator.func if isinstance(decorator,ast.Call) else decorator

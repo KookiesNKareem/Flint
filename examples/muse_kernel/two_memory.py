@@ -13,7 +13,7 @@ from pathlib import Path
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import flint_gpu as flint
+import flint
 from kernel_contract.train_demo import data, batch, loss_of
 from kernel_contract.tree import map_tree
 

@@ -1,6 +1,6 @@
 """One decorator on a slow PyTorch function; a configured model writes a verified Triton kernel for it in the background.
 
-    import flint_gpu as flint
+    import flint
 
     @flint.fast
     def my_layer(q, k, v, g, beta, scale):

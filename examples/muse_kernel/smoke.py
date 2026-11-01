@@ -5,7 +5,7 @@ import time
 import torch
 import torch.nn.functional as F
 
-import flint_gpu as flint
+import flint
 
 
 @flint.fast

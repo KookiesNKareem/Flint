@@ -3,7 +3,7 @@ import json
 import time
 
 import torch
-import flint_gpu as flint
+import flint
 from kernel_contract.train_demo import make_lm, data, batch, loss_of
 
 CHANNEL_DECAY = True

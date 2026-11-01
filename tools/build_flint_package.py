@@ -26,7 +26,8 @@ def stage(destination):
     )
     shutil.copy2(ROOT/'README.md', dest/'README.md')
     shutil.copy2(ROOT/'LICENSE', dest/'LICENSE')
-    groups = [(ROOT/'flint_gpu', dest/'flint_gpu', None),
+    groups = [(ROOT/'flint', dest/'flint', None),
+              (ROOT/'flint_gpu', dest/'flint_gpu', None),
               (ROOT/'muse_kernel', dest/'muse_kernel', None),
               (ROOT/'kernel_contract', dest/'flint_gpu/_contract', CONTRACT),
               (ROOT/'utils/providers', dest/'flint_gpu/_providers', None)]

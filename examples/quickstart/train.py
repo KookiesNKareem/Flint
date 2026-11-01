@@ -1,6 +1,6 @@
 """Run one small, deterministic PyTorch training experiment on the CPU."""
 import torch
-import flint_gpu as flint
+import flint
 
 
 @flint.fast

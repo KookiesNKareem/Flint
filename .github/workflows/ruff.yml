@@ -15,4 +15,4 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install ruff
-      - run: ruff check --select E9,F63,F7,F82 flint_gpu kernel_contract utils/providers tools tests/package
+      - run: ruff check --select E9,F63,F7,F82 flint flint_gpu kernel_contract utils/providers tools tests/package

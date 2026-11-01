@@ -42,7 +42,7 @@ def snapshot(root, argv, inputs=()):
         if path.is_file():extra.append(str(path.resolve()))
     all_files=sorted(set([str(root/p) for p in files]+extra))
     import importlib.metadata
-    try: runtime_version=importlib.metadata.version('flint-gpu')
+    try: runtime_version=importlib.metadata.version('flint')
     except importlib.metadata.PackageNotFoundError: runtime_version='source'
     effective_env={k:v for k,v in os.environ.items() if k.startswith(('CUDA_','TORCH_','PYTORCH_','OMP_','MKL_'))}
     # torch.cuda._lazy_init adds this default; initialization is not a policy change.

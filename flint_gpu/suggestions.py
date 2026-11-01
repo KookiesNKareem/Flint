@@ -62,7 +62,7 @@ def propose(root,item,evidence):
     names|={n.name for n in ast.walk(tree) if isinstance(n,(ast.FunctionDef,ast.ClassDef))}
     names|={n.asname or n.name.split('.')[0] for n in ast.walk(tree) if isinstance(n,ast.alias)}
     existing=next((a.asname or a.name for n in tree.body if isinstance(n,ast.Import)
-                   for a in n.names if a.name=='flint_gpu'),None)
+                   for a in n.names if a.name in ('flint', 'flint_gpu', 'muse_kernel')),None)
     alias=existing or 'flint'
     while not existing and alias in names:alias='_'+alias
     lines=source.splitlines(keepends=True)
@@ -78,7 +78,7 @@ def propose(root,item,evidence):
         # Keep shebang and encoding/comment header before the import.
         if after==0:
             while after<len(lines) and (lines[after].startswith('#') or not lines[after].strip()):after+=1
-        lines.insert(after,f'import flint_gpu as {alias}\n')
+        lines.insert(after,'import flint\n' if alias=='flint' else f'import flint as {alias}\n')
     after=''.join(lines);ast.parse(after)
     patch=''.join(difflib.unified_diff(source.splitlines(True),after.splitlines(True),
                                       fromfile='a/'+item['file'],tofile='b/'+item['file']))

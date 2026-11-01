@@ -5,3 +5,5 @@ Spark Open’s first forward candidate failed the equation checks. Wonder used t
 The [qualification receipt](qualification/qualification.json) compares eager PyTorch and Flint in three pairs. All six 60-step traces are beside the receipt. Median optimizer steps were 13.20× faster; the entire command was 1.75× faster. At 100 ms of optimizer-step time, the median observed losses were 0.072 and 0.235 for Flint and PyTorch; both ended at 0.069. MPS allocation is sampled. An increase of 63 KiB needed review. See [normal dispatch](normal-verification.json), [summary](summary.json), and [failed 64-step compiler baseline](controls/compiled-64-step-error.txt) and [other controls](controls/).
 
 The [example source](../../examples/metal/) is provided for reproduction. The historical receipt is not authorization to activate the kernel on a different host.
+
+The [recorded recurrence](workload/recurrence.py) preserves the exact source hash, including the import used during measurement. The runnable example uses the current `import flint` spelling.

@@ -1,7 +1,7 @@
 # The researcher interface: code first
 
 Open `examples/muse_kernel/research.py` in a code editor. The researcher's interface is the PyTorch
-function with `@flint_gpu.fast`; the workbench is an evidence viewer and experiment comparison surface.
+function with `@flint.fast`; the workbench is an evidence viewer and experiment comparison surface.
 The example trains a real byte-level language model and uses `train_step` so an ordinary backward failure
 can discard partial gradients and retry on the reference before the optimizer changes parameters.
 

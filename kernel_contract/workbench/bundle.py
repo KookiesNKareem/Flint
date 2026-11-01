@@ -76,7 +76,7 @@ def export_bundle(experiment):
 
 def snapshot_source(destination):
     destination=Path(destination);destination.mkdir(parents=True,exist_ok=True)
-    for package in ('kernel_contract','flint_gpu','muse_kernel','utils','triton_kernel_agent','kernel_perf_agent','Fuser','scripts'):
+    for package in ('kernel_contract','flint','flint_gpu','muse_kernel','utils','triton_kernel_agent','kernel_perf_agent','Fuser','scripts'):
         for p in (ROOT/package).rglob('*'):
             if p.suffix not in ('.py','.html','.j2','.yaml','.json') or '__pycache__' in p.parts or 'recur_cands' in p.parts:continue
             dest=destination/p.relative_to(ROOT);dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,dest)

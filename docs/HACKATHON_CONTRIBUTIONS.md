@@ -34,4 +34,4 @@ Flint 0.9 separates measured resource tradeoffs from correctness failures. It ad
 with higher memory. Correctness, speed evidence and workload/artifact guards remain mandatory.
 See `runs_public/flint-approval/` for a fresh CUDA qualification, explicit approval and normal dispatch.
 
-The Flint 0.10.1 Metal backend, repaired Metal generation, and compiled controls are recorded in [Metal evidence](../runs_public/flint-metal/). Packaging and curation for the submission are in 0.10.2; benchmark numbers retain the tested runtime versions.
+The Flint 0.10.1 Metal backend, repaired Metal generation, and compiled controls are recorded in [Metal evidence](../runs_public/flint-metal/). Packaging and curation are in 0.10.2, with the unified public name in 0.10.3; benchmark numbers retain the tested runtime versions.

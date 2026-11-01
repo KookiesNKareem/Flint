@@ -16,7 +16,7 @@ python -m pip install .
 flint --help
 ```
 
-The distribution is **flint-gpu**, the import is **flint_gpu**, and the command is **flint**. For fresh model generation, install `python -m pip install '.[build]'` on the controller and run `flint setup` once to configure providers, a worker, launch policy, and budget. The compatibility import `muse_kernel` is available to older projects.
+Use `import flint` and decorate your function with `@flint.fast`. The distribution and CLI are also named `flint`. Install from this checkout or with `python -m pip install git+https://github.com/KookiesNKareem/Flint.git` in a fresh virtual environment. The [PyPI project named flint](https://pypi.org/project/flint/) is a separate Fortran tool. For fresh model generation, install `python -m pip install '.[build]'` on the controller and run `flint setup` once to configure providers, a worker, launch policy, and budget. Older projects can still import `flint_gpu` or `muse_kernel`.
 
 ## Try the decorator
 

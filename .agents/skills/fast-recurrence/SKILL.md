@@ -17,7 +17,7 @@ it in only for checked signatures after workload qualification. Correctness alon
 2. Add the decorator, and nothing else:
 
    ```python
-   import flint_gpu as flint
+   import flint
 
    @flint.fast
    def my_layer(q, k, v, g, beta, scale):

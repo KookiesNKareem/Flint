@@ -11,7 +11,7 @@ returned and feed the next sequence chunk without detaching. The model learns bo
 This is an implementation workflow example, not evidence that this architecture is better.
 
 ```python
-@flint_gpu.fast(
+@flint.fast(
     models=['meta-models/muse-spark-open-1026'],
     backward_model='muse-wonder-1.0',
     memory_budget_mb=4,

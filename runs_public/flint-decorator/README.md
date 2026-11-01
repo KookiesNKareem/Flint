@@ -10,3 +10,5 @@ Both lanes train the [same byte language model](../../examples/flint/) in BF16 w
 [Mixed paired receipt](results/mixed/qualification.json) · [Spark paired receipt](results/spark/qualification.json) · [generated kernels and checks](artifacts/) · [per-attempt events](generation/) · [Spark provenance](spark-artifact-proof.json) · [failed capture](failed-capture/summary.json) · [memory tradeoff](tradeoff-artifact-proof.json).
 
 The original lane-specific project settings are in `projects/{mixed,spark}/pyproject.toml`. The matching Python/data files are stored once in `examples/flint/`. See [workload protocol](PROTOCOL.md) and [evidence index](../README.md).
+
+The [recorded recurrence](workload/recurrence.py) preserves the exact source hash, including the import used during measurement. The runnable example uses the current `import flint` spelling.

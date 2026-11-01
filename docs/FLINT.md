@@ -1,12 +1,12 @@
 # Flint
 
 Flint keeps the original Python implementation and uses configured model providers to build checked
-GPU alternatives. The API is `import flint_gpu as flint` and `@flint.fast`. The standalone distribution is
-`flint-gpu`; the local wheel is not a PyPI publication. Spark Open and Wonder remain the providers
-used for this hackathon. The older `muse_kernel` import remains a compatibility alias.
+GPU alternatives. The API is `import flint` and `@flint.fast`. The standalone distribution is
+`flint`; install this project from GitHub or the checkout. Spark Open and Wonder remain the providers
+used for this hackathon. The older `flint_gpu` and `muse_kernel` imports remain available.
 
 ```python
-import flint_gpu as flint
+import flint
 
 @flint.fast
 def recurrence(q, k, v, decay, beta, transfer, state, scale):

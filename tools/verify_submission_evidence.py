@@ -38,7 +38,7 @@ def verify_lane(folder, lane=None):
         name = Path(filename).name
         if lane == "mixed" and name in {"._model.py", "._train.py", "._recurrence.py", "._pyproject.toml"}:
             continue  # Historic macOS sidecar hashes remain in the unmodified receipt.
-        path = inputs / name
+        path = folder / "workload" / name if name == "recurrence.py" else inputs / name
         if not metal and name == "pyproject.toml":
             path = folder / "projects" / lane / name
         check(digest(path) == expected, path)

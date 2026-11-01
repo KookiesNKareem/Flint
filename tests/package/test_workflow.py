@@ -38,7 +38,7 @@ class Model:
     assert proposal['kind']=='extract_region' and 'scan_region' in proposal['diff']
     # Test extraction semantics independently of Flint dispatch/decorator behavior.
     original={};changed={};exec(source,original)
-    plain=proposal['after'].replace('import flint_gpu as flint\n','').replace('@flint.fast\n','')
+    plain=proposal['after'].replace('import flint\n','').replace('@flint.fast\n','')
     exec(plain,changed)
     for length in (1,7):
         x=torch.randn(2,length,3,requires_grad=True);g=torch.randn_like(x,requires_grad=True)

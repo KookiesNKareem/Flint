@@ -69,11 +69,11 @@ records identify their earlier protocol and are never presented as new workbench
 
 ## Recovery and caching
 
-`flint_gpu.fast` only routes exact captured device/shape/dtype/stride/offset/grad signatures and checked
+`flint.fast` only routes exact captured device/shape/dtype/stride/offset/grad signatures and checked
 value domains. Caches bind reference dependencies, software/hardware identity and kernel bytes. Old or
 changed-environment caches are not silently reused. Recreate the decorator after changing code/globals. To recheck a current-format committed cache on a new
 CUDA environment without model calls, run `python -m flint_gpu.revalidate /path/to/cache`.
 
-For backward recovery, use `flint_gpu.train_step(model, optimizer, loss_closure, kernels=[decorated_fn])`.
+For backward recovery, use `flint.train_step(model, optimizer, loss_closure, kernels=[decorated_fn])`.
 It restores RNG/buffers and discards partial gradients before retrying with references. The closure computes
 loss only; it must not mutate parameters or call the optimizer. Fatal CUDA errors require worker restart.
